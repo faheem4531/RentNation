@@ -1,0 +1,53 @@
+.card {
+  width: 305px;
+  border-radius: 10px;
+  background: #282828;
+  color: #fff;
+  box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+.tag {
+  background-color: #FFCE32;
+  font-weight: 700;
+  font-size: 12px;
+  color: #002F34;
+  border-radius: 4px;
+  padding: 7px 14px;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.favourties {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.cardContent {
+  padding: 15px 12px 20px;
+}
+
+.heading {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.subHeading {
+  font-size: 14px;
+  font-weight: 500;
+  width: 259px;
+}
+
+.locationPrice {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.price {
+  color: #FFAE1B;
+  font-size: 16px;
+  font-weight: 700;
+}

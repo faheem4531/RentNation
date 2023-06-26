@@ -1,0 +1,13 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  font-size: 20px;
+  padding: 6px 30px 8px;
+  letter-spacing: 0.2px;
+  height: 37.182px;
+  border-radius: 10px;
+  color: #FFAE1B;
+  border: 1px solid #FFAE1B;
+}
