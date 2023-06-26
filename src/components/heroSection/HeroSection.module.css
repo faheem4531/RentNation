@@ -1,0 +1,31 @@
+.heroSectionMain{
+    /* height: 100vh; */
+    width: 100vw;
+}
+
+.sliderImg{
+    width: 100vw;
+    height: 100vh !important;
+}
+
+.dfghj{
+    position: absolute;
+    top: 55%;
+    right: 20px;
+}
+
+.dfghj ol {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.dfghj ol li{
+    /* background-color: #FFAE1B; */
+    background-color: #12121266;
+
+}
+
+.dfghj ol .active {
+    background-color: #FFAE1B !important;
+}
