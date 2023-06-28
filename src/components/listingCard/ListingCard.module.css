@@ -1,0 +1,102 @@
+.card {
+  color: #fff;
+  position: relative;
+  width: 414px;
+}
+
+.locationDiv {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: 700;
+  position: absolute;
+  left: 20px;
+  bottom: 70px;
+}
+
+.listNum {
+  font-size: 16px;
+  position: absolute;
+  right: 11px;
+  bottom: 24px;
+}
+
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+
+  .cardImg,
+  .card {
+    width: 355px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+
+  .cardImg,
+  .card {
+    width: 300px;
+  }
+
+  .heading {
+    font-size: 24px;
+    left: 15px;
+    bottom: 50px;
+  }
+
+  .locationDiv {
+    font-size: 14px;
+    left: 15px;
+    bottom: 15px;
+  }
+
+  .listNum {
+    font-size: 14px;
+    right: 10px;
+    bottom: 18px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+  .cardImg,
+  .card {
+    width: 220px;
+  }
+
+  .heading {
+    font-size: 18px;
+    left: 15px;
+    bottom: 45px;
+  }
+
+  .locationDiv {
+    font-size: 12px;
+    left: 15px;
+    bottom: 10px;
+  }
+
+  .listNum {
+    font-size: 12px;
+    right: 10px;
+    bottom: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .cardImg,
+  .card {
+    width: 345px;
+  }
+
+  .heading {
+    font-size: 28px;
+  }
+}

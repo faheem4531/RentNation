@@ -1,0 +1,54 @@
+.listContent {
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+
+.listHeading {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+.listCardContainer {
+  display: flex;
+}
+
+@media (max-width: 576px) {
+  .listHeading {
+    font-size: 28px;
+    line-height: 40px;
+    margin-bottom: 20px;
+  }
+
+  .listContent {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .listCardContainer {
+    flex-direction: column;
+  }
+
+  .listCardContainer>*:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .listHeading {
+    font-size: 28px;
+  }
+
+  .listContent {
+    font-size: 18px;
+  }
+
+  .subContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
