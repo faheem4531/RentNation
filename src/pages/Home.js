@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, HeroSection, HomeFeatures, ListingContainer } from "../components";
+import { Header, HeroSection, HomeFeatures, ListingContainer, ContactHome } from "../components";
 
 import styles from "../styles/Home.module.css";
 
@@ -10,6 +10,7 @@ const Home = () => {
       {/* <HeroSection /> */}
       <HomeFeatures />
       <ListingContainer />
+      <ContactHome />
     </div>
   );
 };
