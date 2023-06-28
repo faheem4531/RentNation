@@ -26,10 +26,9 @@ const Header = () => {
               <span className="navbar-toggler-icon"></span>
             </button>
             <div
-              className={`collapse navbar-collapse justify-content-end${
-                burgerState ? " show" : ""
-              }`}
-              //   id="navbarNav"
+              className={`collapse navbar-collapse justify-content-end${burgerState ? " show" : ""
+                }`}
+            //   id="navbarNav"
             >
               <div className={styles.navItemMain}>
                 <ul className="navbar-nav text-center">

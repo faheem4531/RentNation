@@ -10,7 +10,6 @@ import heart from '../../images/homepage/svgs/favourties.svg';
 const Card = ({ tag, heading, subHeading, location, price, views, onShare, onViewDetails, image }) => {
 
   const cardImgSlider = <div id="myCarousel" className="carousel slide">
-
     <ol className="carousel-indicators">
       <li
         data-target="#myCarousel" data-slide-to="0" className="active" ></li>
@@ -47,7 +46,7 @@ const Card = ({ tag, heading, subHeading, location, price, views, onShare, onVie
           <div className={styles.subHeading}>{subHeading}</div>
         </div>
         <div className={styles.locationPrice}>
-          <div className="d-flex">
+          <div className={styles.locationDiv}>
             <img src={locationPin} />
             <div className="ms-1">{location}</div>
           </div>
@@ -56,7 +55,7 @@ const Card = ({ tag, heading, subHeading, location, price, views, onShare, onVie
           </div>
         </div>
         <div className="d-flex justify-content-between">
-          <div className="d-flex justify-content-center align-items-center">
+          <div className={styles.locationDiv}>
             <img src={share} onClick={onShare} />
             <img className="me-1 ms-2" src={eye} />
             <span>{views}</span>
