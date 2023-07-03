@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, HeroSection, HomeFeatures, ListingContainer, ContactHome, Footer } from "../components";
+import { Header, HeroSection, HomeFeatures, ServicesContainer, ContactHome, Footer } from "../components";
 
 import styles from "../styles/Home.module.css";
 
@@ -9,7 +9,7 @@ const Home = () => {
       <Header />
       <HeroSection />
       <HomeFeatures />
-      <ListingContainer />
+      <ServicesContainer />
       <ContactHome />
       <Footer />
     </div>

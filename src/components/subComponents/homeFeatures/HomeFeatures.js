@@ -1,21 +1,21 @@
 import React from "react";
-import CardsContainer from "../cardsContainer/CardsContainer";
+import FeatureCardsContainer from "../cardsContainer/FeatureCardsContainer";
 import styles from './HomeFeatures.module.css';
 
-import golf1 from '../../images/homepage/golfCar-img1.png';
-import golf2 from '../../images/homepage/golfCar-img2.png';
-import golf3 from '../../images/homepage/golfCar-img3.png';
-import beach1 from '../../images/homepage/beach-img1.png';
-import beach2 from '../../images/homepage/beach-img2.png';
-import beach3 from '../../images/homepage/beach-img3.png';
-import beach4 from '../../images/homepage/beach-img4.png';
-import kayaks1 from '../../images/homepage/kayaks-img1.png';
-import kayaks2 from '../../images/homepage/kayaks-img2.png';
-import kayaks3 from '../../images/homepage/kayaks-img3.png';
-import kayaks4 from '../../images/homepage/kayaks-img4.png';
+import golf1 from '../../../images/homepage/golfCar-img1.png';
+import golf2 from '../../../images/homepage/golfCar-img2.png';
+import golf3 from '../../../images/homepage/golfCar-img3.png';
+import beach1 from '../../../images/homepage/beach-img1.png';
+import beach2 from '../../../images/homepage/beach-img2.png';
+import beach3 from '../../../images/homepage/beach-img3.png';
+import beach4 from '../../../images/homepage/beach-img4.png';
+import kayaks1 from '../../../images/homepage/kayaks-img1.png';
+import kayaks2 from '../../../images/homepage/kayaks-img2.png';
+import kayaks3 from '../../../images/homepage/kayaks-img3.png';
+import kayaks4 from '../../../images/homepage/kayaks-img4.png';
 
-import bgLeft from '../../images/homepage/bg-leftHalf.png';
-import bgRight from '../../images/homepage/bg-rightHalf.png';
+import bgLeft from '../../../images/homepage/bg-leftHalf.png';
+import bgRight from '../../../images/homepage/bg-rightHalf.png';
 
 const HomeFeatures = () => {
   const golfCardsData = [
@@ -245,16 +245,16 @@ const HomeFeatures = () => {
       <img className={styles.circleLeft} src={bgLeft} />
       <img className={styles.circleRight} src={bgRight} />
 
-      <CardsContainer
+      <FeatureCardsContainer
         cardData={golfCardsData}
         featureTitle={'Golf Cart'} />
-      <CardsContainer
+      <FeatureCardsContainer
         cardData={beachCardsData}
         featureTitle={'beache Supplies'} />
-      <CardsContainer
+      <FeatureCardsContainer
         cardData={KayaksCardsData}
         featureTitle={'Kayaks '} />
-      <CardsContainer
+      <FeatureCardsContainer
         cardData={golfCardsData}
         featureTitle={'Golf Cart'} />
     </div>

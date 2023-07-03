@@ -1,13 +1,13 @@
 import React from "react";
 import CardButton from "../buttons/CardButton";
 
-import styles from './Card.module.css'
+import styles from './FeaturesCard.module.css'
 import eye from '../../images/homepage/svgs/eye.svg';
 import locationPin from '../../images/homepage/svgs/location.svg';
 import share from '../../images/homepage/svgs/share.svg';
 import heart from '../../images/homepage/svgs/favourties.svg';
 
-const Card = ({ tag, heading, subHeading, location, price, views, onShare, onViewDetails, image }) => {
+const FeaturesCard = ({ tag, heading, subHeading, location, price, views, onShare, onViewDetails, image }) => {
 
   const cardImgSlider = <div id="myCarousel" className="carousel slide">
     <ol className="carousel-indicators">
@@ -57,7 +57,7 @@ const Card = ({ tag, heading, subHeading, location, price, views, onShare, onVie
         <div className="d-flex justify-content-between">
           <div className={styles.locationDiv}>
             <img src={share} onClick={onShare} />
-            <img className="me-1 ms-2" src={eye} />
+            <img className={styles.eyeIcon} src={eye} />
             <span>{views}</span>
           </div>
           <CardButton buttonText={'View Details'} onClick={onViewDetails} />
@@ -67,4 +67,4 @@ const Card = ({ tag, heading, subHeading, location, price, views, onShare, onVie
   )
 }
 
-export default Card;
+export default FeaturesCard;

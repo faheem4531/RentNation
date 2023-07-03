@@ -12,43 +12,41 @@
 }
 
 .listCardContainer {
+  overflow-x: scroll;
   display: flex;
+  justify-content: space-between;
+}
+
+.listCardContainer::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: transparent;
+}
+
+.listCardContainer::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
 
 @media (max-width: 576px) {
   .listHeading {
-    font-size: 28px;
-    line-height: 40px;
+    font-size: 26px;
+    line-height: 35px;
     margin-bottom: 20px;
   }
 
   .listContent {
     font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
   }
 }
 
 @media (max-width: 768px) {
-
-  .listCardContainer {
-    flex-direction: column;
-  }
-
-  .listCardContainer>*:not(:last-child) {
-    margin-bottom: 20px;
-  }
 
   .listHeading {
     font-size: 28px;
   }
 
   .listContent {
-    font-size: 18px;
-  }
-
-  .subContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    font-size: 16px;
   }
 }

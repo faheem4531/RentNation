@@ -1,12 +1,12 @@
 import React from "react";
-import ListingCard from "../listingCard/ListingCard";
+import ServicesCard from "../../cards/ServicesCard";
 
-import styles from './ListingContainer.module.css';
-import img1 from '../../images/homepage/listCard1.png';
-import img2 from '../../images/homepage/listCard2.png';
-import img3 from '../../images/homepage/listCard3.png';
+import styles from './ServicesContainer.module.css';
+import img1 from '../../../images/homepage/listCard1.png';
+import img2 from '../../../images/homepage/listCard2.png';
+import img3 from '../../../images/homepage/listCard3.png';
 
-const ListingContainer = (props) => {
+const ServicesContainer = (props) => {
   const listCardData = [
     {
       id: 'l1',
@@ -42,7 +42,7 @@ const ListingContainer = (props) => {
         </div>
         <div className={styles.listCardContainer}>
           {listCardData.map((items) => (
-            <ListingCard
+            <ServicesCard
               key={items.id}
               image={items.image}
               title={items.title}
@@ -57,4 +57,4 @@ const ListingContainer = (props) => {
   );
 };
 
-export default ListingContainer;
+export default ServicesContainer;

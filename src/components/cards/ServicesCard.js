@@ -1,8 +1,9 @@
 import React from "react";
-import styles from './ListingCard.module.css';
+
+import styles from './ServicesCard.module.css';
 import locationPin from '../../images/homepage/svgs/location.svg';
 
-const ListingCard = ({ title, location, amount, image }) => {
+const ServicesCard = ({ title, location, amount, image }) => {
   return (
     <div className="container">
 
@@ -19,4 +20,4 @@ const ListingCard = ({ title, location, amount, image }) => {
   );
 };
 
-export default ListingCard;
+export default ServicesCard;
