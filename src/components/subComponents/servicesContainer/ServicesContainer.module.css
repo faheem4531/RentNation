@@ -1,0 +1,52 @@
+.listContent {
+  color: var(--white-color);
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+
+.listHeading {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+.listCardContainer {
+  overflow-x: scroll;
+  display: flex;
+  justify-content: space-between;
+}
+
+.listCardContainer::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: transparent;
+}
+
+.listCardContainer::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+@media (max-width: 576px) {
+  .listHeading {
+    font-size: 26px;
+    line-height: 35px;
+    margin-bottom: 20px;
+  }
+
+  .listContent {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .listHeading {
+    font-size: 28px;
+  }
+
+  .listContent {
+    font-size: 16px;
+  }
+}

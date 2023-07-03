@@ -1,0 +1,36 @@
+.featureTitle {
+  color: var(--white-color);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 5;
+}
+
+.cardContainer {
+  overflow-x: scroll;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardContainer::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: transparent;
+}
+
+.cardContainer::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.cardContainer>*:not(:last-child) {
+  margin-right: 20px;
+}
+
+@media (max-width: 576px) {
+  .featureTitle {
+    font-size: 26px;
+    line-height: 35px;
+    margin-bottom: 20px;
+  }
+}
