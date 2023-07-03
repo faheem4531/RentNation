@@ -4,8 +4,23 @@
   align-items: center;
   padding: 10px;
   border-radius: 4px;
-  background: #FFAE1B;
+  background: var(--yellow1-color);
   border: none;
   font-weight: 600;
-  margin: 300px;
+  font-size: 14px;
+}
+
+
+
+@media (max-width: 767px) {
+  .button {
+    margin-top: 20px;
+    margin-right: 5px;
+    background: var(--yellow1-color);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    padding: 13px;
+    border-radius: 10px;
+    width: 100%;
+  }
 }

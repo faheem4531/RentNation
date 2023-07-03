@@ -1,5 +1,5 @@
 .listContent {
-  color: #fff;
+  color: var(--white-color);
   text-align: center;
   font-size: 20px;
   margin-bottom: 32px;

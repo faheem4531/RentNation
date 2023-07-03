@@ -7,6 +7,6 @@
   padding: 6px 30px 8px;
   height: 37.182px;
   border-radius: 10px;
-  color: #FFAE1B;
-  border: 1px solid #FFAE1B;
+  color: var(--yellow1-color);
+  border: 1px solid var(--yellow1-color);
 }
