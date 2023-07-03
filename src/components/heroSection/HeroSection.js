@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./HeroSection.module.css";
 import heroMark from "../../images/homepage/heroMark.png";
-import HeroInput from "../heroInput/HeroInput";
+import HeroInput from "../inputs/HeroInput";
 
 const HeroSection = () => {
   return (
@@ -50,9 +50,9 @@ const HeroSection = () => {
                         covered. With our convenient rental services, you can
                         choose between multiple fantastic options
                       </div>
-                    </div>
-                    <div className={styles.HeroInputCon}>
-                      <HeroInput />
+                      <div className={styles.HeroInputCon}>
+                        <HeroInput />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -77,9 +77,9 @@ const HeroSection = () => {
                         covered. With our convenient rental services, you can
                         choose between multiple fantastic options
                       </div>
-                    </div>
-                    <div className={styles.HeroInputCon}>
-                      <HeroInput />
+                      <div className={styles.HeroInputCon}>
+                        <HeroInput />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -104,9 +104,9 @@ const HeroSection = () => {
                         covered. With our convenient rental services, you can
                         choose between multiple fantastic options
                       </div>
-                    </div>
-                    <div className={styles.HeroInputCon}>
-                      <HeroInput />
+                      <div className={styles.HeroInputCon}>
+                        <HeroInput />
+                      </div>
                     </div>
                   </div>
                 </div>
