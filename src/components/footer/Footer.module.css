@@ -65,6 +65,42 @@
     justify-content: space-between;
 }
 
+.footerDropMain{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    height: 38.5px;
+    color: var(--white-color);
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid var(--white-color);
+    background: transparent;
+    padding: 7px 0px 6px 40px;
+}
+
+
+.footerLangDrop{
+    position: relative;
+    margin-top: 28.5px;
+    z-index: 1;
+}
+
+.footerDropWorldIcon{
+    position: absolute;
+    top: 9px;
+    left: 13px;
+    z-index: -1;
+}
+
+.footerDropArrowIcon{
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    z-index: -1;
+}
+
 @media (max-width: 992px) {
     .footerMain {
         height: 100%;
@@ -86,3 +122,4 @@
         width: 100%;
     }
 }
+

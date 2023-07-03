@@ -77,11 +77,6 @@
     background-image: url(../../images/homepage/heroSectionImg/heraSea.png);
 }
 
-.HeroInputCon {
-    background-color: red;
-    height: 500px !important;
-    width: 100%;
-}
 
 .heroConContent {
     display: flex;
@@ -92,10 +87,11 @@
     width: 70%;
 }
 
-.heroSubMainHeading,
-.heroMainHeading {
+.heroSubMainHeading {
     font-size: 42px;
     font-weight: 700;
+    margin-top: 100px;
+
 }
 
 .heroMainHeading {
@@ -117,6 +113,7 @@
     color: var(--text-grey1-color);
     margin-top: 15px;
     margin-bottom: 48px;
+
 }
 
 @media (min-width: 1300px) {

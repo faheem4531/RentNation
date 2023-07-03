@@ -4,6 +4,8 @@ import styles from "./Footer.module.css";
 import FacebookIcon from "../../images/homepage/footerSectionImg/facebook.png";
 import TwitterIcon from "../../images/homepage/footerSectionImg/twitter.png";
 import InstaIcon from "../../images/homepage/footerSectionImg/insta.png";
+import WorldIcon from "../../images/homepage/svgs/footerDropIcon.svg";
+import ArrowIcon from "../../images/homepage/svgs/footerDropArrow.svg";
 import logo from "../../images/homepage/svgs/logo.svg";
 
 const Footer = () => {
@@ -95,6 +97,33 @@ const Footer = () => {
                     </div>
                     <div className={styles.footerTec}>
                       <img src={InstaIcon} alt="" />
+                    </div>
+                  </div>
+
+                  <div className={styles.footerLangDrop}>
+                    <select
+                      className={styles.footerDropMain}
+                      id="language"
+                      name="language"
+                    >
+                      <option className="text-dark" value="en">
+                        English - En
+                      </option>
+                      <option className="text-dark" value="es">
+                        Spanish - Sp
+                      </option>
+                      <option className="text-dark" value="fr">
+                        French - Fr
+                      </option>
+                      <option className="text-dark" value="de">
+                        German - Ger
+                      </option>
+                    </select>
+                    <div className={styles.footerDropWorldIcon}>
+                      <img src={WorldIcon} alt="" />
+                    </div>
+                    <div className={styles.footerDropArrowIcon}>
+                      <img src={ArrowIcon} alt="" />
                     </div>
                   </div>
                 </div>
