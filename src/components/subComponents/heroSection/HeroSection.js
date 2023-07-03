@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./HeroSection.module.css";
-import heroMark from "../../images/homepage/heroMark.png";
-import HeroInput from "../inputs/HeroInput";
+import heroMark from "../../../images/homepage/heroMark.png";
+import HeroInput from '../../inputs/HeroInput'
 
 const HeroSection = () => {
   return (

@@ -1,5 +1,5 @@
 import Header from "./header/Header";
-import HeroSection from "./heroSection/HeroSection";
+import HeroSection from "./subComponents/heroSection/HeroSection";
 import HomeFeatures from "./subComponents/homeFeatures/HomeFeatures";
 import ServicesContainer from "./subComponents/servicesContainer/ServicesContainer";
 import ContactHome from "./subComponents/contactUs/ContactHome";
