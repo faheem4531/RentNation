@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.carousel-indicators .active{
+  background-color: #FFAE1B !important;
+  border: 0px !important;
+  height: 20px;
+}

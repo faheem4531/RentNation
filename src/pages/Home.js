@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, HeroSection, HomeFeatures } from "../components";
+import { Header, HeroSection, HomeFeatures, Footer } from "../components";
 
 import styles from "../styles/Home.module.css";
 
@@ -9,8 +9,9 @@ const Home = () => {
       <Header />
       <HeroSection />
       <HomeFeatures />
+      <Footer />
     </div>
   );
 };
 
-export default Home; 
+export default Home;
