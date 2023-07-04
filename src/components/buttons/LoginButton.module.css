@@ -1,7 +1,5 @@
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   padding: 10px;
   border-radius: 4px;
   background: var(--yellow1-color);
