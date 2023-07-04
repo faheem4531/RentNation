@@ -3,7 +3,16 @@ import React from "react";
 import styles from './LoginButton.module.css';
 
 const LoginButton = (props) => {
-  return <button className={styles.button}>{props.buttonText}</button>
+  const inputStyle = {
+    borderRadius: props.borderRadius || '4px',
+    border: props.borderColor || 'none',
+    fontSize: props.fontSize
+  };
+
+  return <button
+    className={styles.button}
+    style={inputStyle}
+  >{props.buttonText}</button>
 }
 
 export default LoginButton;
