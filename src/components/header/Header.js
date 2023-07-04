@@ -53,9 +53,8 @@ const Header = () => {
                     <a
                       aria-current="page"
                       href="#"
-                      className={`${
-                        selectedNav === "HOME" ? styles.activeNavItem : ""
-                      }`}
+                      className={`${selectedNav === "HOME" ? styles.activeNavItem : ""
+                        }`}
                     >
                       HOME
                     </a>
@@ -65,9 +64,8 @@ const Header = () => {
                     onClick={() => handleClick("LISTINGS")}
                   >
                     <a
-                      className={`${
-                        selectedNav === "LISTINGS" ? styles.activeNavItem : ""
-                      }`}
+                      className={`${selectedNav === "LISTINGS" ? styles.activeNavItem : ""
+                        }`}
                       href="#"
                     >
                       LISTINGS
@@ -79,9 +77,8 @@ const Header = () => {
                   >
                     <a
                       href="#"
-                      className={`${
-                        selectedNav === "ABOUT" ? styles.activeNavItem : ""
-                      }`}
+                      className={`${selectedNav === "ABOUT" ? styles.activeNavItem : ""
+                        }`}
                     >
                       ABOUT
                     </a>
@@ -92,15 +89,17 @@ const Header = () => {
                   >
                     <a
                       href="#"
-                      className={`${
-                        selectedNav === "CONTACT" ? styles.activeNavItem : ""
-                      }`}
+                      className={`${selectedNav === "CONTACT" ? styles.activeNavItem : ""
+                        }`}
                     >
                       CONTACT
                     </a>
                   </div>
                   <div className={styles.navBtnMain}>
-                    <LoginButton buttonText={"Log in / Sign Up"} />
+                    <LoginButton
+                      buttonText="Log in / Sign Up"
+                      fontSize="14px"
+                    />
                   </div>
                 </div>
               </div>
