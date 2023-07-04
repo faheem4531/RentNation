@@ -6,6 +6,7 @@
   padding: 0px;
   margin: 0px;
   height: 100vh;
+  background-color: var(--bg-dark-color);
 }
 
 /* COLORS */

@@ -1,0 +1,78 @@
+.listingMain{
+    margin-top: 110px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.listingFilter{
+    width: 18%;
+}
+
+.listingInputHeaderMain{
+    width: 80%;
+}
+
+.listingInputHeader{
+    display: flex;
+    background-color:  var(--bg-grey-color);
+    padding: 26px 10px;
+    border-radius: 10px;
+}
+
+.filter{
+    background-color: #1E1E1E;
+    text-align: center;
+    color: var(  --white-color);
+    font-weight: 500;
+    line-height: 23px;
+    font-size: 16px;
+    padding: 21px 0px 20px 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.filterList ul{
+    padding-left: 0px !important;
+}
+
+.filterBtn{
+    border: 0px;
+    text-align: left;
+}
+
+.filterBtnMain{
+    position: relative;
+}
+
+.filterBtnArow{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.filterList ul li, .filterBtn{
+    color: var(--white-color);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 23px;
+    list-style: none;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--white-color);
+    background-color: var(--bg-grey-color);
+    width: 100%;
+}
+
+.filterList ul li:last-child {
+    border-bottom: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.listingHeaderHeading{
+    color: #FFF;
+    font-size: 24px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+    margin-right: 11px;
+}
