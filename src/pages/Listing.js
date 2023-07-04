@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "../styles/Listing.module.css";
 import HeroInput from "../components/inputs/HeroInput";
@@ -17,6 +17,12 @@ import bgLeft from '../assets/pngs/bg-leftHalf.png';
 import bgRight from '../assets/pngs/bg-rightHalf.png';
 
 const Listing = () => {
+  const [showDropdown, setShowDorpdown] = useState(false);
+
+  function handleListDropdown() {
+    setShowDorpdown(preValue => !preValue);
+  }
+  const dropdownClass = showDropdown ? '' : 'd-none';
   const beachCardsData = [
     {
       id: 'bc1',
@@ -100,13 +106,13 @@ const Listing = () => {
             <div className={styles.listingFilterMain}>
               <div className={styles.filter}>Filters</div>
               <div className={styles.filterBtnMain}>
-                <button className={styles.filterBtn}>CATEGORIES</button>
+                <button onClick={handleListDropdown} className={styles.filterBtn}>CATEGORIES</button>
                 <div className={styles.filterBtnArow}>
                   <img src={btnArrow} alt="" />
                 </div>
               </div>
               <div className={styles.filterList}>
-                <ul className="">
+                <ul className={dropdownClass}>
                   <li>CARS</li>
                   <li>BEACHES</li>
                   <li>KAYAKS</li>
