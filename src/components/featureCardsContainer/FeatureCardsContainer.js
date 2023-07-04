@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from './FeatureCardsContainer.module.css';
-import FeaturesCard from "../../cards/FeaturesCard";
+import FeaturesCard from "../cards/FeaturesCard";
 
 const FeatureCardsContainer = (props) => {
 

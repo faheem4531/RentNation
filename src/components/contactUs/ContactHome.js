@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './ContactHome.module.css';
-import CardButton from '../../buttons/CardButton';
+import CardButton from '../buttons/CardButton';
 
-import phone from '../../../images/homepage/svgs/phone.svg';
-import mail from '../../../images/homepage/svgs/mail.svg';
-import location from '../../../images/homepage/svgs/location.svg';
+import phone from '../../images/homepage/svgs/phone.svg';
+import mail from '../../images/homepage/svgs/mail.svg';
+import location from '../../images/homepage/svgs/location.svg';
 
 const ContactHome = () => {
   return (

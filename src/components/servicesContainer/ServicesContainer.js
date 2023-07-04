@@ -1,10 +1,10 @@
 import React from "react";
-import ServicesCard from "../../cards/ServicesCard";
+import ServicesCard from "../cards/ServicesCard";
 
 import styles from './ServicesContainer.module.css';
-import img1 from '../../../images/homepage/listCard1.png';
-import img2 from '../../../images/homepage/listCard2.png';
-import img3 from '../../../images/homepage/listCard3.png';
+import img1 from '../../images/homepage/listCard1.png';
+import img2 from '../../images/homepage/listCard2.png';
+import img3 from '../../images/homepage/listCard3.png';
 
 const ServicesContainer = (props) => {
   const listCardData = [
