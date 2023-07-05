@@ -1,12 +1,19 @@
 import React from "react";
 
-import { Home } from "./pages";
+import { Home, Listing } from "./pages";
+import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./App.module.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Contact from "./pages/contact";
+import About from "./pages/about";
 
 function App() {
   return (
     <div className={styles.app}>
-      <Home />
+      {/* <Home /> */}
+      {/* <Listing /> */}
+      <Contact />
+      {/* <About /> */}
     </div>
   );
 }
