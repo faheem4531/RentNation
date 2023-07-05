@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Contact.module.css";
 import { Header, Footer } from "../../components";
 import Input from "../../components/inputs/Input";
+import Textarea from "../../components/textarea/Textarea";
 import LoginButton from "../../components/buttons/LoginButton";
 
 import bgRight from "../../assets/pngs/bg-rightHalf.png";
@@ -36,11 +37,11 @@ const Contact = () => {
             />
           </div>
           <div className="mt-4">
-            <Input
+            <Textarea
               lable="About*"
-              type="text"
-              placeholder="About"
-              backgroundColor="#2B2B2B"
+              placeholder={"About"}
+              height={"150px"}
+              backgroundColor={"#2B2B2B"}
             />
           </div>
           <div className={styles.contactFormBtn}>
