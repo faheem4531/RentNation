@@ -1,0 +1,131 @@
+.damageReportMain{
+    width: 72%;
+    margin: auto;
+}
+.damageReportCon{
+    margin-top: 140px;
+    color: var(--white-color);
+
+}
+
+.damageReportHeadingMain{
+    font-size: 32.862px;
+    font-weight: 500;
+    line-height: 49.292px;
+    letter-spacing: -0.685px;
+    margin-bottom: 40px;
+}
+
+.damageReportHeadingSub{
+    color: var(--white-color);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 49.292px;
+    letter-spacing: -0.685px;
+    margin-top: 12px;
+}
+
+.damageReportListDetailHeading{
+    color: var(--white-color);
+    margin-right: 5px;
+}
+
+.damageReportList{
+    color: var(--text-grey4-color);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 49.292px;
+    letter-spacing: -0.685px;
+}
+
+.damageDescriptionMain{
+    margin-top: 40px;
+}
+
+.damageDescription{
+    color: var(--text-grey4-color);
+    font-size: 20px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.685px;
+}
+
+
+.damageSeeMain{
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0px;
+}
+
+.damageImg{
+    color: var(--white-color);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 49.292px;
+    letter-spacing: -0.685px;
+}
+
+.damageSee{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 49.292px;
+    letter-spacing: -0.685px;
+    color: var(--yellow1-color);
+    cursor: pointer;
+}
+.damageImgMain{
+    width: 72%;
+    margin: auto;
+}
+
+.damageImgCon{
+    display: flex;
+    overflow-x: scroll;
+}
+
+.damageImgCon::-webkit-scrollbar{
+    display: none;
+}
+
+.damageImgCon img{
+    margin-right: 40px;
+}
+
+.damageImgbgImg{
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 40px;
+}
+
+.bgLeftCon{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: -1;
+}
+.bgRightCon{
+    position: absolute;
+    left: 0px;
+    top: 200px;
+    z-index: -1;
+}
+
+@media (max-width: 992px) {
+    .damageImgCon img{
+    margin-right: 20px;
+}
+}
+
+
+@media (max-width: 500px) {
+    .damageImgCon img{
+    margin-right: 20px;
+}
+
+
+.bgLeftCon{
+    display: none;
+}
+}
