@@ -8,16 +8,18 @@ import Contact from "./pages/contact";
 import About from "./pages/about";
 import Order from "./pages/order";
 import DamageReport from "./pages/damageReport";
+import Notification from "./pages/notification";
 
 function App() {
   return (
     <div className={styles.app}>
       {/* <Home /> */}
       {/* <Listing /> */}
-      {/* <Contact /> */}
+      <Contact />
       {/* <About /> */}
       {/* <Order /> */}
-      <DamageReport />
+      {/* <DamageReport /> */}
+      {/* <Notification /> */}
     </div>
   );
 }

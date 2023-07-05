@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./DamageReport.module.css";
-import { Header, Footer } from "../../components";
+import { Header } from "../../components";
 import DamageImg from "../../images/homepage/golfCar-img1.png";
 import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 import bgRight from "../../assets/pngs/bg-rightHalf.png";
