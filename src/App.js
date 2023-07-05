@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Contact from "./pages/contact";
 import About from "./pages/about";
 import Order from "./pages/order";
+import DamageReport from "./pages/damageReport";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       {/* <Listing /> */}
       {/* <Contact /> */}
       {/* <About /> */}
-      <Order />
+      {/* <Order /> */}
+      <DamageReport />
     </div>
   );
 }
