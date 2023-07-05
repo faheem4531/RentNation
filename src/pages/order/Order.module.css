@@ -1,0 +1,44 @@
+.orderMain{
+    width: 72%;
+    margin: auto;
+    padding-bottom: 120px;
+}
+
+.orderHeading{
+    margin-top: 140px;
+    color: #FFF;
+    font-size: 32.862px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 49.292px;
+    letter-spacing: -0.685px;
+}
+.bookedOrderMain{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.booked{
+    color: var(--white-color);
+font-size: 24px;
+font-family: Nunito;
+font-style: normal;
+font-weight: 600;
+line-height: 49.292px;
+letter-spacing: -0.685px;
+}
+
+.bookedBtn{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 49.292px;
+    letter-spacing: -0.685px;
+    color: var(--yellow1-color);
+    cursor: pointer;
+}
+
+.bookedOrderMainCon>*:not(:last-child){
+    margin-bottom: 20px;
+}
