@@ -6,95 +6,97 @@ import ListingCard from "../components/cards/ListingCard";
 import { Header, Footer } from "../components";
 
 import btnArrow from "../images/homepage/svgs/footerDropArrow.svg";
-import beach1 from '../assets/pngs/listing-beach-img1.png';
-import beach2 from '../assets/pngs/listing-beach-img2.png';
-import beach3 from '../assets/pngs/listing-beach-img3.png';
-import beach4 from '../assets/pngs/listing-beach-img4.png';
-import beach5 from '../assets/pngs/listing-beach-img5.png';
-import beach6 from '../assets/pngs/listing-beach-img6.png';
+import beach1 from "../assets/pngs/listing-beach-img1.png";
+import beach2 from "../assets/pngs/listing-beach-img2.png";
+import beach3 from "../assets/pngs/listing-beach-img3.png";
+import beach4 from "../assets/pngs/listing-beach-img4.png";
+import beach5 from "../assets/pngs/listing-beach-img5.png";
+import beach6 from "../assets/pngs/listing-beach-img6.png";
 
-import bgLeft from '../assets/pngs/bg-leftHalf.png';
-import bgRight from '../assets/pngs/bg-rightHalf.png';
+import bgLeft from "../assets/pngs/bg-leftHalf.png";
+import bgRight from "../assets/pngs/bg-rightHalf.png";
 
 const Listing = () => {
   const [showDropdown, setShowDorpdown] = useState(false);
 
   function handleListDropdown() {
-    setShowDorpdown(preValue => !preValue);
+    setShowDorpdown((preValue) => !preValue);
   }
-  const dropdownClass = showDropdown ? '' : 'd-none';
+  const dropdownClass = showDropdown ? "" : "d-none";
   const beachCardsData = [
     {
-      id: 'bc1',
-      heading: 'beach Supplies',
-      subHeading: 'The beach is a stunning natural landscape where the land gently meets the vast expanse of ',
-      location: 'Turkis',
-      price: '50',
-      views: '569',
+      id: "bc1",
+      heading: "beach Supplies",
+      subHeading:
+        "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
+      location: "Turkis",
+      price: "50",
+      views: "569",
       image: beach1,
-      onShare: () => { },
-      onViewDetails: () => { },
+      onShare: () => {},
+      onViewDetails: () => {},
     },
     {
-      id: 'bc2',
-      heading: 'beach Supplies',
-      subHeading: 'The beach is a stunning natural landscape where the land gently meets the vast expanse of ',
-      location: 'Turkis',
-      price: '50',
-      views: '569',
+      id: "bc2",
+      heading: "beach Supplies",
+      subHeading:
+        "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
+      location: "Turkis",
+      price: "50",
+      views: "569",
       image: beach2,
-      tag: 'FEATURED',
-      onShare: () => { },
-      onViewDetails: () => { },
+      tag: "FEATURED",
+      onShare: () => {},
+      onViewDetails: () => {},
     },
     {
-      id: 'bc3',
-      heading: 'Dreamy beaches',
-      subHeading: 'The beach is a stunning natural landscape',
-      location: 'Turkis',
-      price: '50',
-      views: '569',
+      id: "bc3",
+      heading: "Dreamy beaches",
+      subHeading: "The beach is a stunning natural landscape",
+      location: "Turkis",
+      price: "50",
+      views: "569",
       image: beach3,
-      tag: 'FEATURED',
-      onShare: () => { },
-      onViewDetails: () => { },
+      tag: "FEATURED",
+      onShare: () => {},
+      onViewDetails: () => {},
     },
     {
-      id: 'bc4',
-      heading: 'Dreamy beaches',
-      subHeading: 'The beach is a stunning natural landscape',
-      location: 'Turkis',
-      price: '50',
-      views: '569',
+      id: "bc4",
+      heading: "Dreamy beaches",
+      subHeading: "The beach is a stunning natural landscape",
+      location: "Turkis",
+      price: "50",
+      views: "569",
       image: beach4,
-      tag: 'FEATURED',
-      onShare: () => { },
-      onViewDetails: () => { },
+      tag: "FEATURED",
+      onShare: () => {},
+      onViewDetails: () => {},
     },
     {
-      id: 'bc5',
-      heading: 'Dreamy beaches',
-      subHeading: 'The beach is a stunning natural landscape',
-      location: 'Turkis',
-      price: '50',
-      views: '569',
+      id: "bc5",
+      heading: "Dreamy beaches",
+      subHeading: "The beach is a stunning natural landscape",
+      location: "Turkis",
+      price: "50",
+      views: "569",
       image: beach5,
-      tag: 'FEATURED',
-      onShare: () => { },
-      onViewDetails: () => { },
+      tag: "FEATURED",
+      onShare: () => {},
+      onViewDetails: () => {},
     },
     {
-      id: 'bc6',
-      heading: 'Dreamy beaches',
-      subHeading: 'The beach is a stunning natural landscape',
-      location: 'Turkis',
-      price: '50',
-      views: '569',
+      id: "bc6",
+      heading: "Dreamy beaches",
+      subHeading: "The beach is a stunning natural landscape",
+      location: "Turkis",
+      price: "50",
+      views: "569",
       image: beach6,
-      tag: 'FEATURED',
-      onShare: () => { },
-      onViewDetails: () => { },
-    }
+      tag: "FEATURED",
+      onShare: () => {},
+      onViewDetails: () => {},
+    },
   ];
 
   return (
@@ -106,7 +108,12 @@ const Listing = () => {
             <div className={styles.listingFilterMain}>
               <div className={styles.filter}>Filters</div>
               <div className={styles.filterBtnMain}>
-                <button onClick={handleListDropdown} className={styles.filterBtn}>CATEGORIES</button>
+                <button
+                  onClick={handleListDropdown}
+                  className={styles.filterBtn}
+                >
+                  CATEGORIES
+                </button>
                 <div className={styles.filterBtnArow}>
                   <img src={btnArrow} alt="" />
                 </div>
