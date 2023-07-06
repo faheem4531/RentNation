@@ -10,18 +10,20 @@ import Order from "./pages/order";
 import DamageReport from "./pages/damageReport";
 import Notification from "./pages/notification";
 import Profile from "./pages/profile";
+import ListingPreview from "./pages/listingPreview";
 
 function App() {
   return (
     <div className={styles.app}>
-      {/* <Home /> */}
+      <Home />
       {/* <Listing /> */}
       {/* <Contact /> */}
       {/* <About /> */}
       {/* <Order /> */}
       {/* <DamageReport /> */}
       {/* <Notification /> */}
-      <Profile />
+      {/* <Profile /> */}
+      {/* <ListingPreview /> */}
     </div>
   );
 }
