@@ -7,6 +7,8 @@ import DamageReport from "./damageReport";
 import Notification from "./notification";
 import Profile from "./profile";
 import ListingPreview from "./listingPreview";
+import Ticket from "./ticket";
+import AddTicket from "./ticket/AddTicket";
 
 export {
   Home,
@@ -18,4 +20,6 @@ export {
   Notification,
   Profile,
   ListingPreview,
+  Ticket,
+  AddTicket,
 };

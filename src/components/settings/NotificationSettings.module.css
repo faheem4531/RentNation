@@ -1,0 +1,78 @@
+.profileMain {
+  width: 72%;
+  color: var(--white-color);
+  margin: auto;
+}
+
+.profileHeading {
+  font-size: 32.862px;
+  font-weight: 500;
+  line-height: 49.292px;
+  letter-spacing: -0.685px;
+  margin-bottom: 40px;
+}
+
+.toggleHeading {
+  font-size: 22px;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+
+.toggleLastHeading {
+  margin-bottom: 24px;
+  margin-top: 38px;
+  font-size: 22px;
+  line-height: 24px;
+}
+
+.toggleDiv>* {
+  margin-bottom: 12px;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--white-color);
+  margin: 12px 0 18px;
+}
+
+.profileImgNameMainCon {
+  width: 50%;
+  margin: auto;
+  position: relative;
+}
+
+.profileImgNameMainCon>*:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+@media (max-width: 992px) {
+  .profileImgNameMainCon {
+    width: 65%;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .profileImgNameMainCon {
+    width: 75%;
+  }
+
+}
+
+@media (max-width: 576px) {
+  .profileHeading {
+    font-size: 27.862px;
+
+  }
+
+  .profileImgNameMainCon {
+    width: 85%;
+  }
+}
+
+@media (max-width: 375px) {
+  .profileImgNameMainCon {
+    width: 100%;
+  }
+}
