@@ -1,0 +1,8 @@
+.PaymentDetails {
+  width: 100% !important;
+  margin-bottom: 8px;
+}
+
+.PaymentDetails>*:not(:last-child) {
+  margin-bottom: 16px;
+}

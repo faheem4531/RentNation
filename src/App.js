@@ -8,8 +8,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <div className={styles.app}>
-      {/* <Home /> */}
-      <Listing />
+      <Home />
+      {/* <Listing /> */}
     </div>
   );
 }

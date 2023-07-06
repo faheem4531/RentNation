@@ -1,0 +1,7 @@
+.UpdatePasward {
+  width: 100% !important;
+}
+
+.UpdatePasward>*:not(:last-child) {
+  margin-bottom: 16px;
+}

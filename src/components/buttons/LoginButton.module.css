@@ -2,10 +2,11 @@
   text-align: center;
   padding: 10px;
   border-radius: 4px;
-  background: var(--yellow1-color);
   border: none;
+  color: var(--bg-dark-color);
   font-weight: 600;
   font-size: 14px;
+  width: 100%;
 }
 
 

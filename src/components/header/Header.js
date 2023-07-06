@@ -3,10 +3,13 @@ import styles from "./Header.module.css";
 
 import logo from "../../images/homepage/svgs/logo.svg";
 import LoginButton from "../buttons/LoginButton";
-
+import PopUpModal from "../modals/PopUpModal";
 import "bootstrap/dist/css/bootstrap.min.css";
+import SignIn from "../modals/SignIn";
+
 
 const Header = () => {
+  const [showModal, setShowModal] = useState(false);
   const [burgerState, setBurgerState] = useState(false);
   const [selectedNav, setSelectedNav] = useState("HOME");
 
@@ -16,6 +19,10 @@ const Header = () => {
 
   function handleClick(item) {
     setSelectedNav(item);
+  }
+
+  function handleSigninBtn() {
+    setShowModal(true);
   }
 
   return (
@@ -99,14 +106,28 @@ const Header = () => {
                     <LoginButton
                       buttonText="Log in / Sign Up"
                       fontSize="14px"
+                      onClick={handleSigninBtn}
                     />
+
                   </div>
+
                 </div>
               </div>
             </div>
           </nav>
         </div>
       </div>
+      {showModal && (
+        <PopUpModal
+          open={showModal}
+          onClose={() => setShowModal(false)}
+          heading="Signin"
+          hidden={false}
+          buttonText='Signin'
+          width='450px !important'
+          children={<SignIn />}
+        ></PopUpModal>
+      )}
     </div>
   );
 };
