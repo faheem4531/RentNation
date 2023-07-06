@@ -1,0 +1,12 @@
+.oto {
+  width: 100% !important;
+}
+
+.oto>*:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.BtnDiv {
+  display: flex;
+  gap: 12px;
+}

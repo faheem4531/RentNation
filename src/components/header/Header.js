@@ -11,10 +11,14 @@ import SettingIcon from "../../assets/pngs/settings.png";
 import TicketsIcon from "../../assets/pngs/tickets.png";
 import LogOutIcon from "../../assets/pngs/logOut.png";
 
+import PopUpModal from "../modals/PopUpModal";
 import "bootstrap/dist/css/bootstrap.min.css";
+import SignIn from "../modals/SignIn";
+
 
 const Header = () => {
   const [profileDropdown, setProfileDropdown] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [burgerState, setBurgerState] = useState(false);
   const [selectedNav, setSelectedNav] = useState("HOME");
 
@@ -25,6 +29,10 @@ const Header = () => {
 
   function handleClick(item) {
     setSelectedNav(item);
+  }
+
+  function handleSigninBtn() {
+    setShowModal(true);
   }
 
   return (
@@ -49,10 +57,9 @@ const Header = () => {
               </button>
             </div>
             <div
-              className={`collapse navbar-collapse justify-content-end${
-                burgerState ? " show" : ""
-              }`}
-              //   id="navbarNav"
+              className={`collapse navbar-collapse justify-content-end${burgerState ? " show" : ""
+                }`}
+            //   id="navbarNav"
             >
               <div className={styles.navItemMain}>
                 <div className={styles.navItemSubMain}>
@@ -63,9 +70,8 @@ const Header = () => {
                     <a
                       aria-current="page"
                       href="#"
-                      className={`${
-                        selectedNav === "HOME" ? styles.activeNavItem : ""
-                      }`}
+                      className={`${selectedNav === "HOME" ? styles.activeNavItem : ""
+                        }`}
                     >
                       HOME
                     </a>
@@ -75,9 +81,8 @@ const Header = () => {
                     onClick={() => handleClick("LISTINGS")}
                   >
                     <a
-                      className={`${
-                        selectedNav === "LISTINGS" ? styles.activeNavItem : ""
-                      }`}
+                      className={`${selectedNav === "LISTINGS" ? styles.activeNavItem : ""
+                        }`}
                       href="#"
                     >
                       LISTINGS
@@ -89,9 +94,8 @@ const Header = () => {
                   >
                     <a
                       href="#"
-                      className={`${
-                        selectedNav === "ORDER" ? styles.activeNavItem : ""
-                      }`}
+                      className={`${selectedNav === "ORDER" ? styles.activeNavItem : ""
+                        }`}
                     >
                       ORDERS
                     </a>
@@ -102,9 +106,8 @@ const Header = () => {
                   >
                     <a
                       href="#"
-                      className={`${
-                        selectedNav === "ABOUT" ? styles.activeNavItem : ""
-                      }`}
+                      className={`${selectedNav === "ABOUT" ? styles.activeNavItem : ""
+                        }`}
                     >
                       ABOUT
                     </a>
@@ -115,23 +118,24 @@ const Header = () => {
                   >
                     <a
                       href="#"
-                      className={`${
-                        selectedNav === "CONTACT" ? styles.activeNavItem : ""
-                      }`}
+                      className={`${selectedNav === "CONTACT" ? styles.activeNavItem : ""
+                        }`}
                     >
                       CONTACT
                     </a>
                   </div>
-                  {false && (
+
+                  {true && (
                     <div className={styles.navBtnMain}>
                       <LoginButton
                         buttonText="Log in / Sign Up"
                         fontSize="14px"
+                        onClick={handleSigninBtn}
                       />
                     </div>
                   )}
 
-                  {true && (
+                  {false && (
                     <div className={styles.navProfileMain}>
                       <div
                         onClick={() => setProfileDropdown((preVal) => !preVal)}
@@ -143,11 +147,10 @@ const Header = () => {
                         >
                           <a
                             href="#"
-                            className={`${
-                              selectedNav === "profile"
-                                ? styles.activeNavItem
-                                : ""
-                            }`}
+                            className={`${selectedNav === "profile"
+                              ? styles.activeNavItem
+                              : ""
+                              }`}
                           >
                             Harley Quinn
                             <img
@@ -165,9 +168,8 @@ const Header = () => {
                       </div>
 
                       <div
-                        className={`${styles.listingFilterMain} ${
-                          !profileDropdown && showProfileClass
-                        }`}
+                        className={`${styles.listingFilterMain} ${!profileDropdown && showProfileClass
+                          }`}
                       >
                         <div className={styles.headerDropList}>
                           <ul className={styles.dropdownClass}>
@@ -217,12 +219,24 @@ const Header = () => {
                       </div>
                     </div>
                   )}
+
                 </div>
               </div>
             </div>
           </nav>
         </div>
       </div>
+      {showModal && (
+        <PopUpModal
+          open={showModal}
+          onClose={() => setShowModal(false)}
+          heading="Signin"
+          hidden={false}
+          buttonText='Signin'
+          width='450px !important'
+          children={<SignIn />}
+        ></PopUpModal>
+      )}
     </div>
   );
 };

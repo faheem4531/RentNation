@@ -1,0 +1,42 @@
+.summary {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white-color);
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 27px;
+}
+
+.discription {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  margin: 24px 0 20px;
+}
+
+.addMoreColor {
+  color: var(--yellow1-color);
+}
+
+.bookBtn {
+  margin: 40px 20px 23px;
+}
+
+.checkCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addedCardDiv>*:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+
+
+.customCheckbox:checked {
+  background-color: 'var(--yellow1-color)';
+}

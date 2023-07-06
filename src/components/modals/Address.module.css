@@ -1,0 +1,7 @@
+.AddressModal {
+  width: 100% !important;
+}
+
+.AddressModal>*:not(:last-child) {
+  margin-bottom: 16px;
+}

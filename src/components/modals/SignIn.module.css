@@ -1,0 +1,70 @@
+.signIn {
+  width: 100% !important;
+}
+
+.inputs>*,
+.socialMediaBtns>*:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.forgetContent {
+  margin-top: 8px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-grey6-color);
+}
+
+.forgetPass {
+  color: var(--yellow1-color);
+  text-decoration: none;
+}
+
+.modalButton {
+  margin-top: 32px;
+  width: 100%;
+}
+
+.signUpContent {
+  margin-top: 8px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  color: var(--text-grey6-color);
+}
+
+.signUp {
+  color: var(--text-blue-color);
+  padding-left: 2px;
+  text-decoration: none;
+}
+
+.oRLine {
+  font-size: 14px;
+  margin: 20px 0;
+  color: var(--text-grey7-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+}
+
+.leftLine,
+.rightLine {
+  height: 1px;
+  background-color: var(--border-white-color);
+  width: 231px;
+}
+
+.leftLine {
+  margin: 0 8px 0 -28px !important;
+}
+
+.rightLine {
+  margin: 0 -28px 0 8px;
+}
+
+.socialMediaBtns {
+  width: 100%;
+  margin-bottom: 20px;
+}
