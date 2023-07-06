@@ -1,0 +1,71 @@
+.content {
+  margin: 186px auto 61px 22%;
+  width: 45%;
+}
+
+.profileBtn {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 53px;
+}
+
+.heading {
+  color: var(--white-color);
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.cardContainer>*:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+
+.notifiBgImgCon {
+  float: right;
+  height: 180px;
+  width: 400px;
+  overflow-y: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.notifiBgImg {
+  position: absolute;
+  right: 0px;
+}
+
+/* TicketCard */
+
+.cardMain {
+  background-color: var(--bg-grey4-dark-color);
+  border: 1px solid var(--border-light-grey1-color);
+  padding: 16px 29px 49px 21px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-grey9-color);
+}
+
+.cardHeading {
+  color: var(--white-color);
+  font-size: 20px;
+}
+
+.cardSubHeading {
+  margin: 3px 0;
+  color: var(--white-color);
+}
+
+@media (max-width: 767px) {
+  .content {
+    margin: 150px auto 61px 8%;
+    width: 80%;
+  }
+}
+
+@media (max-width: 375px) {
+  .content {
+    margin: 120px auto 50px auto;
+    width: 90%;
+  }
+}

@@ -7,10 +7,15 @@ const Textarea = (props) => {
     borderRadius: props.borderRadius || "8px",
     backgroundColor: props.backgroundColor,
   };
+
+  const labelStyle = {
+    marginBottom: props.mbLabel,
+  };
+
   return (
     <div>
       <div className={styles.lableMain}>
-        <label className={styles.lable} htmlFor="textArea">
+        <label style={labelStyle} className={styles.lable} htmlFor="textArea">
           {props.lable}
         </label>
         <div>

@@ -6,6 +6,8 @@ import Order from "./order";
 import DamageReport from "./damageReport";
 import Notification from "./notification";
 import Profile from "./profile";
+import Ticket from "./ticket";
+import AddTicket from "./ticket/AddTicket";
 
 export {
   Home,
@@ -16,4 +18,5 @@ export {
   DamageReport,
   Notification,
   Profile,
+  Ticket, AddTicket
 };

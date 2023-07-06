@@ -35,7 +35,13 @@ const Profile = () => {
             />
           </div>
           <div className={styles.profileBtn}>
-            <ProfileBtn buttonText={"Edit Photo"} img={editIcon} />
+            <ProfileBtn
+              buttonText={"Edit Photo"}
+              img={editIcon}
+              radius={'4px'}
+              padding={'24px '}
+              mrIcon={'6px'}
+            />
           </div>
           <ProfileText
             lable="About"
@@ -54,7 +60,6 @@ const Profile = () => {
           <ProfileNavigatBtn buttonText={"My Tickets"} img={navigateBtnIcon} />
         </div>
       </div>
-
       <div className={styles.notifiBgImgMainCon}>
         <div className={styles.notifiBgImgCon}>
           <img className={styles.notifiBgImg} src={bgLeft} alt="" />
