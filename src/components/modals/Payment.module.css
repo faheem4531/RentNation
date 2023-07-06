@@ -1,0 +1,21 @@
+.payment {
+  width: 100% !important;
+}
+
+.payment>*:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.BtnDiv {
+  display: flex;
+  gap: 12px;
+}
+
+.socialMediaBtns {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.socialMediaBtns>*:not(:last-child) {
+  margin-bottom: 16px;
+}

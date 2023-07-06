@@ -19,7 +19,7 @@ function App() {
       {/* <Listing /> */}
       {/* <Contact /> */}
       {/* <About /> */}
-      {/* <Order /> */}
+      <Order />
       {/* <DamageReport /> */}
       {/* <Notification /> */}
       {/* <Profile /> */}

@@ -17,6 +17,7 @@
   color: var(--border-light-grey1-color);
   padding: 10px 14px;
   font-size: 14px;
+  outline: none;
 }
 
 .input::placeholder {

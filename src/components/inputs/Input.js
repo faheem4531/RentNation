@@ -1,21 +1,21 @@
 import React from "react";
 import styles from "./Input.module.css";
 
-const Input = (props) => {
+
+const Input = ({ label, type, placeholder, borderRadius, backgroundColor }) => {
+
   const inputStyle = {
-    borderRadius: props.borderRadius || "8px",
-    backgroundColor: props.backgroundColor,
+    borderRadius: borderRadius || '8px',
+    backgroundColor: backgroundColor
   };
   return (
     <div className={styles.inputDiv}>
-      <label className={styles.lable} htmlFor="name">
-        {props.lable}
-      </label>
+      <label className={styles.lable} htmlFor="name">{label}</label>
       <input
         className={styles.input}
         id="name"
-        type={props.type}
-        placeholder={props.placeholder}
+        type={type}
+        placeholder={placeholder}
         style={inputStyle}
       />
     </div>
