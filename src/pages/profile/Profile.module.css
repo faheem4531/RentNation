@@ -1,0 +1,124 @@
+.profileMain{
+    width: 72%;
+    margin: auto;
+}
+
+.profileHeading{
+    color: var(--white-color);
+    font-size: 32.862px;
+    font-weight: 500;
+    line-height: 49.292px;
+    letter-spacing: -0.685px;
+    margin-top: 140px;
+    margin-bottom: 40px;
+}
+
+.profileImgNameMainCon{
+    width: 50%;
+    margin: auto;
+    position: relative;
+}
+
+.profileSettingIcon{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.profileImgNameMain{
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.profileImg{
+    width: 120px;
+    height: 120px;
+    margin-right: 30px;
+}
+
+.profileName{
+    color: var(--white-color);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+.profileLocation{
+    color: var(--white-color);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.5px;
+}
+
+.profileBtn{
+    margin-bottom: 40px;
+}
+.profileNavigateBtn{
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+
+.notifiBgImgCon{
+    float: right;
+    height: 180px;
+    width: 400px;
+    overflow-y: hidden;
+    position: relative;
+    z-index: -1;
+}
+
+.notifiBgImg{
+    position: absolute;
+    right: 0px;
+}
+
+@media (max-width: 992px) {
+    .profileImgNameMainCon{
+    width: 65%;
+}
+
+}
+
+@media (max-width: 767px) {
+    .profileImgNameMainCon{
+    width: 75%;
+}
+
+}
+
+@media (max-width: 576px) {
+    .profileHeading{
+    font-size: 27.862px;
+
+}
+    .profileImgNameMainCon{
+    width: 85%;
+}
+.profileImg{
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+}
+
+.profileName{
+    font-size: 18px;
+
+}
+
+.profileLocation{
+    font-size: 12px;
+
+}
+
+}
+
+@media (max-width: 375px) {
+    .profileImgNameMainCon{
+    width: 100%;
+}
+}

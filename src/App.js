@@ -9,17 +9,19 @@ import About from "./pages/about";
 import Order from "./pages/order";
 import DamageReport from "./pages/damageReport";
 import Notification from "./pages/notification";
+import Profile from "./pages/profile";
 
 function App() {
   return (
     <div className={styles.app}>
       {/* <Home /> */}
       {/* <Listing /> */}
-      <Contact />
+      {/* <Contact /> */}
       {/* <About /> */}
       {/* <Order /> */}
       {/* <DamageReport /> */}
       {/* <Notification /> */}
+      <Profile />
     </div>
   );
 }
