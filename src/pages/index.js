@@ -5,5 +5,15 @@ import About from "./about";
 import Order from "./order";
 import DamageReport from "./damageReport";
 import Notification from "./notification";
+import Profile from "./profile";
 
-export { Home, Listing, Contact, About, Order, DamageReport, Notification };
+export {
+  Home,
+  Listing,
+  Contact,
+  About,
+  Order,
+  DamageReport,
+  Notification,
+  Profile,
+};
