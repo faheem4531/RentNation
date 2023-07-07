@@ -151,7 +151,6 @@ const Header = () => {
                       />
                     </div>
                   )}
-
                   {false && (
                     <div className={styles.navProfileMain}>
                       <div
@@ -244,7 +243,7 @@ const Header = () => {
           </nav>
         </div>
       </div>
-      {showModal && (
+      {/* {showModal && (
         <PopUpModal
           open={showModal}
           onClose={() => setShowModal(false)}
@@ -254,7 +253,7 @@ const Header = () => {
           width="450px !important"
           children={<SignIn />}
         ></PopUpModal>
-      )}
+      )} */}
     </div>
   );
 };

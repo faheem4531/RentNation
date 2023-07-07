@@ -1,14 +1,19 @@
 import React from "react";
 import styles from './PrivacyPolicy.module.css';
+import { Header } from "../../components";
+import Footer from '../../components/footer/Footer'
+import bgRight from "../../assets/pngs/bg-rightHalf.png"
+import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 
 const PrivacyPolicy = () => {
   return (
-    <div className={styles.addTicket}>
-      <div className={styles.profileMain}>
+    <div className={styles.privacyPolicy}>
+      <Header />
+      <div className={styles.content}>
         <div className={styles.profileHeading}>
           Privacy Policy
         </div>
-        <div className={styles.content}>
+        <div className={styles.detailcontent}>
           <div className={styles.detailing}>
             Lorem ipsum dolor sit amet consectetur. Consequat tincidunt blandit donec ipsum nam vel. Vulputate arcu
             augue vestibulum interdum. Quam vitae ullamcorper risus nibh faucibus aliquam adipiscing. Vitae ultrices accumsan nunc mattis sagittis vitae egestas et duis. Libero pharetra vitae id feugiat et sed ornare pellentesque non.
@@ -35,7 +40,18 @@ const PrivacyPolicy = () => {
           </div>
         </div>
       </div>
-    </div>
+      <div className={styles.aboutFooter}>
+        <Footer />
+        <div className={styles.aboutBgLeft}>
+          <img src={bgLeft} alt="" />
+        </div>
+        <div className={styles.aboutBgRight}>
+          <img src={bgRight} alt="" />
+        </div>
+        <div />
+
+      </div>
+    </div >
   );
 };
 

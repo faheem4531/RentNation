@@ -1,16 +1,25 @@
 import React from "react";
 
-import { Home, Listing } from "./pages";
+import {
+  Home,
+  Listing,
+  ListingPreview,
+  Contact,
+  About,
+  Order,
+  DamageReport,
+  Notification,
+  Ticket,
+  AddTicket,
+  Profile,
+  EditProfile,
+  Settings,
+  NotificationSettings,
+  EditPassword,
+  PrivacyPolicy,
+} from "./pages";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./App.module.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Contact from "./pages/contact";
-import About from "./pages/about";
-import Order from "./pages/order";
-import DamageReport from "./pages/damageReport";
-import Notification from "./pages/notification";
-import Profile from "./pages/profile";
-import ListingPreview from "./pages/listingPreview";
 
 import { Routes, Route } from "react-router-dom";
 

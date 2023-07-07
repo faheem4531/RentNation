@@ -1,6 +1,6 @@
-.profileMain {
-  width: 72%;
-  margin: auto;
+.content {
+  margin: 186px auto 61px 22%;
+  width: 50%;
 }
 
 .profileHeading {
@@ -13,7 +13,7 @@
 }
 
 .profileImgNameMainCon {
-  width: 50%;
+  width: 60%;
   margin: auto;
   position: relative;
 }
@@ -25,6 +25,20 @@
 .submitButton {
   margin-top: 130px;
   text-align: center;
+}
+
+.notifiBgImgCon {
+  float: right;
+  height: 180px;
+  width: 400px;
+  overflow-y: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.notifiBgImg {
+  position: absolute;
+  right: 0px;
 }
 
 @media (max-width: 992px) {
@@ -55,5 +69,19 @@
 @media (max-width: 375px) {
   .profileImgNameMainCon {
     width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .content {
+    margin: 150px auto 61px 8%;
+    width: 80%;
+  }
+}
+
+@media (max-width: 375px) {
+  .content {
+    margin: 120px auto 50px auto;
+    width: 90%;
   }
 }
