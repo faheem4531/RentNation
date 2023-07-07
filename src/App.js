@@ -12,18 +12,22 @@ import Notification from "./pages/notification";
 import Profile from "./pages/profile";
 import ListingPreview from "./pages/listingPreview";
 
+import { Routes, Route } from "react-router-dom";
+
 function App() {
   return (
     <div className={styles.app}>
-      <Home />
-      {/* <Listing /> */}
-      {/* <Contact /> */}
-      {/* <About /> */}
-      <Order />
-      {/* <DamageReport /> */}
-      {/* <Notification /> */}
-      {/* <Profile /> */}
-      {/* <ListingPreview /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/listing" element={<Listing />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/order" element={<Order />} />
+        <Route path="/damageReport" element={<DamageReport />} />
+        <Route path="/notification" element={<Notification />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/listingPreview" element={<ListingPreview />} />
+      </Routes>
     </div>
   );
 }
