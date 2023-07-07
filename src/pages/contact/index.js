@@ -15,14 +15,14 @@ const Contact = () => {
         <div className={styles.contactFormMain}>
           <div className={styles.contactFormHeading}>Contact Us</div>
           <Input
-            lable="Name*"
+            label="Name*"
             type="text"
             placeholder="EX:Mark odama"
             backgroundColor="#2B2B2B"
           />
           <div className="mt-4">
             <Input
-              lable="Email*"
+              label="Email*"
               type="text"
               placeholder="EX:Markoadama@gmail.com"
               backgroundColor="#2B2B2B"
@@ -30,7 +30,7 @@ const Contact = () => {
           </div>
           <div className="mt-4">
             <Input
-              lable="Subject*"
+              label="Subject*"
               type="text"
               placeholder="EX:project complain"
               backgroundColor="#2B2B2B"

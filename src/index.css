@@ -18,3 +18,125 @@ code {
   border: 0px !important;
   height: 20px;
 }
+
+/* Add a line under the months */
+.rmdp-calendar {
+  padding: 12px 30px  24px !important;
+  border: 0px !important;
+  width: 100%;
+}
+
+.rmdp-header-values{
+  color: white !important;
+  margin-bottom: 18px !important;
+}
+
+.rmdp-header {
+  font-weight: 700  !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  border-bottom: 1px solid #F5F5F5 !important;
+}
+.rmdp-day span, .rmdp-week-day{
+  height: 30px !important; 
+  width: 30px !important;
+  color: #BDBDBD !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 24px !important;
+}
+
+
+
+.rmdp-wrapper{
+  box-shadow: none!important;
+  background-color: transparent !important;
+  width: 100% !important;
+}
+
+
+.rmdp-arrow {
+    border: solid #E1E4E8 !important;
+    border-width: 0px 2px 2px 0px !important;
+    margin-top: 0px !important;
+    width: 5.077px !important;
+    height: 5.462px !important;
+
+}
+
+
+.rmdp-day-picker div{
+  width: 100% !important;
+}
+
+
+/* rmdp-day rmdp-today rmdp-range */
+.rmdp-week{
+  margin-bottom: 10px !important;
+}
+
+.rmdp-day.rmdp-today span{
+  background-color: var(--yellow1-color) !important;
+  color: white !important;
+}
+
+.rmdp-today{
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.rmdp-day span{
+    font-size: 16px !important;
+    left: 0px !important;
+    position: absolute !important;
+    top: 0px !important;
+}
+
+.rmdp-range {
+    background-color: #0074d9;
+    box-shadow: 0 0 3px #8798ad;
+    color: #fff;
+}
+ 
+.rmdp-range{
+background: #848381 !important;
+box-shadow: none !important;
+}
+
+.rmdp-day, .rmdp-week-day {
+  height: 30px !important;
+  width: 30px !important;
+}
+
+.rmdp-range:hover{
+background: #848381 !important;
+box-shadow: none !important;
+}
+
+.rmdp-range:first-child {
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+}
+
+.rmdp-range:last-child {
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
+
+
+.rmdp-range-hover.start, .rmdp-range.start{
+    border-bottom-left-radius: 20px !important;
+    border-top-left-radius: 20px !important;
+
+}
+
+
+.rmdp-range-hover.end, .rmdp-range.end{
+    border-bottom-right-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+}
+
+.rmdp-range.start span, .rmdp-range.end span{
+      background-color: var(--yellow1-color) !important;
+      color: var(--white-color) !important;
+}

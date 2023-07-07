@@ -5,9 +5,21 @@ import shareIcon from "../../assets/svgs/share.svg";
 import heartIcon from "../../assets/svgs/list-heart.svg";
 import locationIcon from "../../assets/svgs/list-location.svg";
 
+import DatePicker from "react-multi-date-picker";
+import { Calendar, DateObject } from "react-multi-date-picker";
+import "react-multi-date-picker/styles/colors/purple.css";
+
 import CalenderBtn from "../../components/buttons/LoginButton";
 
 const ListingPreview = () => {
+  const customClassNames = {
+    month: "custom-month",
+    weekDays: "custom-weekdays",
+    days: "custom-days",
+    arrows: "custom-arrows",
+  };
+
+  const [values, setValues] = useState([new DateObject()]);
   const [selectedTab, setSelectedTab] = useState("Description");
 
   const handleTabClick = (tab) => {
@@ -111,7 +123,19 @@ const ListingPreview = () => {
           <div className={styles.listPreCalLocSubHeading}>
             Available dates are highlighted
           </div>
-          <div className={styles.listPreCalMain}></div>
+          <div className={styles.listPreCalMain}>
+            <Calendar
+              classNames={customClassNames}
+              format="DD-MM-YYYY"
+              color="#121212"
+              primaryColor="#ffffff"
+              value={values}
+              onChange={setValues}
+              range
+              rangeHover
+              // render={<DateObject />}
+            />
+          </div>
           <div className={styles.CalenderPricePerCon}>
             <div className={styles.CalenderPricePer}>
               Total Cost - <span> $300</span>

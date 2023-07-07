@@ -30,12 +30,31 @@
 .heroInputDrop {
     width: auto;
     display: inline-flex;
-    padding: 13px 16px 13px 13px;
+    padding: 13px 16px 13px 35px;
     justify-content: center;
     align-items: center;
     gap: 9.149px;
     background: var(--bg-grey3-color);
     color: var(--white-color);
+}
+
+.heroInputDropMain{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.heroInputDropCon{
+    position: relative;
+}
+
+.heroInputDropIcon{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    z-index: 2;
 }
 
 .heroInput:focus {
