@@ -8,7 +8,8 @@ import bgRight from "../../assets/pngs/bg-rightHalf.png";
 const About = () => {
   return (
     <div>
-      <Header />
+      <Header
+        Login={false} />
       <div className={styles.aboutMain}>
         <div className={styles.aboutHeading}>About us</div>
         <div className={styles.aboutContantCon}>

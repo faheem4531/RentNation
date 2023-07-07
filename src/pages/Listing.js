@@ -33,8 +33,9 @@ const Listing = () => {
       price: "50",
       views: "569",
       image: beach1,
-      onShare: () => {},
-      onViewDetails: () => {},
+      onShare: () => { },
+      onViewDetails: () => { },
+      listingTitle: true
     },
     {
       id: "bc2",
@@ -46,62 +47,68 @@ const Listing = () => {
       views: "569",
       image: beach2,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
+      onShare: () => { },
+      onViewDetails: () => { },
+      listingTitle: 'listing'
     },
     {
       id: "bc3",
-      heading: "Dreamy beaches",
-      subHeading: "The beach is a stunning natural landscape",
+      heading: "beach Supplies",
+      subHeading: "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
       location: "Turkis",
       price: "50",
       views: "569",
       image: beach3,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
+      onShare: () => { },
+      onViewDetails: () => { },
+      listingTitle: 'listing'
     },
     {
       id: "bc4",
-      heading: "Dreamy beaches",
-      subHeading: "The beach is a stunning natural landscape",
+      heading: "beach Supplies",
+      subHeading: "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
       location: "Turkis",
       price: "50",
       views: "569",
       image: beach4,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
+      onShare: () => { },
+      onViewDetails: () => { },
+      listingTitle: 'listing'
     },
     {
       id: "bc5",
-      heading: "Dreamy beaches",
-      subHeading: "The beach is a stunning natural landscape",
+      heading: "beach Supplies",
+      subHeading: "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
       location: "Turkis",
       price: "50",
       views: "569",
       image: beach5,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
+      onShare: () => { },
+      onViewDetails: () => { },
+      listingTitle: 'listing'
     },
     {
       id: "bc6",
-      heading: "Dreamy beaches",
-      subHeading: "The beach is a stunning natural landscape",
+      heading: "beach Supplies",
+      subHeading: "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
       location: "Turkis",
       price: "50",
       views: "569",
       image: beach6,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
+      onShare: () => { },
+      onViewDetails: () => { },
+      listingTitle: 'listing'
     },
   ];
 
   return (
     <div className={styles.listingContainer}>
-      <Header />
+      <Header
+        Login={false} />
       <div className="container">
         <div className={styles.listingMain}>
           <div className={styles.listingFilter}>
@@ -150,6 +157,7 @@ const Listing = () => {
                   onShare={item.onShare}
                   onViewDetails={item.onViewDetails}
                   image={item.image}
+                  listingTitle={item.listingTitle}
                 />
               ))}
             </div>

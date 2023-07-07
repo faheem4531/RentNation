@@ -15,7 +15,8 @@ const ListingPreview = () => {
   };
   return (
     <div>
-      <Header />
+      <Header
+        Login={false} />
       <div className={styles.listingPreviewMain}>
         <div className={styles.listingPreviewSliderMain}>
           <div className={styles.listingPreviewSlider}></div>
@@ -32,17 +33,15 @@ const ListingPreview = () => {
             </span>
             <div className={styles.tab}>
               <div
-                className={`${styles.tabItem} ${styles.tabItems} ${
-                  selectedTab === "Description" ? styles.selected : ""
-                }`}
+                className={`${styles.tabItem} ${styles.tabItems} ${selectedTab === "Description" ? styles.selected : ""
+                  }`}
                 onClick={() => handleTabClick("Description")}
               >
                 Description
               </div>
               <div
-                className={`${styles.tabItem} ${styles.tabItems} ${
-                  selectedTab === "Review" ? styles.selected : ""
-                }`}
+                className={`${styles.tabItem} ${styles.tabItems} ${selectedTab === "Review" ? styles.selected : ""
+                  }`}
                 onClick={() => handleTabClick("Review")}
               >
                 Review

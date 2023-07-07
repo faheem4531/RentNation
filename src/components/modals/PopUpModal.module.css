@@ -1,7 +1,7 @@
 .modalContent {
   padding: 24px 24px 20px !important;
   outline: none;
-  border-radius: 10px;
+  border-radius: 0px !important;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -9,8 +9,8 @@
   align-items: center;
   box-shadow: 0px 8px 8px -4px var(--shadow-grey1-color), 0px 20px 24px -4px var(--shadow-grey2-color);
   background-color: var(--bg-grey4-dark-color);
-  outline: 'none';
 }
+
 
 .modalHeading {
   font-size: 18px;
@@ -44,6 +44,4 @@
   width: 100%;
 }
 
-.modal {
-  backdrop-filter: blur(8px);
-}
+.modal {}

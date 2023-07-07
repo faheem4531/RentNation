@@ -15,11 +15,11 @@ import ListingPreview from "./pages/listingPreview";
 function App() {
   return (
     <div className={styles.app}>
-      <Home />
-      {/* <Listing /> */}
+      {/* <Home /> */}
+      <Listing />
       {/* <Contact /> */}
       {/* <About /> */}
-      <Order />
+      {/* <Order /> */}
       {/* <DamageReport /> */}
       {/* <Notification /> */}
       {/* <Profile /> */}

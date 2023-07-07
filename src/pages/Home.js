@@ -6,7 +6,8 @@ import styles from "../styles/Home.module.css";
 const Home = () => {
   return (
     <div className={styles.homeContainer}>
-      <Header />
+      <Header
+        Login={false} />
       <HeroSection />
       <HomeFeatures />
       <ServicesContainer />
