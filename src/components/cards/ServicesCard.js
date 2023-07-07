@@ -6,7 +6,6 @@ import locationPin from '../../images/homepage/svgs/location.svg';
 const ServicesCard = ({ title, location, amount, image }) => {
   return (
     <div className="container">
-
       <div className={styles.card}>
         <img className={styles.cardImg} src={image} />
         <span className={styles.heading}>{title}</span>

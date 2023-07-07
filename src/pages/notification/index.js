@@ -59,7 +59,8 @@ const Notification = () => {
   ];
   return (
     <div>
-      <Header />
+      <Header
+        Login={true} />
       <div className={styles.notifMain}>
         <div className={styles.notifHeading}>Notification</div>
         <div className={styles.notifCardsContainer}>

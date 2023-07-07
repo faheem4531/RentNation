@@ -8,7 +8,8 @@ import bgRight from "../../assets/pngs/bg-rightHalf.png";
 const DamageReport = () => {
   return (
     <div>
-      <Header />
+      <Header
+        Login={true} />
       <div className={styles.damageReportMain}>
         <div className={styles.damageReportCon}>
           <div className={styles.damageReportHeadingMain}>Damage report</div>

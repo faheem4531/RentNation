@@ -10,7 +10,8 @@ import bgRight from "../../assets/pngs/bg-rightHalf.png";
 const Contact = () => {
   return (
     <div>
-      <Header />
+      <Header
+        Login={false} />
       <div className={styles.contactMain}>
         <div className={styles.contactFormMain}>
           <div className={styles.contactFormHeading}>Contact Us</div>

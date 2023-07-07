@@ -17,7 +17,7 @@ import SignIn from "../modals/SignIn";
 
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ Login }) => {
   const [profileDropdown, setProfileDropdown] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [burgerState, setBurgerState] = useState(false);
@@ -142,7 +142,7 @@ const Header = () => {
                     </Link>
                   </div>
 
-                  {true && (
+                  {!Login && (
                     <div className={styles.navBtnMain}>
                       <LoginButton
                         buttonText="Log in / Sign Up"
@@ -151,7 +151,8 @@ const Header = () => {
                       />
                     </div>
                   )}
-                  {false && (
+
+                  {Login && (
                     <div className={styles.navProfileMain}>
                       <div
                         onClick={() => setProfileDropdown((preVal) => !preVal)}

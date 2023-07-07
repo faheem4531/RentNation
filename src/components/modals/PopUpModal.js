@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import Modal from 'react-bootstrap/Modal';
 import styles from './PopUpModal.module.css';
@@ -7,20 +7,27 @@ import X from '../../assets/svgs/x-close.svg';
 import LoginButton from '../buttons/LoginButton';
 
 function PopUpModal({ width, heading, children, hidden, onClose }) {
+
   const inputStyle = {
-    width: width || '400px !important ',
+    width: width || '100px',
+  };
+
+  const modalStyle = {
+    backdropFilter: 'blur(8px)',
   };
 
   return (
-    <div className={styles.modal}>
-      <Modal
-        dialogClassName={inputStyle}
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-        animation={false}
-        show={true}
-        onHide={onClose}
-      >
+
+    <Modal
+      dialogClassName={inputStyle}
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      animation={false}
+      show={true}
+      onHide={onClose}
+      style={modalStyle}
+    >
+      <div className={styles.modal}>
         <div className={styles.modalContent}>
           <div className={styles.modalHeader}>
             <div className={styles.modalHeading}>
@@ -40,12 +47,9 @@ function PopUpModal({ width, heading, children, hidden, onClose }) {
             />
           </div>}
         </div>
-
-      </Modal>
-    </div>
+      </div>
+    </Modal>
   );
 }
+
 export default PopUpModal;
-
-
-
