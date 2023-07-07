@@ -6,10 +6,12 @@ const Textarea = (props) => {
     height: props.height || "155px",
     borderRadius: props.borderRadius || "8px",
     backgroundColor: props.backgroundColor,
+    fontSize: props.inputFont
   };
 
   const labelStyle = {
     marginBottom: props.mbLabel,
+    fontSize: props.lableFont
   };
 
   return (

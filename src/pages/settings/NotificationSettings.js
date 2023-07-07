@@ -1,11 +1,14 @@
 import React from "react";
 import styles from './NotificationSettings.module.css';
-import Toggle from '../buttons/Toggle';
+import { Header } from "../../components";
+import Toggle from '../../components/buttons/Toggle';
+import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 
 const NotificationSettings = () => {
   return (
     <div>
-      <div className={styles.profileMain}>
+      <Header />
+      <div className={styles.content}>
         <div className={styles.profileHeading}>
           Notification Settings
         </div>
@@ -52,6 +55,9 @@ const NotificationSettings = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className={styles.notifiBgImgCon}>
+        <img className={styles.notifiBgImg} src={bgLeft} alt="" />
       </div>
     </div>
   );

@@ -1,7 +1,21 @@
-.profileMain {
-  width: 72%;
+.content {
+  margin: 186px auto 61px 22%;
   color: var(--white-color);
-  margin: auto;
+  width: 50%;
+}
+
+@media (max-width: 767px) {
+  .content {
+    margin: 150px auto 61px 8%;
+    width: 80%;
+  }
+}
+
+@media (max-width: 375px) {
+  .content {
+    margin: 120px auto 50px auto;
+    width: 90%;
+  }
 }
 
 .profileHeading {
@@ -40,6 +54,20 @@
   width: 50%;
   margin: auto;
   position: relative;
+}
+
+.notifiBgImgCon {
+  float: right;
+  height: 180px;
+  width: 400px;
+  overflow-y: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.notifiBgImg {
+  position: absolute;
+  right: 0px;
 }
 
 .profileImgNameMainCon>*:not(:last-child) {
