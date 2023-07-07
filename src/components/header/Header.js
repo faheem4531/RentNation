@@ -15,6 +15,7 @@ import PopUpModal from "../modals/PopUpModal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SignIn from "../modals/SignIn";
 
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [profileDropdown, setProfileDropdown] = useState(false);
@@ -57,9 +58,10 @@ const Header = () => {
               </button>
             </div>
             <div
-              className={`collapse navbar-collapse justify-content-end${burgerState ? " show" : ""
-                }`}
-            //   id="navbarNav"
+              className={`collapse navbar-collapse justify-content-end${
+                burgerState ? " show" : ""
+              }`}
+              //   id="navbarNav"
             >
               <div className={styles.navItemMain}>
                 <div className={styles.navItemSubMain}>
@@ -67,62 +69,77 @@ const Header = () => {
                     className={styles.navItem}
                     onClick={() => handleClick("HOME")}
                   >
-                    <a
-                      aria-current="page"
-                      href="#"
-                      className={`${selectedNav === "HOME" ? styles.activeNavItem : ""
+                    <Link className="text-decoration-none" to={"/"}>
+                      <a
+                        aria-current="page"
+                        href="#"
+                        className={`${
+                          selectedNav === "HOME" ? styles.activeNavItem : ""
                         }`}
-                    >
-                      HOME
-                    </a>
+                      >
+                        HOME
+                      </a>
+                    </Link>
                   </div>
                   <div
                     className={styles.navItem}
                     onClick={() => handleClick("LISTINGS")}
                   >
-                    <a
-                      className={`${selectedNav === "LISTINGS" ? styles.activeNavItem : ""
+                    <Link className="text-decoration-none" to={"/listing"}>
+                      <a
+                        className={`${
+                          selectedNav === "LISTINGS" ? styles.activeNavItem : ""
                         }`}
-                      href="#"
-                    >
-                      LISTINGS
-                    </a>
+                        href="#"
+                      >
+                        LISTINGS
+                      </a>
+                    </Link>
                   </div>
                   <div
                     className={styles.navItem}
                     onClick={() => handleClick("ORDER")}
                   >
-                    <a
-                      href="#"
-                      className={`${selectedNav === "ORDER" ? styles.activeNavItem : ""
+                    <Link className="text-decoration-none" to={"/order"}>
+                      <a
+                        href="#"
+                        className={`${
+                          selectedNav === "ORDER" ? styles.activeNavItem : ""
                         }`}
-                    >
-                      ORDERS
-                    </a>
+                      >
+                        ORDERS
+                      </a>
+                    </Link>
                   </div>
                   <div
                     className={styles.navItem}
                     onClick={() => handleClick("ABOUT")}
                   >
-                    <a
-                      href="#"
-                      className={`${selectedNav === "ABOUT" ? styles.activeNavItem : ""
+                    <Link className="text-decoration-none" to={"/about"}>
+                      <a
+                        href="#"
+                        className={`${
+                          selectedNav === "ABOUT" ? styles.activeNavItem : ""
                         }`}
-                    >
-                      ABOUT
-                    </a>
+                      >
+                        ABOUT
+                      </a>
+                    </Link>
                   </div>
                   <div
                     className={styles.navItem}
                     onClick={() => handleClick("CONTACT")}
                   >
-                    <a
-                      href="#"
-                      className={`${selectedNav === "CONTACT" ? styles.activeNavItem : ""
+                    <Link className="text-decoration-none" to={"/contact"}>
+                      <a
+                        href="#"
+                        className={`${
+                          selectedNav === "CONTACT" ? styles.activeNavItem : ""
                         }`}
-                    >
-                      CONTACT
-                    </a>
+                      >
+                        CONTACT
+                      </a>
+                    </Link>
                   </div>
 
                   {true && (
@@ -147,10 +164,11 @@ const Header = () => {
                         >
                           <a
                             href="#"
-                            className={`${selectedNav === "profile"
-                              ? styles.activeNavItem
-                              : ""
-                              }`}
+                            className={`${
+                              selectedNav === "profile"
+                                ? styles.activeNavItem
+                                : ""
+                            }`}
                           >
                             Harley Quinn
                             <img
@@ -168,8 +186,9 @@ const Header = () => {
                       </div>
 
                       <div
-                        className={`${styles.listingFilterMain} ${!profileDropdown && showProfileClass
-                          }`}
+                        className={`${styles.listingFilterMain} ${
+                          !profileDropdown && showProfileClass
+                        }`}
                       >
                         <div className={styles.headerDropList}>
                           <ul className={styles.dropdownClass}>
@@ -219,7 +238,6 @@ const Header = () => {
                       </div>
                     </div>
                   )}
-
                 </div>
               </div>
             </div>
@@ -232,8 +250,8 @@ const Header = () => {
           onClose={() => setShowModal(false)}
           heading="Signin"
           hidden={false}
-          buttonText='Signin'
-          width='450px !important'
+          buttonText="Signin"
+          width="450px !important"
           children={<SignIn />}
         ></PopUpModal>
       )}
