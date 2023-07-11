@@ -207,3 +207,89 @@ box-shadow: none !important;
 .thumb:hover{
   border: none !important;
 }
+
+
+@media (max-width: 767px) {
+  .carousel-status {
+    bottom: 5px !important;
+    right: 43% !important;
+    font-size: 24px !important;
+}
+
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow{
+  width: 49px !important;
+}
+
+.thumb{
+  margin-right: 20px !important;
+}
+}
+
+@media (max-width: 576px) {
+  .carousel-status {
+
+    font-size: 22px !important;
+}
+
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow{
+  width: 45px !important;
+}
+
+.thumb{
+  width: 90.582px !important;
+  height: 70px !important;
+  margin-right: 17px !important;
+}
+
+.rmdp-calendar {
+  padding: 12px 20px  24px !important;
+}
+
+.rmdp-header {
+  font-size: 18px !important;
+}
+
+.rmdp-day span, .rmdp-week-day{
+  font-size: 14px !important;
+}
+}
+
+@media (max-width: 450px) {
+  .carousel-status {
+
+    font-size: 15px !important;
+}
+
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow{
+  width: 30px !important;
+}
+
+.thumb{
+  width: 80.582px !important;
+  height: 60px !important;
+  margin-right: 12px !important;
+}
+
+.rmdp-calendar {
+  padding: 12px 15px  24px !important;
+}
+.rmdp-header {
+  font-size: 16px !important;
+}
+
+.rmdp-day span, .rmdp-week-day{
+  font-size: 12px !important;
+}
+
+.rmdp-day, .rmdp-week-day {
+  height: 27px !important;
+  width: 27px !important;
+}
+
+
+.rmdp-range.start span, .rmdp-range.end span, .rmdp-day.rmdp-today span{
+    height: 27px !important;
+  width: 27px !important;
+}
+
+}
