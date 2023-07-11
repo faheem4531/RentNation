@@ -46,6 +46,13 @@
   z-index: -1;
 }
 
+.Link, .Link:hover{
+  text-decoration: none;
+}
+
+.Link button{
+  margin-bottom: 20px;
+}
 .notifiBgImg {
   position: absolute;
   right: 0px;

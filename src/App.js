@@ -26,7 +26,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className={styles.app}>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/listing" element={<Listing />} />
         <Route path="/contact" element={<Contact />} />
@@ -35,9 +35,18 @@ function App() {
         <Route path="/damageReport" element={<DamageReport />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/listingPreview" element={<ListingPreview />} />
-      </Routes>
-      {/* <Listing /> */}
+        <Route path="/Ticket" element={<Ticket />} />
+        <Route path="/AddTicket" element={<AddTicket />} />
+        <Route path="/EditProfile" element={<EditProfile />} />
+        <Route path="/Settings" element={<Settings />} />
+        <Route
+          path="/NotificationSettings"
+          element={<NotificationSettings />}
+        />
+        <Route path="/EditPassword" element={<EditPassword />} />
+        <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+      </Routes> */}
+      <ListingPreview />
     </div>
   );
 }

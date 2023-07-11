@@ -9,6 +9,10 @@
   margin-bottom: 53px;
 }
 
+.Link, .Link:hover{
+  text-decoration: none;
+}
+
 .heading {
   color: var(--white-color);
   font-size: 32px;

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './EditProfile.module.css';
+import styles from "./EditProfile.module.css";
 import { Header } from "../../components";
 import Input from "../../components/inputs/Input";
 import Textarea from "../../components/textarea/Textarea";
@@ -9,7 +9,7 @@ import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 const EditProfile = () => {
   return (
     <div className={styles.addTicket}>
-      <Header />
+      <Header Login={true} />
       <div className={styles.content}>
         <div className={styles.profileHeading}>
           <div>Edit Profile</div>
@@ -17,36 +17,36 @@ const EditProfile = () => {
         </div>
         <div className={styles.profileImgNameMainCon}>
           <Input
-            label={'Name*'}
-            type={'text'}
-            backgroundColor={'var(--bg-grey4-dark-color)'}
-            placeholder={'Edit your name'}
+            label={"Name*"}
+            type={"text"}
+            backgroundColor={"var(--bg-grey4-dark-color)"}
+            placeholder={"Edit your name"}
             // lableFont={'22px'}
-            inputFont={'16px'}
+            inputFont={"16px"}
           />
           <Input
-            label={'Email*'}
-            type={'text'}
-            backgroundColor={'var(--bg-grey4-dark-color)'}
-            placeholder={'Edit your email'}
+            label={"Email*"}
+            type={"text"}
+            backgroundColor={"var(--bg-grey4-dark-color)"}
+            placeholder={"Edit your email"}
             // lableFont={'22px'}
-            inputFont={'16px'}
+            inputFont={"16px"}
           />
           <Textarea
-            placeholder={'About'}
-            lable={'Edit your about'}
-            height={'170px'}
-            backgroundColor={'var(--bg-grey4-dark-color)'}
+            placeholder={"About"}
+            lable={"Edit your about"}
+            height={"170px"}
+            backgroundColor={"var(--bg-grey4-dark-color)"}
             // lableFont={'22px'}
-            inputFont={'16px'}
+            inputFont={"16px"}
           />
           <div className={styles.submitButton}>
             <LoginButton
-              onClick={() => { }}
-              borderColor={'1px solid var(--border-dark-yellow1-color)'}
-              buttonText={'Submit'}
-              borderRadius={'8px'}
-              fontSize={'16px'}
+              onClick={() => {}}
+              borderColor={"1px solid var(--border-dark-yellow1-color)"}
+              buttonText={"Submit"}
+              borderRadius={"8px"}
+              fontSize={"16px"}
             />
           </div>
         </div>

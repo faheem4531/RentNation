@@ -192,39 +192,59 @@ const Header = ({ Login }) => {
                       >
                         <div className={styles.headerDropList}>
                           <ul className={styles.dropdownClass}>
-                            <li>
-                              <img
-                                className={styles.navDropIcon}
-                                src={UserIcon}
-                                alt=""
-                              />
-                              PROFILE
-                            </li>
-
-                            <li>
-                              <img
-                                className={styles.navDropIcon}
-                                src={BellIcn}
-                                alt=""
-                              />
-                              NOTIFICATION
-                            </li>
-                            <li>
-                              <img
-                                className={styles.navDropIcon}
-                                src={SettingIcon}
-                                alt=""
-                              />
-                              SETTINGS
-                            </li>
-                            <li>
-                              <img
-                                className={styles.navDropIcon}
-                                src={SettingIcon}
-                                alt=""
-                              />
-                              TICKETS
-                            </li>
+                            <Link
+                              className="text-decoration-none"
+                              to={"/profile"}
+                            >
+                              <li>
+                                <img
+                                  className={styles.navDropIcon}
+                                  src={UserIcon}
+                                  alt=""
+                                />
+                                PROFILE
+                              </li>
+                            </Link>
+                            <Link
+                              className="text-decoration-none"
+                              to={"/notification"}
+                            >
+                              <li>
+                                <img
+                                  className={styles.navDropIcon}
+                                  src={BellIcn}
+                                  alt=""
+                                />
+                                NOTIFICATION
+                              </li>
+                            </Link>
+                            <Link
+                              className="text-decoration-none"
+                              to={"/settings"}
+                            >
+                              <li>
+                                <img
+                                  className={styles.navDropIcon}
+                                  src={SettingIcon}
+                                  alt=""
+                                />
+                                SETTINGS
+                              </li>
+                            </Link>
+                            <Link
+                              className="text-decoration-none"
+                              to={"/Ticket"}
+                            >
+                              <li>
+                                <img
+                                  className={styles.navDropIcon}
+                                  src={SettingIcon}
+                                  alt=""
+                                />
+                                TICKETS
+                              </li>
+                            </Link>
+                            {/* <Link className="text-decoration-none" to={"/"}> */}
                             <li>
                               <img
                                 className={styles.navDropIcon}
@@ -233,6 +253,7 @@ const Header = ({ Login }) => {
                               />
                               LOGOUT
                             </li>
+                            {/* </Link> */}
                           </ul>
                         </div>
                       </div>

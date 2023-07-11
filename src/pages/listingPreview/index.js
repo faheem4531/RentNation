@@ -4,6 +4,8 @@ import { Header, Footer } from "../../components";
 import shareIcon from "../../assets/svgs/share.svg";
 import heartIcon from "../../assets/svgs/list-heart.svg";
 import locationIcon from "../../assets/svgs/list-location.svg";
+import Slider from "./Slider";
+import ReviewRating from "./ReviewRating";
 
 import DatePicker from "react-multi-date-picker";
 import { Calendar, DateObject } from "react-multi-date-picker";
@@ -27,11 +29,12 @@ const ListingPreview = () => {
   };
   return (
     <div>
-      <Header
-        Login={false} />
+      <Header Login={false} />
       <div className={styles.listingPreviewMain}>
         <div className={styles.listingPreviewSliderMain}>
-          <div className={styles.listingPreviewSlider}></div>
+          <div className={styles.listingPreviewSlider}>
+            <Slider />
+          </div>
           <div className={styles.listingPreHeading}>Beache Supplies</div>
           <div className={styles.listPreCalLoc}>
             <img
@@ -45,15 +48,17 @@ const ListingPreview = () => {
             </span>
             <div className={styles.tab}>
               <div
-                className={`${styles.tabItem} ${styles.tabItems} ${selectedTab === "Description" ? styles.selected : ""
-                  }`}
+                className={`${styles.tabItem} ${styles.tabItems} ${
+                  selectedTab === "Description" ? styles.selected : ""
+                }`}
                 onClick={() => handleTabClick("Description")}
               >
                 Description
               </div>
               <div
-                className={`${styles.tabItem} ${styles.tabItems} ${selectedTab === "Review" ? styles.selected : ""
-                  }`}
+                className={`${styles.tabItem} ${styles.tabItems} ${
+                  selectedTab === "Review" ? styles.selected : ""
+                }`}
                 onClick={() => handleTabClick("Review")}
               >
                 Review
@@ -89,7 +94,9 @@ const ListingPreview = () => {
             )}
             {selectedTab === "Review" && (
               <div>
-                <div className={styles.descriptionTabs}>Review Content</div>
+                <div className={styles.descriptionTabs}>
+                  <ReviewRating rating={3.8} />
+                </div>
               </div>
             )}
           </div>
