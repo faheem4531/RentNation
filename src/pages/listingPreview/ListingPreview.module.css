@@ -11,7 +11,7 @@
 }
 
 .listingPreviewSlider{
-    height: 480px;
+    height: 580px;
 
 }
 
@@ -181,3 +181,74 @@
     margin-bottom: 109px;
 }
 
+/* Reviews Rating */
+
+.review-rating{
+    display: flex;
+}
+
+.rating-heading-main{
+    margin-left: 15px;
+}
+
+.rating-heading-details{
+    color: #A9A9A9;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 29.82px;
+}
+
+.rating-heading{
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 29.82px;
+}
+
+.rating-bars-main{
+    display: flex;
+}
+
+.rating-empty,
+.rating-full {
+  font-size: 24px;
+  color: #ccc;
+}
+
+
+
+.rating-full {
+  color: var(--yellow1-color);
+}
+
+.rating-bars {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.rating-bar {
+  border-radius: 41px;
+background: #525252;
+  height: 8px;
+  width: 462px;
+  position: relative;
+}
+
+.rating-progress {
+  background-color: var(--yellow1-color);
+  height: 100%;
+  border-radius: 41px;
+}
+
+.rating-bars-num{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 29.82px;
+}
+
+
+@media (max-width: 1200px) {
+    .listingPreviewCalenderMain{
+    height: 850px;
+}
+}

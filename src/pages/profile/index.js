@@ -11,13 +11,14 @@ import ProfileBtn from "../../components/buttons/CardButton";
 import ProfileText from "../../components/textarea/Textarea";
 import ProfileNavigatBtn from "../../components/buttons/NavigationBtn";
 
+import { Link } from "react-router-dom";
+
 import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 
 const Profile = () => {
   return (
     <div>
-      <Header
-        Login={true} />
+      <Header Login={true} />
       <div className={styles.profileMain}>
         <div className={styles.profileHeading}>Profile</div>
         <div className={styles.profileImgNameMainCon}>
@@ -36,13 +37,15 @@ const Profile = () => {
             />
           </div>
           <div className={styles.profileBtn}>
-            <ProfileBtn
-              buttonText={"Edit Photo"}
-              img={editIcon}
-              radius={'4px'}
-              padding={'24px '}
-              mrIcon={'6px'}
-            />
+            <Link className={styles.Link} to={"/EditProfile"}>
+              <ProfileBtn
+                buttonText={"Edit Photo"}
+                img={editIcon}
+                radius={"4px"}
+                padding={"24px "}
+                mrIcon={"6px"}
+              />
+            </Link>
           </div>
           <ProfileText
             lable="About"
@@ -53,12 +56,19 @@ const Profile = () => {
             borderRadius={"20px"}
           />
           <div className={styles.profileNavigateBtn}>
+            <Link className={styles.Link} to={"/EditProfile"}>
+              <ProfileNavigatBtn
+                buttonText={"Edit Profile"}
+                img={navigateBtnIcon}
+              />
+            </Link>
+          </div>
+          <Link className={styles.Link} to={"/Ticket"}>
             <ProfileNavigatBtn
-              buttonText={"Edit Profile"}
+              buttonText={"My Tickets"}
               img={navigateBtnIcon}
             />
-          </div>
-          <ProfileNavigatBtn buttonText={"My Tickets"} img={navigateBtnIcon} />
+          </Link>
         </div>
       </div>
       <div className={styles.notifiBgImgMainCon}>
