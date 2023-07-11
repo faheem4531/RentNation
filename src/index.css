@@ -165,9 +165,9 @@ box-shadow: none !important;
 
 }
 
-.carousel .control-disabled.control-arrow{
+/* .carousel .control-disabled.control-arrow{
   display: block !important;
-}
+} */
 
 
 .thumbs-wrapper button {
@@ -206,6 +206,10 @@ box-shadow: none !important;
 
 .thumb:hover{
   border: none !important;
+}
+
+.carousel .control-dots .dot{
+  margin: 0px 4px !important;
 }
 
 
@@ -291,5 +295,4 @@ box-shadow: none !important;
     height: 27px !important;
   width: 27px !important;
 }
-
 }

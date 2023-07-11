@@ -144,11 +144,13 @@ const Header = ({ Login }) => {
 
                   {!Login && (
                     <div className={styles.navBtnMain}>
-                      <LoginButton
-                        buttonText="Log in / Sign Up"
-                        fontSize="14px"
-                        onClick={handleSigninBtn}
-                      />
+                      <Link className="text-decoration-none" to={"/SignIn"}>
+                        <LoginButton
+                          buttonText="Log in / Sign Up"
+                          fontSize="14px"
+                          onClick={handleSigninBtn}
+                        />
+                      </Link>
                     </div>
                   )}
 
