@@ -33,9 +33,9 @@ const Listing = () => {
       price: "50",
       views: "569",
       image: beach1,
-      onShare: () => { },
-      onViewDetails: () => { },
-      listingTitle: true
+      onShare: () => {},
+      onViewDetails: () => {},
+      listingTitle: true,
     },
     {
       id: "bc2",
@@ -47,68 +47,71 @@ const Listing = () => {
       views: "569",
       image: beach2,
       tag: "FEATURED",
-      onShare: () => { },
-      onViewDetails: () => { },
-      listingTitle: 'listing'
+      onShare: () => {},
+      onViewDetails: () => {},
+      listingTitle: "listing",
     },
     {
       id: "bc3",
       heading: "beach Supplies",
-      subHeading: "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
+      subHeading:
+        "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
       location: "Turkis",
       price: "50",
       views: "569",
       image: beach3,
       tag: "FEATURED",
-      onShare: () => { },
-      onViewDetails: () => { },
-      listingTitle: 'listing'
+      onShare: () => {},
+      onViewDetails: () => {},
+      listingTitle: "listing",
     },
     {
       id: "bc4",
       heading: "beach Supplies",
-      subHeading: "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
+      subHeading:
+        "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
       location: "Turkis",
       price: "50",
       views: "569",
       image: beach4,
       tag: "FEATURED",
-      onShare: () => { },
-      onViewDetails: () => { },
-      listingTitle: 'listing'
+      onShare: () => {},
+      onViewDetails: () => {},
+      listingTitle: "listing",
     },
     {
       id: "bc5",
       heading: "beach Supplies",
-      subHeading: "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
+      subHeading:
+        "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
       location: "Turkis",
       price: "50",
       views: "569",
       image: beach5,
       tag: "FEATURED",
-      onShare: () => { },
-      onViewDetails: () => { },
-      listingTitle: 'listing'
+      onShare: () => {},
+      onViewDetails: () => {},
+      listingTitle: "listing",
     },
     {
       id: "bc6",
       heading: "beach Supplies",
-      subHeading: "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
+      subHeading:
+        "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
       location: "Turkis",
       price: "50",
       views: "569",
       image: beach6,
       tag: "FEATURED",
-      onShare: () => { },
-      onViewDetails: () => { },
-      listingTitle: 'listing'
+      onShare: () => {},
+      onViewDetails: () => {},
+      listingTitle: "listing",
     },
   ];
 
   return (
     <div className={styles.listingContainer}>
-      <Header
-        Login={false} />
+      <Header Login={false} selectedNav="LISTINGS" />
       <div className="container">
         <div className={styles.listingMain}>
           <div className={styles.listingFilter}>
@@ -157,6 +160,7 @@ const Listing = () => {
                   onShare={item.onShare}
                   onViewDetails={item.onViewDetails}
                   image={item.image}
+                  flag={true}
                   listingTitle={item.listingTitle}
                 />
               ))}

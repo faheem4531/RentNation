@@ -10,8 +10,7 @@ import bgRight from "../../assets/pngs/bg-rightHalf.png";
 const Contact = () => {
   return (
     <div>
-      <Header
-        Login={false} />
+      <Header Login={false} selectedNav="CONTACT" />
       <div className={styles.contactMain}>
         <div className={styles.contactFormMain}>
           <div className={styles.contactFormHeading}>Contact Us</div>

@@ -8,8 +8,7 @@ import bgRight from "../../assets/pngs/bg-rightHalf.png";
 const DamageReport = () => {
   return (
     <div>
-      <Header
-        Login={true} />
+      <Header Login={true} selectedNav="HOME" />
       <div className={styles.damageReportMain}>
         <div className={styles.damageReportCon}>
           <div className={styles.damageReportHeadingMain}>Damage report</div>

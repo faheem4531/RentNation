@@ -244,11 +244,21 @@ background: #525252;
     line-height: 29.82px;
 }
 
+.ListingPreviewFooter{
+    position: relative;
+}
+
+.bgLeft{
+    position: absolute;
+    top: -340px;
+    right: 0px;
+    z-index: -1;
+}
 
 @media (min-width: 1300px) {
     .listingPreviewSlider{
-    height: 650px;
-
+    height: 680px;
+    width: 758px;
 }
 }
 

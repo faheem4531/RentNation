@@ -7,7 +7,7 @@ import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 const NotificationSettings = () => {
   return (
     <div>
-      <Header Login={true} />
+      <Header Login={true} selectedNav={"profile"} />
       <div className={styles.content}>
         <div className={styles.profileHeading}>Notification Settings</div>
         <div className={styles.profileImgNameMainCon}>

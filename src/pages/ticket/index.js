@@ -37,7 +37,7 @@ const Ticket = () => {
   ];
   return (
     <div className={styles.ticket}>
-      <Header Login={true} />
+      <Header Login={true} selectedNav={"profile"} />
       <div className={styles.content}>
         <div className={styles.profileBtn}>
           <div className={styles.heading}>Tickets</div>

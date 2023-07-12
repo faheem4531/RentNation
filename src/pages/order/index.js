@@ -19,13 +19,13 @@ const Order = () => {
       price: "50",
       views: "569",
       image: beach1,
-      onShare: () => { },
-      onViewDetails: () => { },
+      onShare: () => {},
+      onViewDetails: () => {},
       listingTitle: false,
       featureDetails: {
-        users: '5 People',
-        milage: 'Unlimited ',
-      }
+        users: "5 People",
+        milage: "Unlimited ",
+      },
     },
     {
       id: "b2",
@@ -37,12 +37,12 @@ const Order = () => {
       views: "569",
       image: beach2,
       tag: "FEATURED",
-      onShare: () => { },
-      onViewDetails: () => { },
+      onShare: () => {},
+      onViewDetails: () => {},
       listingTitle: false,
       featureDetails: {
-        users: '2 Persons',
-      }
+        users: "2 Persons",
+      },
     },
     {
       id: "b3",
@@ -53,19 +53,18 @@ const Order = () => {
       views: "569",
       image: beach3,
       tag: "FEATURED",
-      onShare: () => { },
-      onViewDetails: () => { },
+      onShare: () => {},
+      onViewDetails: () => {},
       listingTitle: false,
       featureDetails: {
-        users: '5 People',
+        users: "5 People",
         icon: true,
-      }
+      },
     },
   ];
   return (
     <div className={styles.orderScreen}>
-      <Header
-        Login={true} />
+      <Header Login={true} selectedNav={"ORDER"} />
       <div className={styles.orderMain}>
         <div className={styles.orderHeading}>Orders</div>
         <div className={styles.bookedOrderMain}>
@@ -86,6 +85,7 @@ const Order = () => {
               image={item.image}
               listingTitle={item.listingTitle}
               featureDetails={item.featureDetails}
+              flag={true}
             />
           ))}
         </div>
@@ -101,15 +101,14 @@ const Order = () => {
             location="Turkis"
             price="50"
             views="569"
+            flag={false}
             image={beach2}
             listingTitle={false}
-            featureDetails={
-              {
-                damage: true,
-                users: '5 People',
-                shareCard: false
-              }
-            }
+            featureDetails={{
+              damage: true,
+              users: "5 People",
+              shareCard: false,
+            }}
           />
           {/* ))} */}
         </div>

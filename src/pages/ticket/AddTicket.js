@@ -9,7 +9,7 @@ import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 const AddTicket = () => {
   return (
     <div>
-      <Header Login={true} />
+      <Header Login={true} selectedNav={"profile"} />
       <div className={styles.content}>
         <div className={styles.profileHeading}>Add Tickets</div>
         <div className={styles.profileImgNameMainCon}>

@@ -90,7 +90,7 @@ const FeaturesCard = ({
             <img className={styles.eyeIcon} src={eye} />
             <span>{views}</span>
           </div>
-          <Link className={styles.routesLink} to="/listing">
+          <Link className={styles.routesLink} to="/ListingPreview">
             <CardButton
               buttonText={"View Details"}
               onClick={onViewDetails}

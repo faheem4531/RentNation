@@ -18,7 +18,7 @@ import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 const Profile = () => {
   return (
     <div>
-      <Header Login={true} />
+      <Header Login={true} selectedNav={"profile"} />
       <div className={styles.profileMain}>
         <div className={styles.profileHeading}>Profile</div>
         <div className={styles.profileImgNameMainCon}>

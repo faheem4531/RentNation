@@ -13,11 +13,17 @@ code {
     monospace;
 }
 
+a{
+  cursor: pointer;
+}
+
 .carousel-indicators .active {
   background-color: var(--yellow1-color) !important;
   border: 0px !important;
   height: 20px;
 }
+
+/* .modal-content{background-color: none !important;} */
 
 /* Add a line under the months */
 .rmdp-calendar {
