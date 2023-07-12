@@ -156,8 +156,6 @@
 .tabItems{
     /* color: var(--primary, #FFAE1B); */
     font-size: 22px;
-    font-family: Nunito;
-    font-style: normal;
     font-weight: 700;
     line-height: 29.82px;
 }
@@ -246,9 +244,185 @@ background: #525252;
     line-height: 29.82px;
 }
 
+.ListingPreviewFooter{
+    position: relative;
+}
+
+.bgLeft{
+    position: absolute;
+    top: -340px;
+    right: 0px;
+    z-index: -1;
+}
+
+@media (min-width: 1300px) {
+    .listingPreviewSlider{
+    height: 680px;
+    width: 758px;
+}
+}
+
 
 @media (max-width: 1200px) {
     .listingPreviewCalenderMain{
     height: 850px;
 }
+}
+
+@media (max-width: 992px) {
+    
+.listingPreviewMain{
+    display: flex;
+    flex-direction: column;
+}
+
+.listingPreviewCalenderMain{
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+
+.listingPreviewSliderMain{
+    width: 75%;
+    margin-bottom: 20px;
+}
+
+
+}
+
+
+@media (max-width: 767px) {
+
+.listingPreviewCalenderMain{
+    width: 80%;
+}
+
+
+.listingPreviewSliderMain{
+    width: 100%;
+}
+
+.listingPreviewSlider{
+    height: 600px;
+
+}
+}
+
+@media (max-width: 576px) {
+
+
+.listingPreviewSlider{
+    height: 500px;
+
+}
+
+.rating-bar {
+  height: 6px;
+  width: 362px;
+}
+
+.rating-heading{
+    font-size: 20px;
+}
+
+.rating-heading-details{
+    font-size: 12px;
+}
+
+
+.listingPreviewCalenderMain{
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+.listPreCalPrice{
+    font-size: 27px;
+    line-height: 30px;
+    margin-bottom: 15px;
+}
+
+.listPreCalLoc{
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.listPreCalLocDescription{
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.listPreCalLocSubHeading{
+    font-size: 15px;
+}
+
+}
+
+
+
+@media (max-width: 450px) {
+
+.listingPreviewCalenderMain{
+    width: 100%;
+}
+
+.listingPreviewSlider{
+    height: 380px;
+
+}
+
+.listingPreHeading{
+    font-size: 20px;
+    margin: 20px 0px 14px 0px;
+}
+
+.listPreCalDes{
+    font-size: 14px;
+    margin-left: 33px;
+}
+
+.tab {
+
+  border-bottom: 1.5px solid #ccc;
+  margin-top: 15px;
+}
+
+
+.tabItems{
+    /* color: var(--primary, #FFAE1B); */
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.descriptionTabs{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 19px;
+}
+
+.rating-bar {
+  width: 250px;
+}
+
+.rating-bars {
+  margin-left: 8px;
+}
+
+.CalenderPricePerCon{
+    margin-top: 16px; 
+    font-size: 14px;
+
+}
+.CalenderPricePerDay{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.CalenderPricePerDes{
+    color: #949494;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    margin-bottom: 24px;
+}
+
 }

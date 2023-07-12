@@ -8,8 +8,7 @@ import bgRight from "../../assets/pngs/bg-rightHalf.png";
 const About = () => {
   return (
     <div>
-      <Header
-        Login={false} />
+      <Header Login={false} selectedNav="ABOUT" />
       <div className={styles.aboutMain}>
         <div className={styles.aboutHeading}>About us</div>
         <div className={styles.aboutContantCon}>

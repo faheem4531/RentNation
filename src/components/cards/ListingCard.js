@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CardButton from "../buttons/CardButton";
 import LoginButton from "../buttons/LoginButton";
 import styles from "./ListingCard.module.css";
@@ -12,6 +12,10 @@ import monitor from "../../assets/svgs/monitor.svg";
 import wifi from "../../assets/svgs/wifi.svg";
 import chair from "../../assets/svgs/rocking-chair.svg";
 import bike from "../../assets/svgs/bike.svg";
+import PopUpModal from "../modals/PopUpModal";
+import Payment from "../modals/Payment";
+import PaymentDetails from "../modals/PaymentDetails";
+import { Link } from "react-router-dom";
 
 const ListingCard = ({
   heading,
@@ -24,7 +28,19 @@ const ListingCard = ({
   image,
   listingTitle,
   featureDetails = undefined,
+  flag,
 }) => {
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [showPaymentDetailsModal, setShowPaymentDetailsModal] = useState(false);
+  function handlePaymentModal() {
+    setShowPaymentModal(true);
+  }
+
+  function handlePaymentDetailsModal() {
+    setShowPaymentModal(false);
+    setShowPaymentDetailsModal(true);
+  }
+
   return (
     <div className={styles.card}>
       <div>
@@ -70,7 +86,11 @@ const ListingCard = ({
                 )}
               </div>
               {!featureDetails.damage && (
-                <LoginButton width={"92px"} buttonText={"BOOKED"} />
+                <LoginButton
+                  width={"92px"}
+                  buttonText={"BOOKED"}
+                  onClick={() => handlePaymentModal()}
+                />
               )}
             </div>
           </div>
@@ -87,7 +107,16 @@ const ListingCard = ({
           </div>
         </div>
         <div className="d-flex">
-          <CardButton buttonText={"View Details"} onClick={onViewDetails} />
+          {flag && (
+            <Link className="text-decoration-none" to={"/ListingPreview"}>
+              <CardButton buttonText={"View Details"} onClick={onViewDetails} />
+            </Link>
+          )}
+          {!flag && (
+            <Link className="text-decoration-none" to={"/damageReport"}>
+              <CardButton buttonText={"View Details"} onClick={onViewDetails} />
+            </Link>
+          )}
           {featureDetails && !featureDetails.shareCard ? (
             ""
           ) : (
@@ -99,6 +128,30 @@ const ListingCard = ({
           )}
         </div>
       </div>
+      {showPaymentModal && (
+        <PopUpModal
+          open={true}
+          onClose={() => setShowPaymentModal(false)}
+          heading="Payment Method"
+          hidden={false}
+          width="400px !important"
+          children={
+            <Payment
+              openPaymentDetailsMod={() => handlePaymentDetailsModal()}
+            />
+          }
+        ></PopUpModal>
+      )}
+      {showPaymentDetailsModal && (
+        <PopUpModal
+          open={true}
+          onClose={() => setShowPaymentDetailsModal(false)}
+          heading="Add card detial"
+          hidden={false}
+          width="400px !important"
+          children={<PaymentDetails />}
+        ></PopUpModal>
+      )}
     </div>
   );
 };

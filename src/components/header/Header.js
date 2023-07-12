@@ -8,8 +8,13 @@ import NavIcon from "../../assets/pngs/navIcon.png";
 import BellIcn from "../../assets/pngs/bell.png";
 import UserIcon from "../../assets/pngs/user.png";
 import SettingIcon from "../../assets/pngs/settings.png";
-import TicketsIcon from "../../assets/pngs/tickets.png";
+import TicketsIcon from "../../assets/svgs/list-ticket-icon.svg";
 import LogOutIcon from "../../assets/pngs/logOut.png";
+import ForgetPassword from "../modals/ForgetPassword";
+import SignUp from "../modals/SignUp";
+import Address from "../modals/Address";
+import OTP from "../modals/Oto";
+import UpdatePassword from "../modals/UpdatePasward";
 
 import PopUpModal from "../modals/PopUpModal";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,11 +22,16 @@ import SignIn from "../modals/SignIn";
 
 import { Link } from "react-router-dom";
 
-const Header = ({ Login }) => {
+const Header = ({ Login, selectedNav }) => {
   const [profileDropdown, setProfileDropdown] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showSignInModal, setShowSignInModal] = useState(false);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
+  const [showForgetModal, setShowForgetModal] = useState(false);
+  const [showAddressModal, setShowAddressModal] = useState(false);
+  const [showOTPModal, setShowOTPModal] = useState(false);
+  const [showNewPasswordModal, setShowNewPasswordModal] = useState(false);
   const [burgerState, setBurgerState] = useState(false);
-  const [selectedNav, setSelectedNav] = useState("HOME");
+  // const [selectedNav, setSelectedNav] = useState("HOME");
 
   const showProfileClass = "d-none";
   function handleNavbar() {
@@ -29,11 +39,36 @@ const Header = ({ Login }) => {
   }
 
   function handleClick(item) {
-    setSelectedNav(item);
+    // setSelectedNav(item);
   }
 
   function handleSigninBtn() {
-    setShowModal(true);
+    setShowSignInModal(true);
+  }
+
+  function handleSignUpBtn() {
+    setShowSignInModal(false);
+    setShowSignUpModal(true);
+  }
+
+  function handleForgetBtn() {
+    setShowSignInModal(false);
+    setShowForgetModal(true);
+  }
+
+  function handleAddressBtn() {
+    setShowSignUpModal(false);
+    setShowAddressModal(true);
+  }
+
+  function handleOTPBtn() {
+    setShowForgetModal(false);
+    setShowOTPModal(true);
+  }
+
+  function handleNewPasswordBtn() {
+    setShowOTPModal(false);
+    setShowNewPasswordModal(true);
   }
 
   return (
@@ -238,7 +273,7 @@ const Header = ({ Login }) => {
                               <li>
                                 <img
                                   className={styles.navDropIcon}
-                                  src={SettingIcon}
+                                  src={TicketsIcon}
                                   alt=""
                                 />
                                 TICKETS
@@ -265,17 +300,79 @@ const Header = ({ Login }) => {
           </nav>
         </div>
       </div>
-      {/* {showModal && (
+      {showSignInModal && (
         <PopUpModal
-          open={showModal}
-          onClose={() => setShowModal(false)}
-          heading="Signin"
+          open={showSignInModal}
+          onClose={() => setShowSignInModal(false)}
+          heading="Sign In"
           hidden={false}
-          buttonText="Signin"
+          buttonText="Sign In"
           width="450px !important"
-          children={<SignIn />}
+          children={
+            <SignIn
+              openNextModal={() => handleSignUpBtn()}
+              openForgetModal={() => handleForgetBtn()}
+            />
+          }
         ></PopUpModal>
-      )} */}
+      )}
+      {showSignUpModal && (
+        <PopUpModal
+          open={showSignUpModal}
+          onClose={() => setShowSignUpModal(false)}
+          heading="Sign Up"
+          hidden={false}
+          buttonText="Sign Up"
+          width="450px !important"
+          children={<SignUp openAddressModal={() => handleAddressBtn()} />}
+        ></PopUpModal>
+      )}
+      {showForgetModal && (
+        <PopUpModal
+          open={showForgetModal}
+          onClose={() => setShowForgetModal(false)}
+          heading="Forget Password"
+          hidden={false}
+          buttonText="ForgetPassword"
+          width="450px !important"
+          children={<ForgetPassword openOTPModal={() => handleOTPBtn()} />}
+        ></PopUpModal>
+      )}
+      {showAddressModal && (
+        <PopUpModal
+          open={showAddressModal}
+          onClose={() => setShowAddressModal(false)}
+          heading="Address"
+          hidden={false}
+          buttonText="Continue"
+          width="450px !important"
+          children={<Address />}
+        ></PopUpModal>
+      )}
+      {showOTPModal && (
+        <PopUpModal
+          open={showOTPModal}
+          onClose={() => setShowOTPModal(false)}
+          heading="OTP"
+          hidden={false}
+          buttonText="Continue"
+          width="400px !important"
+          children={
+            <OTP openNewPasswordModale={() => handleNewPasswordBtn()} />
+          }
+        ></PopUpModal>
+      )}
+      {showNewPasswordModal && (
+        <PopUpModal
+          open={showNewPasswordModal}
+          onClose={() => setShowNewPasswordModal(false)}
+          heading="Update Password"
+          hidden={false}
+          buttonText="Update Password"
+          width="400px !important"
+          children={<UpdatePassword />}
+        ></PopUpModal>
+      )}
     </div>
   );
 };

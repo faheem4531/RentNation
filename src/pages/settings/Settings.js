@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const Settings = () => {
   return (
     <div>
-      <Header Login={true} />
+      <Header Login={true} selectedNav={"profile"} />
       <div className={styles.content}>
         <div className={styles.profileHeading}>Settings</div>
         <div className={styles.profileImgNameMainCon}>

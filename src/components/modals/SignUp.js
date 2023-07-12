@@ -9,40 +9,34 @@ import Apple from "../../assets/svgs/apple-icon.svg";
 import Google from "../../assets/svgs/google-icon.svg";
 import Fb from "../../assets/svgs/fb-icon.svg";
 
-const SignIn = ({ openNextModal, openForgetModal }) => {
-  function handleSigninBtn() {}
-
+const SignUp = ({ openAddressModal }) => {
   function handleOtherSignups() {}
 
   return (
     <div className={styles.signIn}>
       <div className={styles.inputs}>
-        <Input label="Email*" type="email" placeholder="Enter your email" />
+        <Input label="Name*" type="text" placeholder="Enter your email" />
+        <Input label="Email*" type="email" placeholder="Enter your password" />
         <Input
           label="Password*"
           type="password"
-          placeholder="Enter your password"
+          placeholder="Create a password"
         />
       </div>
       <div className={styles.forgetContent}>
         <div>Must be at least 8 characters.</div>
-        <a className={styles.forgetPass} onClick={() => openForgetModal()}>
-          Forgot Password?
-        </a>
       </div>
       <div className={styles.modalButton}>
         <LoginButton
-          buttonText="SignIn"
+          buttonText="Sign Up"
           fontSize="14px"
           borderColor="1px solid var(--border-dark-yellow1-color) "
-          onClick={handleSigninBtn}
+          onClick={() => openAddressModal()}
         />
       </div>
       <div className={styles.signUpContent}>
-        <div>New to Rentnation?</div>
-        <a className={styles.signUp} onClick={() => openNextModal()}>
-          Sign Up
-        </a>
+        <div>Already Have an account</div>
+        <a className={styles.signUp}>Login</a>
       </div>
       <div className={styles.oRLine}>
         <div className={styles.leftLine}></div>
@@ -70,4 +64,4 @@ const SignIn = ({ openNextModal, openForgetModal }) => {
   );
 };
 
-export default SignIn;
+export default SignUp;

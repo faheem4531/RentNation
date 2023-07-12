@@ -1,26 +1,33 @@
 import React, { useState } from "react";
 
-import styles from './Summary.module.css';
+import styles from "./Summary.module.css";
 import LoginButton from "../buttons/LoginButton";
 import SummaryModalCard from "../cards/SummaryModalCard";
+import PopUpModal from "../../components/modals/PopUpModal";
+import BillDetails from "../../components/modals/BillDetails";
 
-
-
-const Summary = ({ total, discription, itemImage, itemTitle, itemLocation }) => {
+const Summary = ({
+  total,
+  discription,
+  itemImage,
+  itemTitle,
+  itemLocation,
+  openNextModal,
+}) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
-  }
+  };
 
   const checkboxStyles = {
-    appearance: 'none',
-    width: '20px',
-    height: '20px',
-    backgroundColor: 'transparent',
-    border: '1px solid var(--yellow1-color)',
-    borderRadius: '4px',
-    outline: 'none',
+    appearance: "none",
+    width: "20px",
+    height: "20px",
+    backgroundColor: "transparent",
+    border: "1px solid var(--yellow1-color)",
+    borderRadius: "4px",
+    outline: "none",
   };
 
   return (
@@ -47,11 +54,11 @@ const Summary = ({ total, discription, itemImage, itemTitle, itemLocation }) => 
             itemImage={itemImage}
             itemLocation={itemLocation}
             itemTitle={itemTitle}
-            gap='9px'
-            width='61.617px'
-            height='43.931px'
-            fontSize='16px'
-            mt='0px'
+            gap="9px"
+            width="61.617px"
+            height="43.931px"
+            fontSize="16px"
+            mt="0px"
           />
           <div>
             <input
@@ -69,11 +76,11 @@ const Summary = ({ total, discription, itemImage, itemTitle, itemLocation }) => 
             itemImage={itemImage}
             itemLocation={itemLocation}
             itemTitle={itemTitle}
-            gap='9px'
-            width='62px'
-            height='44px'
-            fontSize='16px'
-            mt='0px'
+            gap="9px"
+            width="62px"
+            height="44px"
+            fontSize="16px"
+            mt="0px"
           />
           <div>
             <input
@@ -82,7 +89,8 @@ const Summary = ({ total, discription, itemImage, itemTitle, itemLocation }) => 
               onChange={handleCheckboxChange}
               className={styles.customCheckbox}
               style={checkboxStyles}
-              id="customCheck1" />
+              id="customCheck1"
+            />
           </div>
         </div>
       </div>
@@ -90,11 +98,11 @@ const Summary = ({ total, discription, itemImage, itemTitle, itemLocation }) => 
         <LoginButton
           buttonText="Book Now"
           fontSize="16px"
-          borderColor='1px solid var(--border-dark-yellow1-color) '
-          onClick={() => { }}
+          borderColor="1px solid var(--border-dark-yellow1-color) "
+          onClick={() => openNextModal()}
         />
       </div>
-    </div >
+    </div>
   );
 };
 

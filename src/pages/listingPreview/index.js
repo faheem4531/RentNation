@@ -6,11 +6,16 @@ import heartIcon from "../../assets/svgs/list-heart.svg";
 import locationIcon from "../../assets/svgs/list-location.svg";
 import Slider from "./Slider";
 import ReviewRating from "./ReviewRating";
+import PopUpModal from "../../components/modals/PopUpModal";
+import Summary from "../../components/modals/Summary";
+import SummeryImg from "../../assets/pngs/summaryImg.png";
+import BillDetails from "../../components/modals/BillDetails";
 
 import DatePicker from "react-multi-date-picker";
 import { Calendar, DateObject } from "react-multi-date-picker";
 import "react-multi-date-picker/styles/colors/purple.css";
 
+import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 import CalenderBtn from "../../components/buttons/LoginButton";
 
 const ListingPreview = () => {
@@ -21,15 +26,26 @@ const ListingPreview = () => {
     arrows: "custom-arrows",
   };
 
+  const [showModal, setShowModal] = useState(false);
+  const [showBillModal, setShowBillModal] = useState(false);
   const [values, setValues] = useState([new DateObject()]);
   const [selectedTab, setSelectedTab] = useState("Description");
 
   const handleTabClick = (tab) => {
     setSelectedTab(tab);
   };
+
+  function handleSigninBtn() {
+    setShowModal(true);
+  }
+
+  function handleBillModal() {
+    setShowModal(false);
+    setShowBillModal(true);
+  }
   return (
     <div>
-      <Header Login={false} />
+      <Header Login={false} selectedNav="LISTING" />
       <div className={styles.listingPreviewMain}>
         <div className={styles.listingPreviewSliderMain}>
           <div className={styles.listingPreviewSlider}>
@@ -155,11 +171,52 @@ const ListingPreview = () => {
             You got 10% discount because you purchase more than a weak.
           </div>
           <div className={styles.CalenderBtn}>
-            <CalenderBtn buttonText="Make request" width="96%" />
+            <CalenderBtn
+              buttonText="Make request"
+              width="96%"
+              onClick={handleSigninBtn}
+            />
           </div>
         </div>
       </div>
-      <Footer />
+      <div className={styles.ListingPreviewFooter}>
+        <img className={styles.bgLeft} src={bgLeft} />
+        <Footer />
+      </div>
+      {showModal && (
+        <PopUpModal
+          open={showModal}
+          onClose={() => setShowModal(false)}
+          heading="Summary"
+          hidden={false}
+          buttonText="Signin"
+          width="450px !important"
+          children={
+            <Summary
+              itemImage={SummeryImg}
+              itemTitle={"Beache Supplies"}
+              itemLocation={"Caicos"}
+              discription={
+                "The beach is a stunning natural landscape where the land gently meets the vast expanse of the sea. It is a place of serene beauty,The beach is a stunning natural landscape where the land gently meets the vast expanse of the sea. It is a place of serene beauty,"
+              }
+              closePreModal={() => setShowModal(false)}
+              openNextModal={() => handleBillModal()}
+              total={"300"}
+            />
+          }
+        ></PopUpModal>
+      )}
+      {showBillModal && (
+        <PopUpModal
+          open={showBillModal}
+          onClose={() => setShowBillModal(false)}
+          heading="Bill Details"
+          hidden={false}
+          buttonText="Signin"
+          width="450px !important"
+          children={<BillDetails total={"300"} subTotal={"300"} vat={"300"} />}
+        ></PopUpModal>
+      )}
     </div>
   );
 };
