@@ -28,8 +28,6 @@ const HomeFeatures = () => {
       views: "569",
       image: golf1,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "gc2",
@@ -40,8 +38,6 @@ const HomeFeatures = () => {
       views: "569",
       image: golf2,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "gc3",
@@ -52,8 +48,6 @@ const HomeFeatures = () => {
       views: "569",
       image: golf3,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "gc4",
@@ -64,8 +58,6 @@ const HomeFeatures = () => {
       views: "569",
       image: golf1,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "gc5",
@@ -76,8 +68,6 @@ const HomeFeatures = () => {
       views: "569",
       image: golf2,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "gc6",
@@ -88,8 +78,6 @@ const HomeFeatures = () => {
       views: "569",
       image: golf3,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
   ];
   const beachCardsData = [
@@ -102,8 +90,6 @@ const HomeFeatures = () => {
       views: "569",
       image: beach1,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "bc2",
@@ -114,8 +100,6 @@ const HomeFeatures = () => {
       views: "569",
       image: beach2,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "bc3",
@@ -126,8 +110,6 @@ const HomeFeatures = () => {
       views: "569",
       image: beach3,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "bc4",
@@ -138,8 +120,6 @@ const HomeFeatures = () => {
       views: "569",
       image: beach4,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "bc5",
@@ -150,8 +130,6 @@ const HomeFeatures = () => {
       views: "569",
       image: beach1,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "bc6",
@@ -162,8 +140,6 @@ const HomeFeatures = () => {
       views: "569",
       image: beach2,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
   ];
   const KayaksCardsData = [
@@ -176,8 +152,6 @@ const HomeFeatures = () => {
       views: "569",
       image: kayaks1,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "kc2",
@@ -188,8 +162,6 @@ const HomeFeatures = () => {
       views: "569",
       image: kayaks2,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "kc3",
@@ -200,8 +172,6 @@ const HomeFeatures = () => {
       views: "569",
       image: kayaks3,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "kc4",
@@ -212,8 +182,6 @@ const HomeFeatures = () => {
       views: "569",
       image: kayaks4,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "kc5",
@@ -224,8 +192,6 @@ const HomeFeatures = () => {
       views: "569",
       image: kayaks1,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
     {
       id: "kc6",
@@ -236,14 +202,12 @@ const HomeFeatures = () => {
       views: "569",
       image: kayaks2,
       tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
     },
   ];
   return (
     <div className={styles.featuresParent}>
-      <img className={styles.circleLeft} src={bgLeft} />
-      <img className={styles.circleRight} src={bgRight} />
+      <img className={styles.circleLeft} src={bgLeft} alt="img" />
+      <img className={styles.circleRight} src={bgRight} alt="img" />
 
       <FeatureCardsContainer
         cardData={golfCardsData}
@@ -251,7 +215,7 @@ const HomeFeatures = () => {
       />
       <FeatureCardsContainer
         cardData={beachCardsData}
-        featureTitle={"beach Supplies"}
+        featureTitle={"beache Supplies"}
       />
       <FeatureCardsContainer
         cardData={KayaksCardsData}

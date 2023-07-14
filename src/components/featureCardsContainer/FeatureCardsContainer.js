@@ -1,14 +1,15 @@
 import React from "react";
 
-import styles from './FeatureCardsContainer.module.css';
+import styles from "./FeatureCardsContainer.module.css";
 import FeaturesCard from "../cards/FeaturesCard";
 
 const FeatureCardsContainer = (props) => {
-
   return (
     <div>
       <div className="container">
-        <div className={styles.featureTitle}>Featured {props.featureTitle} for Rent</div>
+        <div className={styles.featureTitle}>
+          Featured {props.featureTitle} for Rent
+        </div>
         <div className={styles.cardContainer}>
           {props.cardData.map((item) => (
             <FeaturesCard
@@ -19,15 +20,15 @@ const FeatureCardsContainer = (props) => {
               price={item.price}
               views={item.views}
               tag={item.tag}
-              onShare={item.onShare}
-              onViewDetails={item.onViewDetails}
+              onShare={() => {}}
+              onViewDetails={() => {}}
               image={item.image}
             />
           ))}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default FeatureCardsContainer;

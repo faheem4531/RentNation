@@ -21,6 +21,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SignIn from "../modals/SignIn";
 
 import { Link } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+// import { useDispatch, useSelector } from "react-redux";
+// import { setIsLoggedIn } from "../../store/reducers/AuthenticationReducer";
 
 const Header = ({ Login, selectedNav }) => {
   const [profileDropdown, setProfileDropdown] = useState(false);
@@ -83,8 +86,7 @@ const Header = ({ Login, selectedNav }) => {
               <button
                 className={styles.navBtn}
                 type="button"
-                onClick={handleNavbar}
-              >
+                onClick={handleNavbar}>
                 <div className={styles.hamMain}>
                   <div className={styles.bar}></div>
                   <div className={styles.bar}></div>
@@ -102,76 +104,69 @@ const Header = ({ Login, selectedNav }) => {
                 <div className={styles.navItemSubMain}>
                   <div
                     className={styles.navItem}
-                    onClick={() => handleClick("HOME")}
-                  >
+                    onClick={() => handleClick("HOME")}>
                     <Link className="text-decoration-none" to={"/"}>
                       <a
                         aria-current="page"
                         href="#"
                         className={`${
                           selectedNav === "HOME" ? styles.activeNavItem : ""
-                        }`}
-                      >
+                        }`}>
                         HOME
                       </a>
                     </Link>
                   </div>
                   <div
                     className={styles.navItem}
-                    onClick={() => handleClick("LISTINGS")}
-                  >
+                    onClick={() => handleClick("LISTINGS")}>
                     <Link className="text-decoration-none" to={"/listing"}>
                       <a
                         className={`${
                           selectedNav === "LISTINGS" ? styles.activeNavItem : ""
                         }`}
-                        href="#"
-                      >
+                        href="#">
                         LISTINGS
                       </a>
                     </Link>
                   </div>
+                  {!Login && (
+                    <div
+                      className={styles.navItem}
+                      onClick={() => handleClick("ORDER")}>
+                      <Link className="text-decoration-none" to={"/order"}>
+                        <a
+                          href="#"
+                          className={`${
+                            selectedNav === "ORDER" ? styles.activeNavItem : ""
+                          }`}>
+                          ORDERS
+                        </a>
+                      </Link>
+                    </div>
+                  )}
+
                   <div
                     className={styles.navItem}
-                    onClick={() => handleClick("ORDER")}
-                  >
-                    <Link className="text-decoration-none" to={"/order"}>
-                      <a
-                        href="#"
-                        className={`${
-                          selectedNav === "ORDER" ? styles.activeNavItem : ""
-                        }`}
-                      >
-                        ORDERS
-                      </a>
-                    </Link>
-                  </div>
-                  <div
-                    className={styles.navItem}
-                    onClick={() => handleClick("ABOUT")}
-                  >
+                    onClick={() => handleClick("ABOUT")}>
                     <Link className="text-decoration-none" to={"/about"}>
                       <a
                         href="#"
                         className={`${
                           selectedNav === "ABOUT" ? styles.activeNavItem : ""
-                        }`}
-                      >
+                        }`}>
                         ABOUT
                       </a>
                     </Link>
                   </div>
                   <div
                     className={styles.navItem}
-                    onClick={() => handleClick("CONTACT")}
-                  >
+                    onClick={() => handleClick("CONTACT")}>
                     <Link className="text-decoration-none" to={"/contact"}>
                       <a
                         href="#"
                         className={`${
                           selectedNav === "CONTACT" ? styles.activeNavItem : ""
-                        }`}
-                      >
+                        }`}>
                         CONTACT
                       </a>
                     </Link>
@@ -180,6 +175,7 @@ const Header = ({ Login, selectedNav }) => {
                   {!Login && (
                     <div className={styles.navBtnMain}>
                       <LoginButton
+                        // onClick={handleLogin}
                         buttonText="Log in / Sign Up"
                         fontSize="14px"
                         onClick={handleSigninBtn}
@@ -191,20 +187,17 @@ const Header = ({ Login, selectedNav }) => {
                     <div className={styles.navProfileMain}>
                       <div
                         onClick={() => setProfileDropdown((preVal) => !preVal)}
-                        className={styles.navProfileCon}
-                      >
+                        className={styles.navProfileCon}>
                         <div
                           className={styles.navItem}
-                          onClick={() => handleClick("profile")}
-                        >
+                          onClick={() => handleClick("profile")}>
                           <a
                             href="#"
                             className={`${
                               selectedNav === "profile"
                                 ? styles.activeNavItem
                                 : ""
-                            }`}
-                          >
+                            }`}>
                             Harley Quinn
                             <img
                               className={styles.navImg}
@@ -223,14 +216,12 @@ const Header = ({ Login, selectedNav }) => {
                       <div
                         className={`${styles.listingFilterMain} ${
                           !profileDropdown && showProfileClass
-                        }`}
-                      >
+                        }`}>
                         <div className={styles.headerDropList}>
                           <ul className={styles.dropdownClass}>
                             <Link
                               className="text-decoration-none"
-                              to={"/profile"}
-                            >
+                              to={"/profile"}>
                               <li>
                                 <img
                                   className={styles.navDropIcon}
@@ -242,8 +233,7 @@ const Header = ({ Login, selectedNav }) => {
                             </Link>
                             <Link
                               className="text-decoration-none"
-                              to={"/notification"}
-                            >
+                              to={"/notification"}>
                               <li>
                                 <img
                                   className={styles.navDropIcon}
@@ -255,8 +245,7 @@ const Header = ({ Login, selectedNav }) => {
                             </Link>
                             <Link
                               className="text-decoration-none"
-                              to={"/settings"}
-                            >
+                              to={"/settings"}>
                               <li>
                                 <img
                                   className={styles.navDropIcon}
@@ -268,8 +257,7 @@ const Header = ({ Login, selectedNav }) => {
                             </Link>
                             <Link
                               className="text-decoration-none"
-                              to={"/Ticket"}
-                            >
+                              to={"/Ticket"}>
                               <li>
                                 <img
                                   className={styles.navDropIcon}
@@ -313,8 +301,7 @@ const Header = ({ Login, selectedNav }) => {
               openNextModal={() => handleSignUpBtn()}
               openForgetModal={() => handleForgetBtn()}
             />
-          }
-        ></PopUpModal>
+          }></PopUpModal>
       )}
       {showSignUpModal && (
         <PopUpModal
@@ -324,8 +311,9 @@ const Header = ({ Login, selectedNav }) => {
           hidden={false}
           buttonText="Sign Up"
           width="450px !important"
-          children={<SignUp openAddressModal={() => handleAddressBtn()} />}
-        ></PopUpModal>
+          children={
+            <SignUp openAddressModal={() => handleAddressBtn()} />
+          }></PopUpModal>
       )}
       {showForgetModal && (
         <PopUpModal
@@ -335,8 +323,9 @@ const Header = ({ Login, selectedNav }) => {
           hidden={false}
           buttonText="ForgetPassword"
           width="450px !important"
-          children={<ForgetPassword openOTPModal={() => handleOTPBtn()} />}
-        ></PopUpModal>
+          children={
+            <ForgetPassword openOTPModal={() => handleOTPBtn()} />
+          }></PopUpModal>
       )}
       {showAddressModal && (
         <PopUpModal
@@ -346,8 +335,7 @@ const Header = ({ Login, selectedNav }) => {
           hidden={false}
           buttonText="Continue"
           width="450px !important"
-          children={<Address />}
-        ></PopUpModal>
+          children={<Address />}></PopUpModal>
       )}
       {showOTPModal && (
         <PopUpModal
@@ -359,8 +347,7 @@ const Header = ({ Login, selectedNav }) => {
           width="400px !important"
           children={
             <OTP openNewPasswordModale={() => handleNewPasswordBtn()} />
-          }
-        ></PopUpModal>
+          }></PopUpModal>
       )}
       {showNewPasswordModal && (
         <PopUpModal
@@ -370,8 +357,7 @@ const Header = ({ Login, selectedNav }) => {
           hidden={false}
           buttonText="Update Password"
           width="400px !important"
-          children={<UpdatePassword />}
-        ></PopUpModal>
+          children={<UpdatePassword />}></PopUpModal>
       )}
     </div>
   );

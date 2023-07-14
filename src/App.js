@@ -18,7 +18,6 @@ import {
   EditPassword,
   PrivacyPolicy,
 } from "./pages";
-import damageReport from "./pages";
 import SignIn from "./components/modals/SignIn";
 import Summary from "./components/modals/Summary";
 import BillDetails from "./components/modals/BillDetails";
