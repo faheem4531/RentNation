@@ -129,22 +129,19 @@ const Header = ({ Login, selectedNav }) => {
                       </a>
                     </Link>
                   </div>
-                  {!Login && (
-                    <div
-                      className={styles.navItem}
-                      onClick={() => handleClick("ORDER")}>
-                      <Link className="text-decoration-none" to={"/order"}>
-                        <a
-                          href="#"
-                          className={`${
-                            selectedNav === "ORDER" ? styles.activeNavItem : ""
-                          }`}>
-                          ORDERS
-                        </a>
-                      </Link>
-                    </div>
-                  )}
-
+                  <div
+                    className={styles.navItem}
+                    onClick={() => handleClick("ORDER")}>
+                    <Link className="text-decoration-none" to={"/order"}>
+                      <a
+                        href="#"
+                        className={`${
+                          selectedNav === "ORDER" ? styles.activeNavItem : ""
+                        }`}>
+                        ORDERS
+                      </a>
+                    </Link>
+                  </div>
                   <div
                     className={styles.navItem}
                     onClick={() => handleClick("ABOUT")}>
@@ -175,7 +172,6 @@ const Header = ({ Login, selectedNav }) => {
                   {!Login && (
                     <div className={styles.navBtnMain}>
                       <LoginButton
-                        // onClick={handleLogin}
                         buttonText="Log in / Sign Up"
                         fontSize="14px"
                         onClick={handleSigninBtn}

@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signupAction } from "../../store/thunk/SignupThunk";
 
 import styles from "./SignIn.module.css";
 import Input from "../inputs/Input";
@@ -9,18 +12,42 @@ import Apple from "../../assets/svgs/apple-icon.svg";
 import Google from "../../assets/svgs/google-icon.svg";
 import Fb from "../../assets/svgs/fb-icon.svg";
 
-const SignUp = ({ openAddressModal }) => {
+const SignUp = () => {
   function handleOtherSignups() {}
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignup = () => {
+    dispatch(signupAction({ data: { name, email, password }, navigate }));
+  };
 
   return (
     <div className={styles.signIn}>
       <div className={styles.inputs}>
-        <Input label="Name*" type="text" placeholder="Enter your email" />
-        <Input label="Email*" type="email" placeholder="Enter your password" />
+        <Input
+          label="Name*"
+          type="text"
+          placeholder="Enter your email"
+          value={name}
+          setValue={setName}
+        />
+        <Input
+          label="Email*"
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          setValue={setEmail}
+        />
         <Input
           label="Password*"
           type="password"
           placeholder="Create a password"
+          value={password}
+          setValue={setPassword}
         />
       </div>
       <div className={styles.forgetContent}>
@@ -31,7 +58,7 @@ const SignUp = ({ openAddressModal }) => {
           buttonText="Sign Up"
           fontSize="14px"
           borderColor="1px solid var(--border-dark-yellow1-color) "
-          onClick={() => openAddressModal()}
+          onClick={handleSignup}
         />
       </div>
       <div className={styles.signUpContent}>
