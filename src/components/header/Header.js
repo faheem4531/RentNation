@@ -22,10 +22,13 @@ import SignIn from "../modals/SignIn";
 
 import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { setIsLoggedIn } from "../../store/reducers/AuthenticationReducer";
 
 const Header = ({ Login, selectedNav }) => {
+
+  const addressModelState = useSelector((state) => state.AdditionalUserReducer.addressModel);
+  console.log("addddddd", addressModelState)
   const [profileDropdown, setProfileDropdown] = useState(false);
   const [showSignInModal, setShowSignInModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
@@ -323,9 +326,9 @@ const Header = ({ Login, selectedNav }) => {
             <ForgetPassword openOTPModal={() => handleOTPBtn()} />
           }></PopUpModal>
       )}
-      {showAddressModal && (
+      {addressModelState && (
         <PopUpModal
-          open={showAddressModal}
+          open={addressModelState}
           onClose={() => setShowAddressModal(false)}
           heading="Address"
           hidden={false}

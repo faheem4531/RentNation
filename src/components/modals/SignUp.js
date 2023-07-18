@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { updateName, updateEmail, updatePassword, updateAddressMode } from "../../store/reducers/AdditionalUserReducer";
 import { signupAction } from "../../store/thunk/SignupThunk";
 
 import styles from "./SignIn.module.css";
@@ -17,14 +18,24 @@ const SignUp = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const user = useSelector((state) => state.AdditionalUserReducer);
+  // const email = useSelector((state) => state.AdditionalUserReducer);
+  // const password = useSelector((state) => state.AdditionalUserReducer.password);
+
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
 
   const handleSignup = () => {
-    dispatch(signupAction({ data: { name, email, password }, navigate }));
+    // navigate('', {
+    //   name: name,
+    //   email: email,
+    //   password: password
+    // });
+    dispatch(updateAddressMode(true));
   };
 
+  // console.log(name, 'namenamename');
   return (
     <div className={styles.signIn}>
       <div className={styles.inputs}>
@@ -32,22 +43,22 @@ const SignUp = () => {
           label="Name*"
           type="text"
           placeholder="Enter your email"
-          value={name}
-          setValue={setName}
+          value={user.name}
+          setValue={(name)=>dispatch(updateName(name))}
         />
         <Input
           label="Email*"
           type="email"
           placeholder="Enter your email"
-          value={email}
-          setValue={setEmail}
+          value={user.email}
+          setValue={(email)=>dispatch(updateEmail(email))}
         />
         <Input
           label="Password*"
           type="password"
           placeholder="Create a password"
-          value={password}
-          setValue={setPassword}
+          value={user.password}
+          setValue={(password)=>dispatch(updatePassword(password))}
         />
       </div>
       <div className={styles.forgetContent}>
