@@ -7,7 +7,7 @@ export const getHomeData = createAsyncThunk(
   async ({ email, password }) => {
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/auth/login`,
+        `${process.env.REACT_APP_BASE_URL}/home`,
         { email, password }
       );
       const token = response.data.token;

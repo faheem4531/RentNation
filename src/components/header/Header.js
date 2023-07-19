@@ -16,6 +16,12 @@ import Address from "../modals/Address";
 import OTP from "../modals/Oto";
 import UpdatePassword from "../modals/UpdatePasward";
 
+import {
+  updateSignupMode,
+  updateAddressMode,
+  updateSigninMode,
+  updateForgetMode,
+} from "../../store/reducers/AdditionalUserReducer";
 import PopUpModal from "../modals/PopUpModal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SignIn from "../modals/SignIn";
@@ -26,14 +32,12 @@ import { useDispatch, useSelector } from "react-redux";
 // import { setIsLoggedIn } from "../../store/reducers/AuthenticationReducer";
 
 const Header = ({ Login, selectedNav }) => {
+  const dispatch = useDispatch();
+  const { addressModel, signupModel, signinModel, forgetModal } = useSelector(
+    (state) => state.AdditionalUserReducer
+  );
 
-  const addressModelState = useSelector((state) => state.AdditionalUserReducer.addressModel);
-  console.log("addddddd", addressModelState)
   const [profileDropdown, setProfileDropdown] = useState(false);
-  const [showSignInModal, setShowSignInModal] = useState(false);
-  const [showSignUpModal, setShowSignUpModal] = useState(false);
-  const [showForgetModal, setShowForgetModal] = useState(false);
-  const [showAddressModal, setShowAddressModal] = useState(false);
   const [showOTPModal, setShowOTPModal] = useState(false);
   const [showNewPasswordModal, setShowNewPasswordModal] = useState(false);
   const [burgerState, setBurgerState] = useState(false);
@@ -48,27 +52,50 @@ const Header = ({ Login, selectedNav }) => {
     // setSelectedNav(item);
   }
 
-  function handleSigninBtn() {
-    setShowSignInModal(true);
+  function closeSigninModal() {
+    dispatch(updateSigninMode(false));
   }
 
-  function handleSignUpBtn() {
-    setShowSignInModal(false);
-    setShowSignUpModal(true);
+  function openSigninModal() {
+    dispatch(updateSigninMode(true));
   }
 
-  function handleForgetBtn() {
-    setShowSignInModal(false);
-    setShowForgetModal(true);
+  function openForgetModal() {
+    dispatch(updateForgetMode(true));
   }
 
-  function handleAddressBtn() {
-    setShowSignUpModal(false);
-    setShowAddressModal(true);
+  function closeForgetModal() {
+    dispatch(updateForgetMode(false));
   }
+
+  function openSignupModal() {
+    dispatch(updateSignupMode(true));
+  }
+
+  function closeSignupModal() {
+    dispatch(updateSignupMode(false));
+  }
+
+  function openAddressModel() {
+    dispatch(updateAddressMode(true));
+  }
+
+  function closeAddressModel() {
+    dispatch(updateAddressMode(false));
+  }
+
+  // function handleSignUpBtn() {
+  //   closeSigninModal();
+  //   dispatch(updateSignupMode(true));
+  // }
+
+  // function handleAddressBtn() {
+  //   dispatch(updateSignupMode(false));
+  //   dispatch(updateAddressMode(true));
+  // }
 
   function handleOTPBtn() {
-    setShowForgetModal(false);
+    closeForgetModal();
     setShowOTPModal(true);
   }
 
@@ -111,7 +138,7 @@ const Header = ({ Login, selectedNav }) => {
                     <Link className="text-decoration-none" to={"/"}>
                       <a
                         aria-current="page"
-                        href="#"
+                        href="home"
                         className={`${
                           selectedNav === "HOME" ? styles.activeNavItem : ""
                         }`}>
@@ -127,7 +154,7 @@ const Header = ({ Login, selectedNav }) => {
                         className={`${
                           selectedNav === "LISTINGS" ? styles.activeNavItem : ""
                         }`}
-                        href="#">
+                        href="listing">
                         LISTINGS
                       </a>
                     </Link>
@@ -137,7 +164,7 @@ const Header = ({ Login, selectedNav }) => {
                     onClick={() => handleClick("ORDER")}>
                     <Link className="text-decoration-none" to={"/order"}>
                       <a
-                        href="#"
+                        href="orders"
                         className={`${
                           selectedNav === "ORDER" ? styles.activeNavItem : ""
                         }`}>
@@ -150,7 +177,7 @@ const Header = ({ Login, selectedNav }) => {
                     onClick={() => handleClick("ABOUT")}>
                     <Link className="text-decoration-none" to={"/about"}>
                       <a
-                        href="#"
+                        href="about"
                         className={`${
                           selectedNav === "ABOUT" ? styles.activeNavItem : ""
                         }`}>
@@ -163,7 +190,7 @@ const Header = ({ Login, selectedNav }) => {
                     onClick={() => handleClick("CONTACT")}>
                     <Link className="text-decoration-none" to={"/contact"}>
                       <a
-                        href="#"
+                        href="contact"
                         className={`${
                           selectedNav === "CONTACT" ? styles.activeNavItem : ""
                         }`}>
@@ -177,7 +204,7 @@ const Header = ({ Login, selectedNav }) => {
                       <LoginButton
                         buttonText="Log in / Sign Up"
                         fontSize="14px"
-                        onClick={handleSigninBtn}
+                        onClick={openSigninModal}
                       />
                     </div>
                   )}
@@ -191,7 +218,7 @@ const Header = ({ Login, selectedNav }) => {
                           className={styles.navItem}
                           onClick={() => handleClick("profile")}>
                           <a
-                            href="#"
+                            href="profile"
                             className={`${
                               selectedNav === "profile"
                                 ? styles.activeNavItem
@@ -287,37 +314,53 @@ const Header = ({ Login, selectedNav }) => {
           </nav>
         </div>
       </div>
-      {showSignInModal && (
+      {signinModel && (
         <PopUpModal
-          open={showSignInModal}
-          onClose={() => setShowSignInModal(false)}
+          open={signinModel}
+          onClose={closeSigninModal}
           heading="Sign In"
           hidden={false}
           buttonText="Sign In"
           width="450px !important"
           children={
             <SignIn
-              openNextModal={() => handleSignUpBtn()}
-              openForgetModal={() => handleForgetBtn()}
+              openForgetModal={() => {
+                openForgetModal();
+                closeSigninModal();
+              }}
+              closeModal={closeSigninModal}
+              openSignupModal={() => {
+                openSignupModal();
+                closeSigninModal();
+              }}
             />
           }></PopUpModal>
       )}
-      {showSignUpModal && (
+      {signupModel && (
         <PopUpModal
-          open={showSignUpModal}
-          onClose={() => setShowSignUpModal(false)}
+          open={signupModel}
+          onClose={closeSignupModal}
           heading="Sign Up"
           hidden={false}
           buttonText="Sign Up"
           width="450px !important"
           children={
-            <SignUp openAddressModal={() => handleAddressBtn()} />
+            <SignUp
+              openSigninModal={() => {
+                openSignupModal();
+                closeSigninModal();
+              }}
+              openAddressModal={() => {
+                openAddressModel();
+                closeSignupModal();
+              }}
+            />
           }></PopUpModal>
       )}
-      {showForgetModal && (
+      {forgetModal && (
         <PopUpModal
-          open={showForgetModal}
-          onClose={() => setShowForgetModal(false)}
+          open={forgetModal}
+          onClose={closeForgetModal}
           heading="Forget Password"
           hidden={false}
           buttonText="ForgetPassword"
@@ -326,15 +369,15 @@ const Header = ({ Login, selectedNav }) => {
             <ForgetPassword openOTPModal={() => handleOTPBtn()} />
           }></PopUpModal>
       )}
-      {addressModelState && (
+      {addressModel && (
         <PopUpModal
-          open={addressModelState}
-          onClose={() => setShowAddressModal(false)}
+          open={addressModel}
+          onClose={closeAddressModel}
           heading="Address"
           hidden={false}
           buttonText="Continue"
           width="450px !important"
-          children={<Address />}></PopUpModal>
+          children={<Address closeModal={closeAddressModel} />}></PopUpModal>
       )}
       {showOTPModal && (
         <PopUpModal

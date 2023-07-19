@@ -11,7 +11,8 @@ const Input = ({
   padding,
   lableFont,
   inputFont,
-  value,
+  name,
+  formik,
   setValue,
 }) => {
   const inputStyle = {
@@ -33,13 +34,19 @@ const Input = ({
         className={styles.input}
         id="name"
         type={type}
+        name={name}
         placeholder={placeholder}
         style={inputStyle}
-        value={value}
-        onChange={(e) => {
-          setValue(e.target.value);
+        value={formik.values[name]}
+        onChange={(event) => {
+          formik.setFieldValue(name, event.target.value);
+          setValue(event.target.value);
         }}
+        onBlur={formik.handleBlur}
       />
+      {formik.touched[name] && formik.errors[name] && (
+        <span className={styles.errorMessage}>{formik.errors[name]}</span>
+      )}
     </div>
   );
 };

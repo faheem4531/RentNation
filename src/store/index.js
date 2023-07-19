@@ -1,14 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import HomeReducer from "./reducers/HomeReducer";
-import LoginReducer from "./reducers/LoginReducer";
-import SignupReducer from "./reducers/SignupReducer";
+import AuthReducer from "./reducers/AuthReducer";
 import AdditionalUserReducer from "./reducers/AdditionalUserReducer";
 
 export const store = configureStore({
   reducer: {
+    auth: AuthReducer,
     home: HomeReducer,
-    login: LoginReducer,
-    signup: SignupReducer,
-    AdditionalUserReducer: AdditionalUserReducer
+    AdditionalUserReducer: AdditionalUserReducer,
   },
 });

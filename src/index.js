@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "./store";
@@ -16,6 +18,7 @@ root.render(
         <App />
       </BrowserRouter>
     </Provider>
+    <ToastContainer />
   </React.StrictMode>
 );
 
