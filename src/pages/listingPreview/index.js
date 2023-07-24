@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./ListingPreview.module.css";
 import { Header, Footer } from "../../components";
 import shareIcon from "../../assets/svgs/share.svg";
@@ -10,13 +11,13 @@ import PopUpModal from "../../components/modals/PopUpModal";
 import Summary from "../../components/modals/Summary";
 import SummeryImg from "../../assets/pngs/summaryImg.png";
 import BillDetails from "../../components/modals/BillDetails";
-
-import DatePicker from "react-multi-date-picker";
+import { useLocation } from "react-router-dom";
 import { Calendar, DateObject } from "react-multi-date-picker";
 import "react-multi-date-picker/styles/colors/purple.css";
 
 import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 import CalenderBtn from "../../components/buttons/LoginButton";
+import { getProductById } from "../../store/thunk/SingleProductThunk";
 
 const ListingPreview = () => {
   const customClassNames = {
@@ -26,11 +27,17 @@ const ListingPreview = () => {
     arrows: "custom-arrows",
   };
 
+  const dispatch = useDispatch();
+  const location = useLocation();
+  console.log("location???????????", location);
+
   const [showModal, setShowModal] = useState(false);
   const [showBillModal, setShowBillModal] = useState(false);
   const [values, setValues] = useState([new DateObject()]);
   const [selectedTab, setSelectedTab] = useState("Description");
+  const product = useSelector((state) => state.singleProduct.product);
 
+  console.log("productsingle", product);
   const handleTabClick = (tab) => {
     setSelectedTab(tab);
   };
@@ -43,75 +50,57 @@ const ListingPreview = () => {
     setShowModal(false);
     setShowBillModal(true);
   }
+
+  useEffect(() => {
+    dispatch(getProductById(location?.state?.id));
+  }, []);
+
   return (
     <div>
       <Header Login={false} selectedNav="LISTING" />
       <div className={styles.listingPreviewMain}>
         <div className={styles.listingPreviewSliderMain}>
           <div className={styles.listingPreviewSlider}>
-            <Slider />
+            <Slider images={product?.images} />
           </div>
-          <div className={styles.listingPreHeading}>Beache Supplies</div>
+          <div className={styles.listingPreHeading}>{product?.name}</div>
           <div className={styles.listPreCalLoc}>
             <img
               className={styles.listPreCalLocIcon}
               src={locationIcon}
               alt=""
             />
-            Caicos
-            <span className={styles.listPreCalDes}>
+            {"Pakistan"}
+            {/* <span className={styles.listPreCalDes}>
               Close to abc and abc and abc
-            </span>
+            </span> */}
             <div className={styles.tab}>
               <div
                 className={`${styles.tabItem} ${styles.tabItems} ${
                   selectedTab === "Description" ? styles.selected : ""
                 }`}
-                onClick={() => handleTabClick("Description")}
-              >
+                onClick={() => handleTabClick("Description")}>
                 Description
               </div>
               <div
                 className={`${styles.tabItem} ${styles.tabItems} ${
                   selectedTab === "Review" ? styles.selected : ""
                 }`}
-                onClick={() => handleTabClick("Review")}
-              >
+                onClick={() => handleTabClick("Review")}>
                 Review
               </div>
             </div>
             {selectedTab === "Description" && (
               <div className={styles.descriptionTabsCon}>
                 <div className={styles.descriptionTabs}>
-                  The beach is a stunning natural landscape where the land
-                  gently meets the vast expanse of the sea. It is a place of
-                  serene beauty, offering a unique blend of soothing elements
-                  and exhilarating experiences. A typical beach scene presents a
-                  picturesque combination of sand, water, and sky, forming a
-                  harmonious symphony of colors, textures, and sounds.
-                </div>
-                <div className={styles.descriptionTabs}>
-                  As you step onto the beach, your feet sink into the soft, warm
-                  sand, its fine grains gently caressing your skin. The sand
-                  stretches out before you, creating a vast shoreline that
-                  invites you to explore its inviting expanse. The beach is a
-                  place where people come to unwind, bask in the sun, and engage
-                  in a multitude of activities.
-                </div>
-                <div className={styles.descriptionTabs}>
-                  Looking out towards the sea, you witness a mesmerizing
-                  panorama of shimmering blue waters that extend to the horizon.
-                  Waves crash against the shore, producing a rhythmic melody
-                  that soothes the senses. The salty breeze carries a refreshing
-                  aroma, filling the air with a hint of adventure and
-                  tranquility.
+                  {product?.description}
                 </div>
               </div>
             )}
             {selectedTab === "Review" && (
               <div>
                 <div className={styles.descriptionTabs}>
-                  <ReviewRating rating={3.8} />
+                  <ReviewRating reviews={product?.review} />
                 </div>
               </div>
             )}
@@ -119,7 +108,9 @@ const ListingPreview = () => {
         </div>
         <div className={styles.listingPreviewCalenderMain}>
           <div className={styles.listPreCalPriceMain}>
-            <div className={styles.listPreCalPrice}>50$/day</div>
+            <div className={styles.listPreCalPrice}>
+              {product?.pricePerDay}$/day
+            </div>
             <div className={styles.listPreCalPrice}>
               <img
                 className={styles.listPreCalShareIcon}
@@ -135,12 +126,10 @@ const ListingPreview = () => {
               src={locationIcon}
               alt=""
             />
-            New York, NY
+            {"Pakistan"}
           </div>
           <div className={styles.listPreCalLocDescription}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            viverra efficitur convallis. Mauris non hendrerit nullaLorem ipsum
-            dolor sit{" "}
+            {product?.description}
           </div>
           <div className={styles.listPreCalLocSubHeading}>
             Available dates are highlighted
@@ -162,10 +151,12 @@ const ListingPreview = () => {
             <div className={styles.CalenderPricePer}>
               Total Cost - <span> $300</span>
             </div>
-            <div className={styles.CalenderPercantage}>10%</div>
+            <div className={styles.CalenderPercantage}>
+              {product?.discountPerWeek}%
+            </div>
           </div>
           <div className={styles.CalenderPricePerDay}>
-            Per day cost <span> $45</span>
+            Per day cost <span> ${product?.pricePerDay}</span>
           </div>
           <div className={styles.CalenderPricePerDes}>
             You got 10% discount because you purchase more than a weak.
@@ -203,8 +194,7 @@ const ListingPreview = () => {
               openNextModal={() => handleBillModal()}
               total={"300"}
             />
-          }
-        ></PopUpModal>
+          }></PopUpModal>
       )}
       {showBillModal && (
         <PopUpModal
@@ -214,8 +204,9 @@ const ListingPreview = () => {
           hidden={false}
           buttonText="Signin"
           width="450px !important"
-          children={<BillDetails total={"300"} subTotal={"300"} vat={"300"} />}
-        ></PopUpModal>
+          children={
+            <BillDetails total={"300"} subTotal={"300"} vat={"300"} />
+          }></PopUpModal>
       )}
     </div>
   );

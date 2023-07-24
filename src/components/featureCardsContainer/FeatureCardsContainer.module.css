@@ -11,7 +11,7 @@
 .cardContainer {
   overflow-x: scroll;
   display: flex;
-  justify-content: space-between;
+  gap: 15px;
 }
 
 .cardContainer::-webkit-scrollbar {
@@ -21,10 +21,6 @@
 
 .cardContainer::-webkit-scrollbar-thumb {
   background-color: transparent;
-}
-
-.cardContainer>*:not(:last-child) {
-  margin-right: 20px;
 }
 
 @media (max-width: 576px) {

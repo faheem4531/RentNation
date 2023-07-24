@@ -1,32 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getHomeData } from "../thunk/HomeThunk";
 
 const homeReducer = createSlice({
-  name: "home",
+  name: "homeReducer",
   initialState: {
+    category: [],
     isLoggedIn: false,
-    token: null,
-    role: null,
     loading: false,
     error: null,
   },
   reducers: {},
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(login.pending, (state) => {
-  //       state.loading = true;
-  //       state.error = null;
-  //     })
-  //     .addCase(login.fulfilled, (state, action) => {
-  //       state.loading = false;
-  //       state.isLoggedIn = true;
-  //       state.token = action.payload.token;
-  //       state.role = action.payload.role;
-  //     })
-  //     .addCase(login.rejected, (state, action) => {
-  //       state.loading = false;
-  //       state.error = action.error.message;
-  //     });
-  // },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getHomeData.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getHomeData.fulfilled, (state, action) => {
+        state.loading = false;
+        state.category = action.payload;
+      })
+      .addCase(getHomeData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
+  },
 });
 
 export default homeReducer.reducer;

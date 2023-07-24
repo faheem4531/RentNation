@@ -1,9 +1,10 @@
 import React from "react";
 
-import styles from './ServicesCard.module.css';
-import locationPin from '../../images/homepage/svgs/location.svg';
+import styles from "./ServicesCard.module.css";
+import locationPin from "../../images/homepage/svgs/location.svg";
 
 const ServicesCard = ({ title, location, amount, image }) => {
+  console.log(image, "imageimage");
   return (
     <div className="container">
       <div className={styles.card}>

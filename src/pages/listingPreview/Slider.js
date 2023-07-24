@@ -7,18 +7,34 @@ import img1 from "../../assets/pngs/listing-beach-img1.png";
 import img2 from "../../assets/pngs/listing-beach-img2.png";
 import img3 from "../../assets/pngs/listing-beach-img3.png";
 
-const Slider = () => {
+const Slider = ({ images }) => {
   return (
     <div className={styles.carouselMAin}>
       <Carousel
         className={styles.listingSliderMain}
         showIndicators={false}
-        thumbWidth={100}
-      >
-        <div className={styles.listingSliderImgMAin}>
-          <img className={styles.listingSliderImges} src={img1} />
-        </div>
-        <div>
+        thumbWidth={100}>
+        {images?.map((img) => {
+          return (
+            <>
+              <div className={styles.listingSliderImgMAin}>
+                <img className={styles.listingSliderImges} src={img} />
+              </div>
+            </>
+          );
+        })}
+
+        {/* {images.map((img) => {
+          return (
+            <>
+              <div className={styles.listingSliderImgMAin}>
+                <img className={styles.listingSliderImges} src={img} />
+              </div>
+            </>
+          );
+        })} */}
+
+        {/* <div>
           <img className={styles.listingSliderImges} src={img2} />
         </div>
         <div>
@@ -50,7 +66,7 @@ const Slider = () => {
         </div>
         <div>
           <img className={styles.listingSliderImges} src={img3} />
-        </div>
+        </div> */}
       </Carousel>
     </div>
   );

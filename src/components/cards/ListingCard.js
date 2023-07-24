@@ -29,6 +29,7 @@ const ListingCard = ({
   listingTitle,
   featureDetails = undefined,
   flag,
+  item,
 }) => {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showPaymentDetailsModal, setShowPaymentDetailsModal] = useState(false);
@@ -47,7 +48,7 @@ const ListingCard = ({
         <img className={styles.image} src={image} />
       </div>
       <div className={styles.cardContent}>
-        {listingTitle ? (
+        {!listingTitle ? (
           <div>
             <div className={styles.headingContainer}>
               <div className={styles.heading}>{heading}</div>
@@ -61,22 +62,22 @@ const ListingCard = ({
         ) : (
           <div className={styles.orderHeader}>
             <div className={styles.heading}>{heading}</div>
-            {featureDetails.damage && (
+            {featureDetails?.damage && (
               <div className={styles.damage}>Midsize suv</div>
             )}
             <div className={styles.featureDetials}>
               <div className={styles.subFeatures}>
                 <div className={styles.userDiv}>
                   <img className={styles.icon} src={user} alt="User" />
-                  <span>{featureDetails.users}</span>
+                  <span>{featureDetails?.users}</span>
                 </div>
-                {featureDetails.milage && (
+                {featureDetails?.milage && (
                   <div className={styles.milage}>
                     <img className={styles.icon} src={gauge} alt="Milage" />
-                    <span>{featureDetails.milage} Milage</span>
+                    <span>{featureDetails?.milage} Milage</span>
                   </div>
                 )}
-                {featureDetails.icon && (
+                {featureDetails?.icon && (
                   <div className={styles.featureicos}>
                     <img className={styles.icon} src={monitor} alt="monitor" />
                     <img className={styles.icon} src={wifi} alt="wifi" />
@@ -85,7 +86,7 @@ const ListingCard = ({
                   </div>
                 )}
               </div>
-              {!featureDetails.damage && (
+              {!featureDetails?.damage && (
                 <LoginButton
                   width={"92px"}
                   buttonText={"BOOKED"}
@@ -99,18 +100,21 @@ const ListingCard = ({
           <div className={styles.locationDiv}>
             <div className="d-flex">
               <img src={locationPin} />
-              <div className={styles.locationPlace}>{location}</div>
+              <div className={styles.locationPlace}>{location?.name}</div>
             </div>
-            <div className={styles.locationDetails}>
+            {/* <div className={styles.locationDetails}>
               Close to abc and abc and abc
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="d-flex">
           {flag && (
-            <Link className="text-decoration-none" to={"/ListingPreview"}>
-              <CardButton buttonText={"View Details"} onClick={onViewDetails} />
-            </Link>
+            // <Link className="text-decoration-none" to={"/ListingPreview"}>
+            <CardButton
+              buttonText={"View Details"}
+              onClick={() => onViewDetails(item)}
+            />
+            // </Link>
           )}
           {!flag && (
             <Link className="text-decoration-none" to={"/damageReport"}>
@@ -139,8 +143,7 @@ const ListingCard = ({
             <Payment
               openPaymentDetailsMod={() => handlePaymentDetailsModal()}
             />
-          }
-        ></PopUpModal>
+          }></PopUpModal>
       )}
       {showPaymentDetailsModal && (
         <PopUpModal
@@ -149,8 +152,7 @@ const ListingCard = ({
           heading="Add card detial"
           hidden={false}
           width="400px !important"
-          children={<PaymentDetails />}
-        ></PopUpModal>
+          children={<PaymentDetails />}></PopUpModal>
       )}
     </div>
   );

@@ -20,36 +20,26 @@ const FeaturesCard = ({
   onShare,
   onViewDetails,
   image,
+  item,
 }) => {
+  console.log("images", image);
   const cardImgSlider = (
-    // <div id="myCarousel" className="carousel slide">
-    //   <ol className="carousel-indicators">
-    //     <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
-    //     <li data-target="#myCarousel" data-slide-to="1"></li>
-    //     <li data-target="#myCarousel" data-slide-to="2"></li>
-    //     <li data-target="#myCarousel" data-slide-to="3"></li>
-    //   </ol>
-    //   <div className="carousel-inner">
-    //     <div className="item active">
-    //       <img src={image} />
-    //     </div>
-    //     <div className="item">
-    //       <img src={image} />
-    //     </div>
-    //     <div className="item">
-    //       <img src={image} />
-    //     </div>
-    //     <div className="item">
-    //       <img src={image} />
-    //     </div>
-    //   </div>
-    // </div>
     <Carousel
       className={styles.listingSliderMain}
       showArrows={false}
       showStatus={false}
       showThumbs={false}>
-      <div className={styles.listingSliderImgMAin}>
+      {image?.map((img) => {
+        return (
+          <>
+            <div className={styles.listingSliderImgMAin}>
+              <img className={styles.listingSliderImges} src={img} alt="img" />
+            </div>
+          </>
+        );
+      })}
+
+      {/* <div className={styles.listingSliderImgMAin}>
         <img className={styles.listingSliderImges} src={image} alt="img" />
       </div>
       <div className={styles.listingSliderImgMAin}>
@@ -57,10 +47,7 @@ const FeaturesCard = ({
       </div>
       <div className={styles.listingSliderImgMAin}>
         <img className={styles.listingSliderImges} src={image} alt="img" />
-      </div>
-      <div className={styles.listingSliderImgMAin}>
-        <img className={styles.listingSliderImges} src={image} alt="img" />
-      </div>
+      </div> */}
     </Carousel>
   );
 
@@ -92,7 +79,7 @@ const FeaturesCard = ({
           <Link className={styles.routesLink} to="/ListingPreview">
             <CardButton
               buttonText={"View Details"}
-              onClick={onViewDetails}
+              onClick={() => onViewDetails(item)}
               width={"170px"}
             />
           </Link>
