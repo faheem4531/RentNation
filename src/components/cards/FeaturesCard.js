@@ -48,19 +48,18 @@ const FeaturesCard = ({
       className={styles.listingSliderMain}
       showArrows={false}
       showStatus={false}
-      showThumbs={false}
-    >
+      showThumbs={false}>
       <div className={styles.listingSliderImgMAin}>
-        <img className={styles.listingSliderImges} src={image} />
+        <img className={styles.listingSliderImges} src={image} alt="img" />
       </div>
       <div className={styles.listingSliderImgMAin}>
-        <img className={styles.listingSliderImges} src={image} />
+        <img className={styles.listingSliderImges} src={image} alt="img" />
       </div>
       <div className={styles.listingSliderImgMAin}>
-        <img className={styles.listingSliderImges} src={image} />
+        <img className={styles.listingSliderImges} src={image} alt="img" />
       </div>
       <div className={styles.listingSliderImgMAin}>
-        <img className={styles.listingSliderImges} src={image} />
+        <img className={styles.listingSliderImges} src={image} alt="img" />
       </div>
     </Carousel>
   );
@@ -69,7 +68,7 @@ const FeaturesCard = ({
     <div className={styles.card}>
       <div>
         <div className={styles.tag}>{tag}</div>
-        <img className={styles.favourties} src={heart} />
+        <img className={styles.favourties} src={heart} alt="img" />
         {cardImgSlider}
       </div>
       <div className={styles.cardContent}>
@@ -79,15 +78,15 @@ const FeaturesCard = ({
         </div>
         <div className={styles.locationPrice}>
           <div className={styles.locationDiv}>
-            <img src={locationPin} />
+            <img src={locationPin} alt="img" />
             <div className="ms-1">{location}</div>
           </div>
           <div className={styles.price}>${price}/day</div>
         </div>
         <div className="d-flex justify-content-between">
           <div className={styles.locationDiv}>
-            <img src={share} onClick={onShare} />
-            <img className={styles.eyeIcon} src={eye} />
+            <img src={share} onClick={onShare} alt="img" />
+            <img className={styles.eyeIcon} src={eye} alt="img" />
             <span>{views}</span>
           </div>
           <Link className={styles.routesLink} to="/ListingPreview">

@@ -2,22 +2,19 @@
   width: 100% !important;
 }
 
-.inputs>*,
-.socialMediaBtns>*:not(:last-child) {
+.inputs > *,
+.socialMediaBtns > *:not(:last-child) {
   margin-bottom: 16px;
-}
-
-.forgetContent {
-  margin-top: 8px;
-  font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-  color: var(--text-grey6-color);
 }
 
 .forgetPass {
   color: var(--yellow1-color);
   text-decoration: none;
+  font-size: 12px;
+  margin-left: auto;
+  margin-top: -10px;
+  cursor: pointer;
+  width: 100px;
 }
 
 .modalButton {
