@@ -14,16 +14,15 @@ import { getHomeData } from "../store/thunk/HomeThunk";
 
 const Home = () => {
   const dispatch = useDispatch();
-
   const category = useSelector((state) => state.home.category);
 
   useEffect(() => {
     dispatch(getHomeData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={styles.homeContainer}>
-      <Header Login={false} selectedNav="HOME" />
+      <Header selectedNav="HOME" />
       <HeroSection />
       <HomeFeatures category={category} />
       <ServicesContainer category={category} />

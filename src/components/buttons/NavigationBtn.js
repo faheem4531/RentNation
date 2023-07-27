@@ -3,7 +3,7 @@ import styles from "./NavigationBtn.module.css";
 
 const CardButton = (props) => {
   return (
-    <button onClick={props.onViewDetails} className={styles.button}>
+    <button onClick={props.onClick} className={styles.button}>
       <div>{props.buttonText}</div>
       <div>
         <img src={props.img} alt="" />

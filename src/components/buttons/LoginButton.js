@@ -1,4 +1,5 @@
 import React from "react";
+import Loader from "../loader/Loader";
 
 import styles from "./LoginButton.module.css";
 
@@ -10,6 +11,7 @@ const LoginButton = ({
   buttonText,
   onClick,
   formik,
+  loading,
   backgroundColor = "var(--yellow1-color)",
 }) => {
   const inputStyle = {
@@ -21,13 +23,15 @@ const LoginButton = ({
   };
 
   return (
-    <button
-      className={styles.button}
-      style={inputStyle}
-      onClick={onClick}
-      formik={formik}>
-      {buttonText}
-    </button>
+    <>
+      <button
+        className={styles.button}
+        style={inputStyle}
+        onClick={onClick}
+        formik={formik}>
+        {loading ? <Loader /> : buttonText}
+      </button>
+    </>
   );
 };
 

@@ -1,21 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import styles from "./Profile.module.css";
 import { Header } from "../../components";
+import ProfileBtn from "../../components/buttons/CardButton";
+import ProfileText from "../../components/textarea/Textarea";
+import ProfileNavigatBtn from "../../components/buttons/NavigationBtn";
+import { getProfileData } from "../../store/thunk/ProfileThunk";
+
 import profileImg from "../../assets/pngs/mainProfileImg.png";
 import settingIcon from "../../assets/pngs/settings.png";
 import editIcon from "../../assets/pngs/edit.png";
 import labelIcon from "../../assets/pngs/editWhite.png";
 import navigateBtnIcon from "../../assets/pngs/navigatBtnIcon.png";
-
-import ProfileBtn from "../../components/buttons/CardButton";
-import ProfileText from "../../components/textarea/Textarea";
-import ProfileNavigatBtn from "../../components/buttons/NavigationBtn";
-
-import { Link } from "react-router-dom";
-
 import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 
 const Profile = () => {
+  const navigation = useNavigate();
+  const dispatch = useDispatch();
+
+  const profile = useSelector((state) => state.profile.user);
+
+  function navigateToEditProfile() {
+    navigation("/EditProfile", { state: { profile } });
+  }
+
+  useEffect(() => {
+    dispatch(getProfileData());
+  }, []);
+
   return (
     <div>
       <Header Login={true} selectedNav={"profile"} />
@@ -27,8 +42,8 @@ const Profile = () => {
               <img className={styles.profileImg} src={profileImg} alt="" />
             </div>
             <div className={styles.profileNameLocMain}>
-              <div className={styles.profileName}>Harley Quinn</div>
-              <div className={styles.profileLocation}>Los Angles, USA </div>
+              <div className={styles.profileName}>{profile?.name}</div>
+              <div className={styles.profileLocation}>Pakistan</div>
             </div>
             <img
               className={styles.profileSettingIcon}
@@ -54,14 +69,15 @@ const Profile = () => {
             backgroundColor={"#2B2B2B"}
             labelIcon={labelIcon}
             borderRadius={"20px"}
+            disabled
+            value={profile?.profile?.bio}
           />
           <div className={styles.profileNavigateBtn}>
-            <Link className={styles.Link} to={"/EditProfile"}>
-              <ProfileNavigatBtn
-                buttonText={"Edit Profile"}
-                img={navigateBtnIcon}
-              />
-            </Link>
+            <ProfileNavigatBtn
+              buttonText={"Edit Profile"}
+              img={navigateBtnIcon}
+              onClick={navigateToEditProfile}
+            />
           </div>
           <Link className={styles.Link} to={"/Ticket"}>
             <ProfileNavigatBtn

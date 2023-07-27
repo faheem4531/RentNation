@@ -40,7 +40,7 @@ const Input = ({
         value={formik.values[name]}
         onChange={(event) => {
           formik.setFieldValue(name, event.target.value);
-          setValue(event.target.value);
+          // setValue(event.target.value);
         }}
         onBlur={formik.handleBlur}
       />

@@ -9,9 +9,13 @@ export const loginAction = createAsyncThunk(
         `${process.env.REACT_APP_BASE_URL}/users/login`,
         data
       );
+      const userData = JSON.stringify(response?.data);
+      localStorage.setItem("accessToken", response?.data?.accessToken);
+      localStorage.setItem("userId", response?.data?.user?.id);
+      localStorage.setItem("userData", userData);
       navigate("/");
       closeModal();
-      return response?.data?.data;
+      return response?.data;
     } catch (error) {
       throw new Error(error);
     }
@@ -26,6 +30,8 @@ export const signupAction = createAsyncThunk(
         `${process.env.REACT_APP_BASE_URL}/users`,
         data
       );
+      localStorage.setItem("accessToken", response?.data?.accessToken);
+      localStorage.setItem("userId", response?.data?.user?.id);
       return response?.data?.data;
     } catch (error) {
       throw new Error(error);

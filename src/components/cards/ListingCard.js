@@ -48,7 +48,7 @@ const ListingCard = ({
         <img className={styles.image} src={image} />
       </div>
       <div className={styles.cardContent}>
-        {!listingTitle ? (
+        {listingTitle ? (
           <div>
             <div className={styles.headingContainer}>
               <div className={styles.heading}>{heading}</div>
@@ -109,12 +109,10 @@ const ListingCard = ({
         </div>
         <div className="d-flex">
           {flag && (
-            // <Link className="text-decoration-none" to={"/ListingPreview"}>
             <CardButton
               buttonText={"View Details"}
               onClick={() => onViewDetails(item)}
             />
-            // </Link>
           )}
           {!flag && (
             <Link className="text-decoration-none" to={"/damageReport"}>

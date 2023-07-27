@@ -1,5 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 import styles from "./Header.module.css";
+import ForgetPassword from "../modals/ForgetPassword";
+import SignUp from "../modals/SignUp";
+import Address from "../modals/Address";
+import OTP from "../modals/Oto";
+import UpdatePassword from "../modals/UpdatePasward";
 
 import logo from "../../images/homepage/svgs/logo.svg";
 import LoginButton from "../buttons/LoginButton";
@@ -10,11 +18,6 @@ import UserIcon from "../../assets/pngs/user.png";
 import SettingIcon from "../../assets/pngs/settings.png";
 import TicketsIcon from "../../assets/svgs/list-ticket-icon.svg";
 import LogOutIcon from "../../assets/pngs/logOut.png";
-import ForgetPassword from "../modals/ForgetPassword";
-import SignUp from "../modals/SignUp";
-import Address from "../modals/Address";
-import OTP from "../modals/Oto";
-import UpdatePassword from "../modals/UpdatePasward";
 
 import {
   updateSignupMode,
@@ -26,22 +29,21 @@ import PopUpModal from "../modals/PopUpModal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SignIn from "../modals/SignIn";
 
-import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-// import { setIsLoggedIn } from "../../store/reducers/AuthenticationReducer";
-
-const Header = ({ Login, selectedNav }) => {
+const Header = ({ selectedNav }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { addressModel, signupModel, signinModel, forgetModal } = useSelector(
     (state) => state.AdditionalUserReducer
   );
 
+  const [login, setLogin] = useState(false);
+  const { loading } = useSelector((state) => state.auth);
   const [profileDropdown, setProfileDropdown] = useState(false);
   const [showOTPModal, setShowOTPModal] = useState(false);
   const [showNewPasswordModal, setShowNewPasswordModal] = useState(false);
   const [burgerState, setBurgerState] = useState(false);
-  // const [selectedNav, setSelectedNav] = useState("HOME");
+
+  const profile = useSelector((state) => state?.auth?.data?.user);
 
   const showProfileClass = "d-none";
   function handleNavbar() {
@@ -51,6 +53,20 @@ const Header = ({ Login, selectedNav }) => {
   function handleClick(item) {
     // setSelectedNav(item);
   }
+
+  function logout() {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("userId");
+    navigate("/");
+  }
+  const data = localStorage.getItem("accessToken");
+
+  useEffect(() => {
+    const data = localStorage.getItem("accessToken");
+    if (data) {
+      setLogin(true);
+    } else setLogin(false);
+  }, [login, dispatch, data]);
 
   function closeSigninModal() {
     dispatch(updateSigninMode(false));
@@ -83,16 +99,6 @@ const Header = ({ Login, selectedNav }) => {
   function closeAddressModel() {
     dispatch(updateAddressMode(false));
   }
-
-  // function handleSignUpBtn() {
-  //   closeSigninModal();
-  //   dispatch(updateSignupMode(true));
-  // }
-
-  // function handleAddressBtn() {
-  //   dispatch(updateSignupMode(false));
-  //   dispatch(updateAddressMode(true));
-  // }
 
   function handleOTPBtn() {
     closeForgetModal();
@@ -199,17 +205,7 @@ const Header = ({ Login, selectedNav }) => {
                     </Link>
                   </div>
 
-                  {!Login && (
-                    <div className={styles.navBtnMain}>
-                      <LoginButton
-                        buttonText="Log in / Sign Up"
-                        fontSize="14px"
-                        onClick={openSigninModal}
-                      />
-                    </div>
-                  )}
-
-                  {Login && (
+                  {login ? (
                     <div className={styles.navProfileMain}>
                       <div
                         onClick={() => setProfileDropdown((preVal) => !preVal)}
@@ -218,24 +214,24 @@ const Header = ({ Login, selectedNav }) => {
                           className={styles.navItem}
                           onClick={() => handleClick("profile")}>
                           <a
-                            href="profile"
+                            href="/profile"
                             className={`${
                               selectedNav === "profile"
                                 ? styles.activeNavItem
                                 : ""
                             }`}>
-                            Harley Quinn
+                            {profile && profile?.name}
                             <img
                               className={styles.navImg}
                               src={NavImg}
                               alt=""
                             />
-                            <img
-                              className={styles.navIcon}
-                              src={NavIcon}
-                              alt=""
-                            />
                           </a>
+                          <img
+                            className={styles.navIcon}
+                            src={NavIcon}
+                            alt=""
+                          />
                         </div>
                       </div>
 
@@ -294,7 +290,7 @@ const Header = ({ Login, selectedNav }) => {
                               </li>
                             </Link>
                             {/* <Link className="text-decoration-none" to={"/"}> */}
-                            <li>
+                            <li onClick={() => logout()}>
                               <img
                                 className={styles.navDropIcon}
                                 src={LogOutIcon}
@@ -306,6 +302,15 @@ const Header = ({ Login, selectedNav }) => {
                           </ul>
                         </div>
                       </div>
+                    </div>
+                  ) : (
+                    <div className={styles.navBtnMain}>
+                      <LoginButton
+                        laoding={loading}
+                        buttonText="Log in / Sign Up"
+                        fontSize="14px"
+                        onClick={openSigninModal}
+                      />
                     </div>
                   )}
                 </div>

@@ -25,6 +25,7 @@ const SignIn = ({
 }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.AdditionalUserReducer);
+  const { loading } = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
 
@@ -78,6 +79,7 @@ const SignIn = ({
       </div>
       <div className={styles.modalButton}>
         <LoginButton
+          loading={loading}
           buttonText="SignIn"
           fontSize="14px"
           borderColor="1px solid var(--border-dark-yellow1-color) "

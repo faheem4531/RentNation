@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./Order.module.css";
-import { Header, Footer } from "../../components";
+import { Header } from "../../components";
 import OrderCards from "../../components/cards/ListingCard";
 import beach1 from "../../assets/pngs/listing-beach-img1.png";
 import beach2 from "../../assets/pngs/listing-beach-img2.png";
 import beach3 from "../../assets/pngs/listing-beach-img3.png";
 import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 import bgRight from "../../assets/pngs/bg-rightHalf.png";
+import { orderData } from "../../store/thunk/OrderThunk";
 
 const Order = () => {
+  const dispatch = useDispatch();
+
+  const orders = useSelector((state) => state?.order?.order);
+
+  console.log("orders:", orders);
+
+  useEffect(() => {
+    dispatch(orderData());
+  }, [dispatch]);
+
   const beachCardsData = [
     {
       id: "b1",
@@ -62,6 +74,7 @@ const Order = () => {
       },
     },
   ];
+
   return (
     <div className={styles.orderScreen}>
       <Header Login={true} selectedNav={"ORDER"} />
@@ -72,22 +85,30 @@ const Order = () => {
           <div className={styles.bookedBtn}>See All</div>
         </div>
         <div className={styles.bookedOrderMainCon}>
-          {beachCardsData.map((item) => (
-            <OrderCards
-              key={item.id}
-              heading={item.heading}
-              subHeading={item.subHeading}
-              location={item.location}
-              price={item.price}
-              views={item.views}
-              onShare={item.onShare}
-              onViewDetails={item.onViewDetails}
-              image={item.image}
-              listingTitle={item.listingTitle}
-              featureDetails={item.featureDetails}
-              flag={true}
-            />
-          ))}
+          {orders?.length > 0 &&
+            orders?.map((item) => {
+              console.log(
+                item?.OrderProduct[0]?.product?.name,
+                "item?.orders?.OrderProduct[0]?.product?.name"
+              );
+              return (
+                <OrderCards
+                  key={item.id}
+                  heading={item?.OrderProduct[0]?.product?.name}
+                  location={item?.OrderProduct[0]?.product?.location}
+                  views={item?.OrderProduct[0]?.product?.viewCounter}
+                  image={item?.OrderProduct[0]?.product?.images[0]}
+                  onShare={item?.onShare}
+                  onViewDetails={item?.onViewDetails}
+                  featureDetails={{
+                    damage: false,
+                    users: `${item?.OrderProduct[0]?.product?.quantity}`,
+                    shareCard: true,
+                  }}
+                  flag={true}
+                />
+              );
+            })}
         </div>
         <div className={styles.bookedOrderMain}>
           <div className={styles.booked}>Waiver</div>

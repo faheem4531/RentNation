@@ -7,7 +7,7 @@ import {
 } from "../thunk/AuthThunk";
 
 const initialState = {
-  data: null,
+  data: JSON.parse(localStorage.getItem("userData")),
   loading: false,
   error: null,
   role: null,
@@ -26,6 +26,7 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(loginAction.fulfilled, (state, action) => {
       state.data = action.payload;
+      state.loading = false;
     });
     builder.addCase(loginAction.rejected, (state) => {
       state.loading = false;
@@ -36,6 +37,7 @@ const authSlice = createSlice({
 
     builder.addCase(signupAction.fulfilled, (state, action) => {
       state.data = action.payload;
+      state.loading = false;
     });
     builder.addCase(signupAction.rejected, (state) => {
       state.loading = false;
@@ -46,6 +48,7 @@ const authSlice = createSlice({
 
     builder.addCase(forgetAction.fulfilled, (state, action) => {
       state.data = action.payload;
+      state.loading = false;
     });
     builder.addCase(forgetAction.rejected, (state) => {
       state.loading = false;
@@ -56,6 +59,7 @@ const authSlice = createSlice({
 
     builder.addCase(addressAction.fulfilled, (state, action) => {
       state.data = action.payload;
+      state.loading = false;
     });
     builder.addCase(addressAction.rejected, (state) => {
       state.loading = false;
