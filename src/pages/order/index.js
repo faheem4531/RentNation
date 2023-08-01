@@ -1,79 +1,26 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import styles from "./Order.module.css";
 import { Header } from "../../components";
 import OrderCards from "../../components/cards/ListingCard";
-import beach1 from "../../assets/pngs/listing-beach-img1.png";
-import beach2 from "../../assets/pngs/listing-beach-img2.png";
-import beach3 from "../../assets/pngs/listing-beach-img3.png";
 import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 import bgRight from "../../assets/pngs/bg-rightHalf.png";
-import { orderData } from "../../store/thunk/OrderThunk";
+import { orderData, damageReportData } from "../../store/thunk/OrderThunk";
 
 const Order = () => {
   const dispatch = useDispatch();
 
   const orders = useSelector((state) => state?.order?.order);
 
-  console.log("orders:", orders);
+  const DamageReport = useSelector(
+    (state) => state?.DamageReport?.damageReportData
+  );
 
   useEffect(() => {
     dispatch(orderData());
+    dispatch(damageReportData());
   }, [dispatch]);
-
-  const beachCardsData = [
-    {
-      id: "b1",
-      heading: "Midsize suv",
-      subHeading:
-        "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
-      location: "New York, NY",
-      price: "50",
-      views: "569",
-      image: beach1,
-      onShare: () => {},
-      onViewDetails: () => {},
-      listingTitle: false,
-      featureDetails: {
-        users: "5 People",
-        milage: "Unlimited ",
-      },
-    },
-    {
-      id: "b2",
-      heading: "Kayaks",
-      subHeading:
-        "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
-      location: "New York, NY",
-      price: "50",
-      views: "569",
-      image: beach2,
-      tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
-      listingTitle: false,
-      featureDetails: {
-        users: "2 Persons",
-      },
-    },
-    {
-      id: "b3",
-      heading: "beache Supplies",
-      subHeading: "The beach is a stunning natural landscape",
-      location: "New York, NY",
-      price: "50",
-      views: "569",
-      image: beach3,
-      tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
-      listingTitle: false,
-      featureDetails: {
-        users: "5 People",
-        icon: true,
-      },
-    },
-  ];
 
   return (
     <div className={styles.orderScreen}>
@@ -85,37 +32,57 @@ const Order = () => {
           <div className={styles.bookedBtn}>See All</div>
         </div>
         <div className={styles.bookedOrderMainCon}>
-          {orders?.length > 0 &&
-            orders?.map((item) => {
-              console.log(
-                item?.OrderProduct[0]?.product?.name,
-                "item?.orders?.OrderProduct[0]?.product?.name"
-              );
-              return (
-                <OrderCards
-                  key={item.id}
-                  heading={item?.OrderProduct[0]?.product?.name}
-                  location={item?.OrderProduct[0]?.product?.location}
-                  views={item?.OrderProduct[0]?.product?.viewCounter}
-                  image={item?.OrderProduct[0]?.product?.images[0]}
-                  onShare={item?.onShare}
-                  onViewDetails={item?.onViewDetails}
-                  featureDetails={{
-                    damage: false,
-                    users: `${item?.OrderProduct[0]?.product?.quantity}`,
-                    shareCard: true,
-                  }}
-                  flag={true}
-                />
-              );
-            })}
+          {orders?.length > 0 ? (
+            orders.map((item) => (
+              <OrderCards
+                key={item.id}
+                heading={item?.OrderProduct[0]?.product?.name}
+                location={item?.OrderProduct[0]?.product?.location}
+                views={item?.OrderProduct[0]?.product?.viewCounter}
+                image={item?.OrderProduct[0]?.product?.images[0]}
+                onShare={item?.onShare}
+                onViewDetails={item?.onViewDetails}
+                featureDetails={{
+                  damage: false,
+                  users: `${item?.OrderProduct[0]?.product?.quantity}`,
+                  shareCard: true,
+                }}
+                flag={true}
+              />
+            ))
+          ) : (
+            <p className={styles.noOrders}>No orders available.</p>
+          )}
         </div>
         <div className={styles.bookedOrderMain}>
           <div className={styles.booked}>Waiver</div>
         </div>
         <div className={styles.bookedOrderMainCon}>
           {/* {beachCardsData.map((item) => ( */}
-          <OrderCards
+
+          {DamageReport?.length > 0 ? (
+            DamageReport?.map((item) => (
+              <OrderCards
+                key={item.id}
+                heading={item?.product?.name}
+                location={item?.product?.location}
+                views={item?.product?.viewCounter}
+                image={item?.product?.images[0]}
+                onShare={item?.onShare}
+                onViewDetails={item?.onViewDetails}
+                featureDetails={{
+                  damage: false,
+                  users: `${item?.product?.quantity}`,
+                  shareCard: true,
+                }}
+                flag={true}
+              />
+            ))
+          ) : (
+            <p className={styles.noOrders}>No damage report available.</p>
+          )}
+
+          {/* <OrderCards
             id="w1"
             heading="Damage Report"
             subHeading="The beach is a stunning natural landscape where the land gently meets the vast expanse of "
@@ -130,12 +97,12 @@ const Order = () => {
               users: "5 People",
               shareCard: false,
             }}
-          />
+          /> */}
           {/* ))} */}
         </div>
       </div>
-      <img className={styles.bgLeft} src={bgLeft} />
-      <img className={styles.bgRight} src={bgRight} />
+      <img className={styles.bgLeft} src={bgLeft} alt="img" />
+      <img className={styles.bgRight} src={bgRight} alt="img" />
     </div>
   );
 };

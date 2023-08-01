@@ -10,3 +10,17 @@ export const orderData = createAsyncThunk("order/getOrder", async () => {
     throw new Error(error.response.data.message);
   }
 });
+
+export const damageReportData = createAsyncThunk(
+  "damageReport/damageReportData",
+  async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/damageReport`
+      );
+      return response.data;
+    } catch (error) {
+      throw new Error(error.response.data.message);
+    }
+  }
+);

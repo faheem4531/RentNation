@@ -26,19 +26,19 @@ const ContactHome = () => {
         <div className={styles.rightSec}>
           <a href="" className={styles.link}>
             <div className="d-flex mb-lg-5 mb-3">
-              <img src={phone} />
+              <img src={phone} alt="icon" />
               <div className="ms-3">+44 65748435748</div>
             </div>
           </a>
           <a href="" className={styles.link}>
             <div className="d-flex mb-lg-5 mb-3">
-              <img src={mail} />
+              <img src={mail} alt="icon" />
               <div className="ms-3">contact@rentnation.com</div>
             </div>
           </a>
           <a href="" className={styles.link}>
             <div className="d-flex">
-              <img src={location} />
+              <img src={location} alt="icon" />
               <div className="ms-3">New York, NY</div>
             </div>
           </a>

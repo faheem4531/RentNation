@@ -169,7 +169,7 @@ const ListingPreview = () => {
         </div>
       </div>
       <div className={styles.ListingPreviewFooter}>
-        <img className={styles.bgLeft} src={bgLeft} />
+        <img className={styles.bgLeft} src={bgLeft} alt="img" />
         <Footer />
       </div>
       {showModal && (
