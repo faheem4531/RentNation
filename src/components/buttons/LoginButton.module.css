@@ -7,9 +7,10 @@
   font-weight: 600;
   font-size: 14px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-
 
 @media (max-width: 767px) {
   .button {

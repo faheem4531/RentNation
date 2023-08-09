@@ -1,40 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 import styles from "./Ticket.module.css";
 import { Header } from "../../components";
-import navigateBtnIcon from "../../assets/pngs/navigatBtnIcon.png";
-
+import { myTickets } from "../../store/thunk/ProfileThunk";
 import ProfileBtn from "../../components/buttons/CardButton";
 import TicketCard from "./TicketCard";
+
 import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 
-import { Link } from "react-router-dom";
 const Ticket = () => {
-  const Ticket_DummyData = [
-    {
-      id: "t1",
-      heading: "Sales",
-      discription:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of adocument or a typeface without relying on meaningful content.",
-    },
-    {
-      id: "t2",
-      heading: "Sales",
-      discription:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of adocument or a typeface without relying on meaningful content.",
-    },
-    {
-      id: "t3",
-      heading: "Sales",
-      discription:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of adocument or a typeface without relying on meaningful content.",
-    },
-    {
-      id: "t4",
-      heading: "Sales",
-      discription:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of adocument or a typeface without relying on meaningful content.",
-    },
-  ];
+  const dispatch = useDispatch();
+
+  const tickets = useSelector((state) => state?.profile?.tickets);
+
+  useEffect(() => {
+    dispatch(myTickets());
+  }, []);
+
   return (
     <div className={styles.ticket}>
       <Header Login={true} selectedNav={"profile"} />
@@ -54,11 +38,12 @@ const Ticket = () => {
           </Link>
         </div>
         <div className={styles.cardContainer}>
-          {Ticket_DummyData.map((items) => (
+          {tickets.map((items) => (
             <TicketCard
               key={items.id}
-              heading={items.heading}
-              discription={items.discription}
+              department={items.department}
+              subject={items.subject}
+              discription={items.description}
             />
           ))}
         </div>

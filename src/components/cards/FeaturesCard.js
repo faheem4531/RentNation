@@ -22,7 +22,6 @@ const FeaturesCard = ({
   image,
   item,
 }) => {
-  console.log("images", image);
   const cardImgSlider = (
     <Carousel
       className={styles.listingSliderMain}
@@ -76,13 +75,11 @@ const FeaturesCard = ({
             <img className={styles.eyeIcon} src={eye} alt="img" />
             <span>{views}</span>
           </div>
-          <Link className={styles.routesLink} to="/ListingPreview">
-            <CardButton
-              buttonText={"View Details"}
-              onClick={() => onViewDetails(item)}
-              width={"170px"}
-            />
-          </Link>
+          <CardButton
+            buttonText={"View Details"}
+            onClick={() => onViewDetails(item)}
+            width={"170px"}
+          />
         </div>
       </div>
     </div>

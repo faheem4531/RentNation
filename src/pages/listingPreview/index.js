@@ -29,7 +29,6 @@ const ListingPreview = () => {
 
   const dispatch = useDispatch();
   const location = useLocation();
-  console.log("location???????????", location);
 
   const [showModal, setShowModal] = useState(false);
   const [showBillModal, setShowBillModal] = useState(false);
@@ -37,7 +36,6 @@ const ListingPreview = () => {
   const [selectedTab, setSelectedTab] = useState("Description");
   const product = useSelector((state) => state.singleProduct.product);
 
-  console.log("productsingle", product);
   const handleTabClick = (tab) => {
     setSelectedTab(tab);
   };
@@ -171,7 +169,7 @@ const ListingPreview = () => {
         </div>
       </div>
       <div className={styles.ListingPreviewFooter}>
-        <img className={styles.bgLeft} src={bgLeft} />
+        <img className={styles.bgLeft} src={bgLeft} alt="img" />
         <Footer />
       </div>
       {showModal && (

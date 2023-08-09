@@ -3,6 +3,9 @@ import HomeReducer from "./reducers/HomeReducer";
 import SingleProductReducer from "./reducers/SingleProductReducer";
 import AuthReducer from "./reducers/AuthReducer";
 import AdditionalUserReducer from "./reducers/AdditionalUserReducer";
+import ProfileReducer from "./reducers/ProfileReducer";
+import OrdersReducer from "./reducers/OrdersReducer";
+import DamageReducer from "./reducers/DamageReducer";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +13,8 @@ export const store = configureStore({
     home: HomeReducer,
     singleProduct: SingleProductReducer,
     AdditionalUserReducer: AdditionalUserReducer,
+    profile: ProfileReducer,
+    order: OrdersReducer,
+    DamageReport: DamageReducer,
   },
 });

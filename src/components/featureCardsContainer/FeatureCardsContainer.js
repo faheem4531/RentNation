@@ -8,7 +8,6 @@ const FeatureCardsContainer = (props) => {
   const navigation = useNavigate();
 
   function navigateToPreviewPage(item) {
-    console.log("ssdsdsfsdfsdfsdf???@@@", item.id);
     navigation("/ListingPreview", { state: { id: item?.id } });
   }
   return (

@@ -6,12 +6,12 @@ const Textarea = (props) => {
     height: props.height || "155px",
     borderRadius: props.borderRadius || "8px",
     backgroundColor: props.backgroundColor,
-    fontSize: props.inputFont
+    fontSize: props.inputFont,
   };
 
   const labelStyle = {
     marginBottom: props.mbLabel,
-    fontSize: props.lableFont
+    fontSize: props.lableFont,
   };
 
   return (
@@ -28,8 +28,24 @@ const Textarea = (props) => {
         className={styles.textarea}
         placeholder={props.placeholder}
         style={textareaStyle}
-        id="textArea"
-      ></textarea>
+        disabled={props.disabled}
+        id="name"
+        name={props.name}
+        value={props.formik ? props.formik.values[props.name] : props.value}
+        onChange={(event) => {
+          if (props.formik) {
+            props.formik.setFieldValue(props.name, event.target.value);
+            // props.setValue(event.target.value);
+          }
+        }}
+        onBlur={props.formik && props.formik.handleBlur}></textarea>
+      {props.formik &&
+        props.formik.touched[props.name] &&
+        props.formik.errors[props.name] && (
+          <span className={styles.errorMessage}>
+            {props.formik.errors[props.name]}
+          </span>
+        )}
     </div>
   );
 };

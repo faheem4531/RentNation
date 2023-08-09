@@ -104,7 +104,7 @@ const Listing = () => {
                     image={item.images[0]}
                     flag={true}
                     item={item}
-                    listingTitle={item.listingTitle}
+                    listingTitle
                   />
                 ))
               )}
