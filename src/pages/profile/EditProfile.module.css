@@ -1,0 +1,93 @@
+.content {
+  margin: 186px auto 61px 22%;
+  width: 50%;
+}
+
+@media (max-width: 767px) {
+  .content {
+    margin: 150px auto 61px 8%;
+    width: 80%;
+  }
+}
+
+@media (max-width: 375px) {
+  .content {
+    margin: 120px auto 50px auto;
+    width: 90%;
+  }
+}
+
+.profileHeading {
+  color: var(--white-color);
+  font-size: 32.862px;
+  font-weight: 500;
+  line-height: 49.292px;
+  letter-spacing: -0.685px;
+  margin-bottom: 40px;
+}
+
+.subHeading {
+  margin-top: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-grey10-color);
+}
+
+.profileImgNameMainCon {
+  width: 50%;
+  margin: auto;
+  position: relative;
+}
+
+.profileImgNameMainCon>*:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.submitButton {
+  margin-top: 130px;
+  text-align: center;
+}
+
+.notifiBgImgCon {
+  float: right;
+  height: 180px;
+  width: 400px;
+  overflow-y: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.notifiBgImg {
+  position: absolute;
+  right: 0px;
+}
+
+@media (max-width: 992px) {
+  .profileImgNameMainCon {
+    width: 65%;
+  }
+}
+
+@media (max-width: 767px) {
+  .profileImgNameMainCon {
+    width: 75%;
+  }
+
+}
+
+@media (max-width: 576px) {
+  .profileHeading {
+    font-size: 27.862px;
+
+  }
+
+  .profileImgNameMainCon {
+    width: 85%;
+  }
+}
+
+@media (max-width: 375px) {
+  .profileImgNameMainCon {
+    width: 100%;
+  }
+}

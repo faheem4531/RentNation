@@ -1,0 +1,94 @@
+.orderScreen {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.orderMain {
+  width: 72%;
+  margin: auto;
+  padding-bottom: 120px;
+}
+
+.orderHeading {
+  margin-top: 140px;
+  color: var(--white-color);
+  font-size: 32.862px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 49.292px;
+  letter-spacing: -0.685px;
+}
+
+.bookedOrderMain {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.booked {
+  color: var(--white-color);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 49.292px;
+  letter-spacing: -0.685px;
+}
+
+.bookedBtn {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 49.292px;
+  letter-spacing: -0.685px;
+  color: var(--yellow1-color);
+  cursor: pointer;
+}
+
+.noOrders {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 49.292px;
+  letter-spacing: -0.685px;
+  color: var(--red-color);
+  text-align: center;
+  margin-top: 50px;
+}
+
+.bookedOrderMainCon > *:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.bgLeft {
+  position: absolute;
+  right: 0px;
+  bottom: 270px;
+  z-index: -1;
+}
+
+.bgRight {
+  position: absolute;
+  left: 0px;
+  bottom: 0;
+  z-index: -1;
+}
+
+@media (max-width: 992px) {
+  .orderMain {
+    width: 90%;
+  }
+}
+
+@media (max-width: 776px) {
+  .bookedOrderMainCon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 567px) {
+  .bgLeft,
+  .bgRight {
+    display: none;
+  }
+}

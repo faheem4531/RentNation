@@ -1,23 +1,52 @@
 import React from "react";
 import styles from "./Input.module.css";
 
-const Input = (props) => {
+const Input = ({
+  label,
+  type,
+  placeholder,
+  borderRadius,
+  backgroundColor,
+  mbLabel,
+  padding,
+  lableFont,
+  inputFont,
+  name,
+  formik,
+  setValue,
+}) => {
   const inputStyle = {
-    borderRadius: props.borderRadius || "8px",
-    backgroundColor: props.backgroundColor,
+    borderRadius: borderRadius || "8px",
+    backgroundColor: backgroundColor,
+    padding: padding,
+    fontSize: inputFont,
+  };
+  const labelStyle = {
+    marginBottom: mbLabel,
+    fontSize: lableFont,
   };
   return (
     <div className={styles.inputDiv}>
-      <label className={styles.lable} htmlFor="name">
-        {props.lable}
+      <label className={styles.lable} style={labelStyle} htmlFor="name">
+        {label}
       </label>
       <input
         className={styles.input}
         id="name"
-        type={props.type}
-        placeholder={props.placeholder}
+        type={type}
+        name={name}
+        placeholder={placeholder}
         style={inputStyle}
+        value={formik.values[name]}
+        onChange={(event) => {
+          formik.setFieldValue(name, event.target.value);
+          // setValue(event.target.value);
+        }}
+        onBlur={formik.handleBlur}
       />
+      {formik.touched[name] && formik.errors[name] && (
+        <span className={styles.errorMessage}>{formik.errors[name]}</span>
+      )}
     </div>
   );
 };

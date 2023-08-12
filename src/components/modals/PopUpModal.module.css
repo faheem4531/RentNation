@@ -1,0 +1,45 @@
+.modalContent {
+  padding: 24px 24px 20px !important;
+  outline: none;
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 8px 8px -4px var(--shadow-grey1-color), 0px 20px 24px -4px var(--shadow-grey2-color);
+  background-color: var(--bg-grey4-dark-color);
+}
+
+
+.modalHeading {
+  font-size: 18px;
+  color: var(--white-color);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.closeButton {
+  cursor: pointer;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  cursor: pointer;
+  color: var(--text-grey3-color);
+  font-size: 24px !important;
+}
+
+.modalButton {
+  margin-top: 32px;
+  width: 100%;
+}
+
+.bodyChild {
+  width: 100%;
+}

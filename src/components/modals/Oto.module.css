@@ -1,0 +1,23 @@
+.oto {
+  width: 100% !important;
+}
+
+.oto>*:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.BtnDiv {
+  display: flex;
+  gap: 12px;
+}
+.OtoMain div{
+  justify-content: center;
+}
+
+.otpQuri{
+  color: #475467;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 60px;
+}

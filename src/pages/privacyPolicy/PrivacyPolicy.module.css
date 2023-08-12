@@ -1,0 +1,73 @@
+.content {
+  margin: 187px auto 182px;
+  color: var(--white-color);
+  width: 60%;
+}
+
+.profileHeading {
+  font-size: 32.862px;
+  font-weight: 500;
+  line-height: 49.292px;
+  letter-spacing: -0.685px;
+  margin-bottom: 40px;
+}
+
+
+.detailcontent {
+  font-size: 16px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0.2px;
+}
+
+.detailcontent>*:not(:last-child) {
+  margin-bottom: 72px;
+}
+
+.bgRight {
+  position: absolute;
+  left: 0;
+  z-index: -1;
+}
+
+.bgLeft {
+  position: absolute;
+  z-index: -1;
+}
+
+.aboutFooter {
+  position: relative;
+  bottom: 0px;
+}
+
+.aboutBgLeft {
+  position: absolute;
+  right: 0px;
+  top: -128px;
+  z-index: -1;
+  height: 422px;
+  overflow-y: hidden;
+}
+
+.aboutBgRight {
+  position: absolute;
+  left: 0px;
+  bottom: 600px;
+  z-index: -1;
+}
+
+@media (max-width: 767px) {
+  .content {
+    margin: 150px auto 61px 8%;
+    width: 80%;
+  }
+}
+
+@media (max-width: 375px) {
+  .content {
+    margin: 120px auto 50px auto;
+    width: 90%;
+  }
+}

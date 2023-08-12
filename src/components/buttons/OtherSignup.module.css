@@ -1,0 +1,16 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  font-size: 16px;
+  padding: 10px 0;
+  width: 100%;
+  border-radius: 8px;
+  color: var(--white-color) !important;
+  border: 1px solid var(--border-light-grey1-color);
+}
+
+.icon {
+  margin-right: 12px;
+}

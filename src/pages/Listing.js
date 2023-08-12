@@ -1,107 +1,50 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "../styles/Listing.module.css";
 import HeroInput from "../components/inputs/HeroInput";
 import ListingCard from "../components/cards/ListingCard";
 import { Header, Footer } from "../components";
+import { getHomeData } from "../store/thunk/HomeThunk";
 
 import btnArrow from "../images/homepage/svgs/footerDropArrow.svg";
-import beach1 from "../assets/pngs/listing-beach-img1.png";
-import beach2 from "../assets/pngs/listing-beach-img2.png";
-import beach3 from "../assets/pngs/listing-beach-img3.png";
-import beach4 from "../assets/pngs/listing-beach-img4.png";
-import beach5 from "../assets/pngs/listing-beach-img5.png";
-import beach6 from "../assets/pngs/listing-beach-img6.png";
-
 import bgLeft from "../assets/pngs/bg-leftHalf.png";
 import bgRight from "../assets/pngs/bg-rightHalf.png";
+import { useNavigate } from "react-router-dom";
 
 const Listing = () => {
+  const navigation = useNavigate();
   const [showDropdown, setShowDorpdown] = useState(false);
 
   function handleListDropdown() {
     setShowDorpdown((preValue) => !preValue);
   }
   const dropdownClass = showDropdown ? "" : "d-none";
-  const beachCardsData = [
-    {
-      id: "bc1",
-      heading: "beach Supplies",
-      subHeading:
-        "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
-      location: "Turkis",
-      price: "50",
-      views: "569",
-      image: beach1,
-      onShare: () => {},
-      onViewDetails: () => {},
-    },
-    {
-      id: "bc2",
-      heading: "beach Supplies",
-      subHeading:
-        "The beach is a stunning natural landscape where the land gently meets the vast expanse of ",
-      location: "Turkis",
-      price: "50",
-      views: "569",
-      image: beach2,
-      tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
-    },
-    {
-      id: "bc3",
-      heading: "Dreamy beaches",
-      subHeading: "The beach is a stunning natural landscape",
-      location: "Turkis",
-      price: "50",
-      views: "569",
-      image: beach3,
-      tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
-    },
-    {
-      id: "bc4",
-      heading: "Dreamy beaches",
-      subHeading: "The beach is a stunning natural landscape",
-      location: "Turkis",
-      price: "50",
-      views: "569",
-      image: beach4,
-      tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
-    },
-    {
-      id: "bc5",
-      heading: "Dreamy beaches",
-      subHeading: "The beach is a stunning natural landscape",
-      location: "Turkis",
-      price: "50",
-      views: "569",
-      image: beach5,
-      tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
-    },
-    {
-      id: "bc6",
-      heading: "Dreamy beaches",
-      subHeading: "The beach is a stunning natural landscape",
-      location: "Turkis",
-      price: "50",
-      views: "569",
-      image: beach6,
-      tag: "FEATURED",
-      onShare: () => {},
-      onViewDetails: () => {},
-    },
-  ];
+
+  const dispatch = useDispatch();
+
+  const category = useSelector((state) => state.home.category);
+  const [products, setProducts] = useState([]);
+
+  function navigateToPreviewPage(item) {
+    navigation("/ListingPreview", { state: { id: item.id } });
+  }
+
+  useEffect(() => {
+    if (category.length > 0) {
+      const kayasCategory = category.find((cat) => cat.name === "KAYAKS");
+      const test = kayasCategory?.products;
+      setProducts(test);
+    }
+  }, [category]);
+
+  useEffect(() => {
+    dispatch(getHomeData());
+  }, []);
 
   return (
     <div className={styles.listingContainer}>
-      <Header />
+      <Header Login={false} selectedNav="LISTINGS" />
       <div className="container">
         <div className={styles.listingMain}>
           <div className={styles.listingFilter}>
@@ -110,8 +53,7 @@ const Listing = () => {
               <div className={styles.filterBtnMain}>
                 <button
                   onClick={handleListDropdown}
-                  className={styles.filterBtn}
-                >
+                  className={styles.filterBtn}>
                   CATEGORIES
                 </button>
                 <div className={styles.filterBtnArow}>
@@ -120,11 +62,16 @@ const Listing = () => {
               </div>
               <div className={styles.filterList}>
                 <ul className={dropdownClass}>
-                  <li>CARS</li>
-                  <li>BEACHES</li>
-                  <li>KAYAKS</li>
-                  <li>GOLF CART</li>
-                  <li>OTHERS</li>
+                  {category &&
+                    category.map((item) => {
+                      return (
+                        <li
+                          onClick={() => setProducts(item?.products)}
+                          key={item?.id}>
+                          {item?.name}
+                        </li>
+                      );
+                    })}
                 </ul>
               </div>
             </div>
@@ -139,24 +86,33 @@ const Listing = () => {
               </div>
             </div>
             <div className={styles.cardContainer}>
-              {beachCardsData.map((item) => (
-                <ListingCard
-                  key={item.id}
-                  heading={item.heading}
-                  subHeading={item.subHeading}
-                  location={item.location}
-                  price={item.price}
-                  views={item.views}
-                  onShare={item.onShare}
-                  onViewDetails={item.onViewDetails}
-                  image={item.image}
-                />
-              ))}
+              {!products?.length ? (
+                <h2 className={styles.noProductsAbailable}>
+                  No products available
+                </h2>
+              ) : (
+                products?.map((item) => (
+                  <ListingCard
+                    key={item.id}
+                    heading={item.name}
+                    subHeading={item.description}
+                    location={item.location}
+                    price={item.pricePerDay}
+                    views={item.viewCounter}
+                    onShare={item.onShare}
+                    onViewDetails={navigateToPreviewPage}
+                    image={item.images[0]}
+                    flag={true}
+                    item={item}
+                    listingTitle
+                  />
+                ))
+              )}
             </div>
           </div>
         </div>
-        <img className={styles.bgLeft} src={bgLeft} />
-        <img className={styles.bgRight} src={bgRight} />
+        <img className={styles.bgLeft} src={bgLeft} alt="img" />
+        <img className={styles.bgRight} src={bgRight} alt="img" />
       </div>
       <Footer />
     </div>

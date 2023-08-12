@@ -64,3 +64,10 @@
 .eyeIcon {
   margin: 0 6px 0 13px;
 }
+
+.routesLink{
+  text-decoration: none;
+}
+.routesLink:hover{
+  text-decoration: none;
+}

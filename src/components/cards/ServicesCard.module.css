@@ -25,12 +25,10 @@
   font-size: 16px;
   position: absolute;
   right: 11px;
-  bottom: 24px;
+  bottom: 20px;
 }
 
-
 @media (min-width: 1200px) and (max-width: 1400px) {
-
   .cardImg,
   .card {
     width: 355px;
@@ -38,7 +36,6 @@
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
-
   .cardImg,
   .card {
     width: 300px;
@@ -59,12 +56,11 @@
   .listNum {
     font-size: 14px;
     right: 10px;
-    bottom: 18px;
+    bottom: 15px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
-
   .cardImg,
   .card {
     width: 220px;
@@ -85,12 +81,11 @@
   .listNum {
     font-size: 12px;
     right: 10px;
-    bottom: 14px;
+    bottom: 10px;
   }
 }
 
 @media (max-width: 576px) {
-
   .cardImg,
   .card {
     width: 345px;

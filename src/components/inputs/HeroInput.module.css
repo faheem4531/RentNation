@@ -8,6 +8,8 @@
     backdrop-filter: blur(6px);
     padding: 16px 0px 15px 26px;
     border: 0px;
+    font-size: 14px;
+    color: var(--white-color);
 }
 
 .heroInputBtn {
@@ -30,12 +32,31 @@
 .heroInputDrop {
     width: auto;
     display: inline-flex;
-    padding: 13px 16px 13px 13px;
+    padding: 13px 16px 13px 35px;
     justify-content: center;
     align-items: center;
     gap: 9.149px;
     background: var(--bg-grey3-color);
     color: var(--white-color);
+}
+
+.heroInputDropMain{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.heroInputDropCon{
+    position: relative;
+}
+
+.heroInputDropIcon{
+    width: 20px !important;
+    height: 20px;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    z-index: 2;
 }
 
 .heroInput:focus {
@@ -46,7 +67,7 @@
 
 
 .heroSearchIcon {
-    width: 16px;
+    width: 16px !important;
     height: 16px;
     margin-right: 8px;
     margin-bottom: 1px;

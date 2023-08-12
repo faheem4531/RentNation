@@ -1,8 +1,35 @@
 import React from "react";
-import Styles from './CardButton.module.css';
+import Styles from "./CardButton.module.css";
 
-const CardButton = (props) => {
-  return <button onClick={props.onViewDetails} className={Styles.button}>{props.buttonText}</button>
-}
+const CardButton = ({
+  onClick,
+  img,
+  buttonText,
+  borderColor,
+  radius,
+  color,
+  padding,
+  mrIcon,
+  bgColor,
+  width,
+}) => {
+  const style = {
+    borderColor: borderColor,
+    borderRadius: radius,
+    color: color,
+    padding: padding,
+    backgroundColor: bgColor,
+    width: width,
+  };
+  const iconStyle = {
+    marginRight: mrIcon,
+  };
+  return (
+    <button style={style} onClick={onClick} className={Styles.button}>
+      <img style={iconStyle} src={img} alt="" />
+      {buttonText}
+    </button>
+  );
+};
 
 export default CardButton;

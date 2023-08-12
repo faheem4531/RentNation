@@ -1,0 +1,116 @@
+.notifMain{
+    width: 72%;
+    margin: auto;
+}
+
+.notifHeading{
+    margin-top: 140px;
+    color: var(--white-color);
+    font-size: 32.862px;
+    font-weight: 500;
+    line-height: 49.292px;
+    letter-spacing: -0.685px;
+}
+
+.notifiCardImg{
+    background-color: var(--yellow1-color);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 31px;
+    flex-shrink: 0;
+}
+
+.notificationCardMain{
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    border: 1px solid var(--text-grey5-color);
+    padding: 12px 20px;
+    color: var(--white-color);
+    margin-top: 40px;
+}
+.notifiCardHeading{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.notifiCardTime{
+    color: #E7E7E7;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16.667px;
+    margin-top: 2px;
+}
+
+.notifiCardDiscri{
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: normal;
+    font-weight: 400;
+}
+
+
+.notifiBgImgCon{
+    display: inline;
+    float: right;
+    height: 150px;
+    width: 400px;
+    overflow-y: hidden;
+    position: relative;
+    z-index: -1;
+}
+
+.notifiBgImg{
+    position: absolute;
+    right: 0px;
+}
+
+@media (max-width: 475px) {
+    .notifHeading{
+
+    font-size: 28.862px;
+
+}
+    .notifiCardImg{
+    width: 44px;
+    height: 44px;
+    margin-right: 21px;
+}
+
+
+.notifiCardHeading{
+    font-size: 18px;
+}
+
+.notifiCardTime{
+    font-size: 10px;
+
+}
+
+.notifiCardDiscri{
+    font-size: 14px;
+
+}
+
+}
+
+@media (max-width: 375px) {
+    .notificationCardMain{
+        flex-direction: column;
+        align-items: start;
+}
+
+    .notifiCardImg{
+        margin-bottom: 20px;
+    }
+    .notifiBgImgCon{
+    height: 120px;
+    width: 200px;
+
+}
+}

@@ -1,0 +1,428 @@
+
+.listingPreviewMain{
+    width: 87%;
+    display: flex;
+    justify-content: space-between;
+    margin: 140px auto 0px auto;
+}
+
+.listingPreviewSliderMain{
+    width: 58%;
+}
+
+.listingPreviewSlider{
+    height: 580px;
+
+}
+
+.listingPreviewCalenderMain{
+    width: 38%;
+    height: 814px;
+    background-color: var(--text-grey11-color);
+    border-radius: 10px;
+    padding: 30px;
+
+}
+
+.listPreCalPriceMain{
+    display: flex;
+    justify-content: space-between;
+    color: var(--white-color);
+}
+.listPreCalPrice{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 37px;
+    letter-spacing: 0.2px;
+    margin-bottom: 20px;
+}
+
+.listPreCalLoc{
+    color: var(--white-color);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    margin-bottom: 23px;
+}
+
+.listPreCalLocIcon{
+    margin-right: 8px;
+}
+
+.listPreCalLocDescription{
+    color: var(--white-color);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    margin-bottom: 12px;
+}
+
+.listPreCalShareIcon{
+    margin-right: 16px;
+}
+
+.listPreCalLocSubHeading{
+    color: var(--white-color);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+.listPreCalMain{
+    height: 375px;
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid var(--white-color);
+    margin-top: 24px;
+}
+
+.CalenderPricePerCon{
+    color: var(--white-color);
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 21px; 
+    color: var(--white-color);
+    font-size: 16px;
+    font-weight: 500;  
+    margin-bottom: 8px;
+}
+.CalenderPricePerDay{
+    color: var(--white-color);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.CalenderPricePerDes{
+    color: #949494;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    margin-bottom: 24px;
+}
+
+.CalenderBtn{
+    text-align: center;
+}
+
+.listingPreHeading{
+    color: var(--white-color);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    margin: 34px 0px 24px 0px;
+}
+
+.listPreCalDes{
+    color: #949494;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    margin-left: 73px;
+}
+
+.tab {
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 2px solid #ccc;
+  margin-top: 29px;
+  width: 70%;
+}
+
+.tabItem {
+  padding: 10px 0px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.tabItem:last-child {
+    margin: 0px 32px;
+}
+
+.selected {
+  color: var(  --yellow1-color);
+  position: relative;
+}
+
+.selected::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background-color: var(  --yellow1-color);
+}
+
+.tabItems{
+    /* color: var(--primary, #FFAE1B); */
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 29.82px;
+}
+
+.descriptionTabs{
+    color: var(--white-color);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+}
+
+.descriptionTabs:first-child {
+    margin-top: 32px;
+}
+
+.descriptionTabs{
+    margin-bottom: 19px;
+}
+
+.descriptionTabsCon{
+    margin-bottom: 109px;
+}
+
+/* Reviews Rating */
+
+.review-rating{
+    display: flex;
+}
+
+.rating-heading-main{
+    margin-left: 15px;
+}
+
+.rating-heading-details{
+    color: #A9A9A9;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 29.82px;
+}
+
+.rating-heading{
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 29.82px;
+}
+
+.rating-bars-main{
+    display: flex;
+}
+
+.rating-empty,
+.rating-full {
+  font-size: 24px;
+  color: #ccc;
+}
+
+
+
+.rating-full {
+  color: var(--yellow1-color);
+}
+
+.rating-bars {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.rating-bar {
+  border-radius: 41px;
+background: #525252;
+  height: 8px;
+  width: 462px;
+  position: relative;
+}
+
+.rating-progress {
+  background-color: var(--yellow1-color);
+  height: 100%;
+  border-radius: 41px;
+}
+
+.rating-bars-num{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 29.82px;
+}
+
+.ListingPreviewFooter{
+    position: relative;
+}
+
+.bgLeft{
+    position: absolute;
+    top: -340px;
+    right: 0px;
+    z-index: -1;
+}
+
+@media (min-width: 1300px) {
+    .listingPreviewSlider{
+    height: 680px;
+    width: 758px;
+}
+}
+
+
+@media (max-width: 1200px) {
+    .listingPreviewCalenderMain{
+    height: 850px;
+}
+}
+
+@media (max-width: 992px) {
+    
+.listingPreviewMain{
+    display: flex;
+    flex-direction: column;
+}
+
+.listingPreviewCalenderMain{
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+
+.listingPreviewSliderMain{
+    width: 75%;
+    margin-bottom: 20px;
+}
+
+
+}
+
+
+@media (max-width: 767px) {
+
+.listingPreviewCalenderMain{
+    width: 80%;
+}
+
+
+.listingPreviewSliderMain{
+    width: 100%;
+}
+
+.listingPreviewSlider{
+    height: 600px;
+
+}
+}
+
+@media (max-width: 576px) {
+
+
+.listingPreviewSlider{
+    height: 500px;
+
+}
+
+.rating-bar {
+  height: 6px;
+  width: 362px;
+}
+
+.rating-heading{
+    font-size: 20px;
+}
+
+.rating-heading-details{
+    font-size: 12px;
+}
+
+
+.listingPreviewCalenderMain{
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+.listPreCalPrice{
+    font-size: 27px;
+    line-height: 30px;
+    margin-bottom: 15px;
+}
+
+.listPreCalLoc{
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.listPreCalLocDescription{
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.listPreCalLocSubHeading{
+    font-size: 15px;
+}
+
+}
+
+
+
+@media (max-width: 450px) {
+
+.listingPreviewCalenderMain{
+    width: 100%;
+}
+
+.listingPreviewSlider{
+    height: 380px;
+
+}
+
+.listingPreHeading{
+    font-size: 20px;
+    margin: 20px 0px 14px 0px;
+}
+
+.listPreCalDes{
+    font-size: 14px;
+    margin-left: 33px;
+}
+
+.tab {
+
+  border-bottom: 1.5px solid #ccc;
+  margin-top: 15px;
+}
+
+
+.tabItems{
+    /* color: var(--primary, #FFAE1B); */
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.descriptionTabs{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 19px;
+}
+
+.rating-bar {
+  width: 250px;
+}
+
+.rating-bars {
+  margin-left: 8px;
+}
+
+.CalenderPricePerCon{
+    margin-top: 16px; 
+    font-size: 14px;
+
+}
+.CalenderPricePerDay{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.CalenderPricePerDes{
+    color: #949494;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    margin-bottom: 24px;
+}
+
+}
