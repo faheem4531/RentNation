@@ -49,7 +49,7 @@ function App() {
         />
         <Route path="/EditPassword" element={<EditPassword />} />
         <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
-        <Route path="/ListingPreview" element={<ListingPreview />} />
+        <Route path="/ListingPreview/:id" element={<ListingPreview />} />
         <Route path="/Summary" element={<Summary />} />
         <Route path="/BillDetails" element={<BillDetails />} />
         <Route path="/DamageReport" element={<DamageReport />} />

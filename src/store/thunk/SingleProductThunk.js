@@ -15,3 +15,19 @@ export const getProductById = createAsyncThunk(
     }
   }
 );
+
+export const updateProductView = createAsyncThunk(
+  "productView/updateProductView",
+  async (payload) => {
+    console.log("counter ", payload.counter);
+    try {
+      const response = await axios.put(
+        `${process.env.REACT_APP_BASE_URL}/product/updateView/${payload.id}`,
+        { viewCounter: payload.counter + 1 }
+      );
+      return response.data;
+    } catch (error) {
+      throw new Error(error.response.data.message);
+    }
+  }
+);

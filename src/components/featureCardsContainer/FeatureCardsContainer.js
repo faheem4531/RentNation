@@ -8,7 +8,7 @@ const FeatureCardsContainer = (props) => {
   const navigation = useNavigate();
 
   function navigateToPreviewPage(item) {
-    navigation("/ListingPreview", { state: { id: item?.id } });
+    navigation(`/ListingPreview/${item?.id}`);
   }
   return (
     <div>

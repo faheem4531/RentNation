@@ -2,7 +2,6 @@ import React from "react";
 import Styles from "./CardButton.module.css";
 
 const CardButton = ({
-  onClick,
   img,
   buttonText,
   borderColor,
@@ -25,7 +24,7 @@ const CardButton = ({
     marginRight: mrIcon,
   };
   return (
-    <button style={style} onClick={onClick} className={Styles.button}>
+    <button style={style} className={Styles.button}>
       <img style={iconStyle} src={img} alt="" />
       {buttonText}
     </button>

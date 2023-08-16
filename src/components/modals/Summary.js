@@ -43,12 +43,12 @@ const Summary = ({
           <span>Total Cost</span>
           <span>${total}</span>
         </div>
-        <div className={styles.total}>
+        {/* <div className={styles.total}>
           <span>You want extra itoms </span>
           <span className={styles.addMoreColor}>Add More</span>
-        </div>
+        </div> */}
       </div>
-      <div className={styles.addedCardDiv}>
+      {/* <div className={styles.addedCardDiv}>
         <div className={styles.checkCard}>
           <SummaryModalCard
             itemImage={itemImage}
@@ -93,7 +93,7 @@ const Summary = ({
             />
           </div>
         </div>
-      </div>
+      </div> */}
       <div className={styles.bookBtn}>
         <LoginButton
           buttonText="Book Now"

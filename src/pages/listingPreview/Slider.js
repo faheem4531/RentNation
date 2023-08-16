@@ -13,14 +13,13 @@ const Slider = ({ images }) => {
       <Carousel
         className={styles.listingSliderMain}
         showIndicators={false}
-        thumbWidth={100}>
-        {images?.map((img) => {
+        thumbWidth={100}
+      >
+        {images?.map((img, index) => {
           return (
-            <>
-              <div className={styles.listingSliderImgMAin}>
-                <img className={styles.listingSliderImges} src={img} />
-              </div>
-            </>
+            <div key={index} className={styles.listingSliderImgMAin}>
+              <img className={styles.listingSliderImges} src={img} alt="img" />
+            </div>
           );
         })}
 
