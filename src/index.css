@@ -147,6 +147,20 @@ box-shadow: none !important;
       color: var(--white-color) !important;
 }
 
+.rmdp-day.rmdp-disabled span {
+  opacity: .3 !important;
+}
+
+.rmdp-arrow-container.rmdp-left.disabled .rmdp-arrow,
+.rmdp-arrow-container.rmdp-right.disabled .rmdp-arrow {
+  opacity: .3 !important;
+}
+
+.rmdp-day.rmdp-selected > span {
+  background-color: var(--yellow1-color) !important; 
+  color: white !important;
+}
+
 
 /* listing preview slider */
 .carousel-status {

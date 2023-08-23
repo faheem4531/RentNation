@@ -37,15 +37,17 @@ const Input = ({
         name={name}
         placeholder={placeholder}
         style={inputStyle}
-        value={formik.values[name]}
+        value={formik?.values?.[name]}
         onChange={(event) => {
-          formik.setFieldValue(name, event.target.value);
+          if (formik) {
+            formik.setFieldValue(name, event.target.value);
+          }
           // setValue(event.target.value);
         }}
-        onBlur={formik.handleBlur}
+        onBlur={formik?.handleBlur}
       />
-      {formik.touched[name] && formik.errors[name] && (
-        <span className={styles.errorMessage}>{formik.errors[name]}</span>
+      {formik?.touched?.[name] && formik?.errors?.[name] && (
+        <span className={styles.errorMessage}>{formik?.errors?.[name]}</span>
       )}
     </div>
   );

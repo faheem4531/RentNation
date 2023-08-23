@@ -17,7 +17,14 @@ import "react-multi-date-picker/styles/colors/purple.css";
 
 import bgLeft from "../../assets/pngs/bg-leftHalf.png";
 import CalenderBtn from "../../components/buttons/LoginButton";
-import { getProductById } from "../../store/thunk/SingleProductThunk";
+import {
+  getProductById,
+  updateProductView,
+} from "../../store/thunk/SingleProductThunk";
+import Places from "google-places-web";
+import axios from "axios";
+import { FacebookIcon, FacebookShareButton } from "react-share";
+import { motion } from "framer-motion";
 
 const ListingPreview = () => {
   const customClassNames = {
@@ -26,15 +33,17 @@ const ListingPreview = () => {
     days: "custom-days",
     arrows: "custom-arrows",
   };
+  const product = useSelector((state) => state.singleProduct.product);
+  Places.apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
   const dispatch = useDispatch();
   const location = useLocation();
 
   const [showModal, setShowModal] = useState(false);
   const [showBillModal, setShowBillModal] = useState(false);
-  const [values, setValues] = useState([new DateObject()]);
+  const [values, setValues] = useState(null);
   const [selectedTab, setSelectedTab] = useState("Description");
-  const product = useSelector((state) => state.singleProduct.product);
+  const [isShare, setIsShare] = useState(false);
 
   const handleTabClick = (tab) => {
     setSelectedTab(tab);
@@ -50,8 +59,57 @@ const ListingPreview = () => {
   }
 
   useEffect(() => {
-    dispatch(getProductById(location?.state?.id));
+    dispatch(getProductById(location?.pathname?.split("/")[2]));
   }, []);
+
+  useEffect(() => {
+    if (product) {
+      const payload = {
+        id: location?.pathname?.split("/")[2],
+        counter: product.viewCounter,
+      };
+      dispatch(updateProductView(payload));
+      fetchLocationDetails();
+    }
+  }, [product.viewCounter]);
+
+  // useEffect(() => {
+  //   console.log(
+  //     "calendar values => ",
+  //     values?.length > 0
+  //       ? values.map(
+  //           (value) => `${value?.day}-${value?.month?.number}-${value?.year}`
+  //         )
+  //       : `${values?.day}-${values?.month?.number}-${values?.year}`
+  //   );
+  // }, [values]);
+
+  const fetchLocationDetails = async () => {
+    // const search2 = await Places.details({
+    //   placeid: product?.location?.placeId,
+    // });
+    const headers = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
+      },
+    };
+    axios
+      .get(
+        `http://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
+        headers
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // console.log("place details => ", search2);
+  };
+
+  const no_of_days = values?.length > 0 ? values?.length : 0;
 
   return (
     <div>
@@ -110,11 +168,37 @@ const ListingPreview = () => {
               {product?.pricePerDay}$/day
             </div>
             <div className={styles.listPreCalPrice}>
-              <img
-                className={styles.listPreCalShareIcon}
-                src={shareIcon}
-                alt=""
-              />
+              <button
+                className={styles.shareButton}
+                onClick={() => setIsShare(true)}
+                onBlur={() => setTimeout(() => setIsShare(false), 100)}
+              >
+                <img
+                  className={styles.listPreCalShareIcon}
+                  src={shareIcon}
+                  alt=""
+                />
+              </button>
+              {isShare && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5, x: 50, y: -20 }}
+                  animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+                  transition={{
+                    duration: 0.4,
+                    type: "spring",
+                  }}
+                  className={styles.shareButtonContainer}
+                >
+                  <FacebookShareButton
+                    url={window.location.origin + location.pathname}
+                    style={{ cursor: "pointer" }}
+                    // hashtag={"#" + post.tags[0]}
+                  >
+                    <FacebookIcon size="28" round={true} />
+                    <span>Share with Facebook</span>
+                  </FacebookShareButton>
+                </motion.div>
+              )}
               <img src={heartIcon} alt="" />
             </div>
           </div>
@@ -129,25 +213,53 @@ const ListingPreview = () => {
           <div className={styles.listPreCalLocDescription}>
             {product?.description}
           </div>
-          <div className={styles.listPreCalLocSubHeading}>
-            Available dates are highlighted
-          </div>
-          <div className={styles.listPreCalMain}>
-            <Calendar
-              classNames={customClassNames}
-              format="DD-MM-YYYY"
-              color="#121212"
-              primaryColor="#ffffff"
-              value={values}
-              onChange={setValues}
-              range
-              rangeHover
-              // render={<DateObject />}
-            />
-          </div>
+          {product?.availability?.length > 0 ? (
+            <div className={styles.listPreCalLocSubHeading}>
+              Available dates are highlighted
+            </div>
+          ) : (
+            <p className={styles.errorDates}>No dates available</p>
+          )}
+          {product?.availability?.length > 0 && (
+            <div className={styles.listPreCalMain}>
+              <Calendar
+                classNames={customClassNames}
+                format="YYYY-MM-DD"
+                color="#121212"
+                primaryColor="#ffffff"
+                value={values}
+                onChange={setValues}
+                multiple
+                // range={product?.availability?.length > 1 ? true : false}
+                // rangeHover
+                // minDate={new Date(product.availability[0])}
+                // maxDate={
+                //   new Date(
+                //     product.availability[product.availability.length - 1]
+                //   )
+                // }
+                mapDays={({ date, selectedDate }) => {
+                  let dates = `${date.year}-${
+                    date.month.number < 10
+                      ? `0${date.month.number}`
+                      : date.month.number
+                  }-${date.day}`;
+
+                  let isAvailable = product.availability.includes(dates);
+
+                  if (isAvailable) return { disabled: false };
+                  else
+                    return {
+                      disabled: true,
+                      style: { color: "#ccc" },
+                    };
+                }}
+              />
+            </div>
+          )}
           <div className={styles.CalenderPricePerCon}>
             <div className={styles.CalenderPricePer}>
-              Total Cost - <span> $300</span>
+              Total Cost - <span> ${product?.pricePerDay * no_of_days}</span>
             </div>
             <div className={styles.CalenderPercantage}>
               {product?.discountPerWeek}%
@@ -157,43 +269,49 @@ const ListingPreview = () => {
             Per day cost <span> ${product?.pricePerDay}</span>
           </div>
           <div className={styles.CalenderPricePerDes}>
-            You got 10% discount because you purchase more than a weak.
+            You got {product?.discountPerWeek}% discount because you purchase
+            more than a weak.
           </div>
-          <div className={styles.CalenderBtn}>
-            <CalenderBtn
-              buttonText="Make request"
-              width="96%"
-              onClick={handleSigninBtn}
-            />
-          </div>
+          {no_of_days > 0 && (
+            <div className={styles.CalenderBtn}>
+              <CalenderBtn
+                buttonText="Make request"
+                width="96%"
+                onClick={handleSigninBtn}
+              />
+            </div>
+          )}
         </div>
       </div>
       <div className={styles.ListingPreviewFooter}>
         <img className={styles.bgLeft} src={bgLeft} alt="img" />
         <Footer />
       </div>
+
       {showModal && (
-        <PopUpModal
-          open={showModal}
-          onClose={() => setShowModal(false)}
-          heading="Summary"
-          hidden={false}
-          buttonText="Signin"
-          width="450px !important"
-          children={
-            <Summary
-              itemImage={SummeryImg}
-              itemTitle={"Beache Supplies"}
-              itemLocation={"Caicos"}
-              discription={
-                "The beach is a stunning natural landscape where the land gently meets the vast expanse of the sea. It is a place of serene beauty,The beach is a stunning natural landscape where the land gently meets the vast expanse of the sea. It is a place of serene beauty,"
-              }
-              closePreModal={() => setShowModal(false)}
-              openNextModal={() => handleBillModal()}
-              total={"300"}
-            />
-          }></PopUpModal>
+        <div>
+          <PopUpModal
+            open={showModal}
+            onClose={() => setShowModal(false)}
+            heading="Summary"
+            hidden={false}
+            buttonText="Signin"
+            width="450px !important"
+            children={
+              <Summary
+                itemImage={product?.images.length > 0 && product?.images[0]}
+                itemTitle={product?.name}
+                itemLocation={"Pakistan"}
+                discription={product?.description}
+                closePreModal={() => setShowModal(false)}
+                openNextModal={() => handleBillModal()}
+                total={no_of_days * product?.pricePerDay}
+              />
+            }
+          ></PopUpModal>
+        </div>
       )}
+
       {showBillModal && (
         <PopUpModal
           open={showBillModal}
@@ -203,8 +321,8 @@ const ListingPreview = () => {
           buttonText="Signin"
           width="450px !important"
           children={
-            <BillDetails total={"300"} subTotal={"300"} vat={"300"} />
-          }></PopUpModal>
+          <BillDetails total={"300"} subTotal={"300"} vat={"300"} />
+        }></PopUpModal>
       )}
     </div>
   );

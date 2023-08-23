@@ -6,7 +6,6 @@ import eye from "../../images/homepage/svgs/eye.svg";
 import locationPin from "../../images/homepage/svgs/location.svg";
 import share from "../../images/homepage/svgs/share.svg";
 import heart from "../../images/homepage/svgs/favourties.svg";
-import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
@@ -27,14 +26,13 @@ const FeaturesCard = ({
       className={styles.listingSliderMain}
       showArrows={false}
       showStatus={false}
-      showThumbs={false}>
-      {image?.map((img) => {
+      showThumbs={false}
+    >
+      {image?.map((img, index) => {
         return (
-          <>
-            <div className={styles.listingSliderImgMAin}>
-              <img className={styles.listingSliderImges} src={img} alt="img" />
-            </div>
-          </>
+          <div key={index} className={styles.listingSliderImgMAin}>
+            <img className={styles.listingSliderImges} src={img} alt="img" />
+          </div>
         );
       })}
 
@@ -75,11 +73,9 @@ const FeaturesCard = ({
             <img className={styles.eyeIcon} src={eye} alt="img" />
             <span>{views}</span>
           </div>
-          <CardButton
-            buttonText={"View Details"}
-            onClick={() => onViewDetails(item)}
-            width={"170px"}
-          />
+          <div onClick={() => onViewDetails(item)}>
+            <CardButton buttonText={"View Details"} width={"170px"} />
+          </div>
         </div>
       </div>
     </div>

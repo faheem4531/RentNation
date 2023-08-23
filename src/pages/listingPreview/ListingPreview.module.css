@@ -30,11 +30,40 @@
     color: var(--white-color);
 }
 .listPreCalPrice{
+    position: relative;
     font-size: 32px;
     font-weight: 500;
     line-height: 37px;
     letter-spacing: 0.2px;
     margin-bottom: 20px;
+}
+
+.listPreCalPrice > .shareButton {
+    position: relative;
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    width: max-content;
+}
+
+.listPreCalPrice > .shareButtonContainer {
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: .9rem 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--bg-dark-color);
+    color: white;
+    font-size: 12px;
+    z-index: 10;
+}
+
+.shareButtonContainer span {
+    margin-left: 8px;
 }
 
 .listPreCalLoc{
@@ -242,6 +271,14 @@ background: #525252;
     font-size: 16px;
     font-weight: 700;
     line-height: 29.82px;
+}
+
+.errorDates {
+    color: var(--red-color);
+    font-size: 2rem;
+    background-color: rgba(256, 256, 256, .1);
+    padding: 1rem 1.2rem;
+    border-radius: 5px;;
 }
 
 .ListingPreviewFooter{
